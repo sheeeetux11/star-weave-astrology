@@ -1,0 +1,514 @@
+/* ==========================================================================
+   1. DESIGN TOKENS & CANVAS ISOLATION
+   ========================================================================== */
+:root {
+  /* Canvas Light Mode */
+  --bg-canvas: #FFFFFF;
+  --text-heading: #0F5191;
+  --text-body: #1A1A1A;
+  --border-gold: rgba(235, 175, 36, 0.4);
+  --border-gold-solid: #EBAF24;
+  --vector-nav: #225688;
+  --glow-nav: drop-shadow(0 0 8px rgba(34, 86, 136, 0.35));
+  --fallback-card: #F5F5F7;
+  --shelf-bg: rgba(255, 255, 255, 0.98);
+  --kofi-gradient: linear-gradient(135deg, rgba(235, 175, 36, 0.15) 0%, transparent 100%);
+  
+  /* Constant Accent Tokens */
+  --brand-red: #FF0000;
+  --text-white: #FFFFFF;
+  
+  /* Typography Metrics */
+  --font-heading: 'Joan', serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  /* Transition Rates */
+  --motion-fast: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-glide: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="dark"] {
+  /* Canvas Dark Mode */
+  --bg-canvas: #0D0F12;
+  --text-heading: #76B4FF;
+  --text-body: #E2E4E9;
+  --border-gold: rgba(235, 175, 36, 0.5);
+  --vector-nav: #60A5FA;
+  --glow-nav: drop-shadow(0 0 10px rgba(96, 165, 250, 0.45));
+  --fallback-card: #1A1D24;
+  --shelf-bg: rgba(13, 15, 18, 0.99);
+}
+
+/* Base Resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-body);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color var(--motion-glide), color var(--motion-glide);
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: var(--font-heading);
+  color: var(--text-heading);
+  font-weight: 400;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   2. FIXED HEADER & ADAPTIVE GLIDE
+   ========================================================================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: var(--bg-canvas);
+  border-bottom: 1px solid var(--border-gold);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  transition: transform var(--motion-glide);
+}
+
+.site-header.header-hidden {
+  transform: translateY(-100%);
+}
+
+.nav-vectors {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.vector-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--vector-nav);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  transition: filter var(--motion-fast);
+}
+
+.vector-btn:hover, .vector-btn:focus-visible {
+  filter: var(--glow-nav);
+}
+
+/* Theme Switcher Motion */
+.theme-toggle .icon-svg {
+  transition: transform var(--motion-fast), opacity var(--motion-fast);
+}
+
+.theme-toggle.animating .icon-svg {
+  transform: scale(0.5) rotate(45deg);
+  opacity: 0;
+}
+
+/* Asymmetrical Hamburger Icon */
+.burger-btn {
+  width: 28px;
+  height: 20px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.burger-line {
+  height: 2px;
+  background-color: var(--vector-nav);
+  transition: transform var(--motion-fast), opacity var(--motion-fast), width var(--motion-fast);
+}
+
+.burger-line:nth-child(1) { width: 80%; align-self: flex-start; }
+.burger-line:nth-child(2) { width: 55%; align-self: flex-end; }
+.burger-line:nth-child(3) { width: 100%; }
+
+.burger-btn.is-active .burger-line:nth-child(2) {
+  opacity: 0;
+}
+.burger-btn.is-active .burger-line:nth-child(1) {
+  width: 100%;
+  transform: translateY(9px) rotate(45deg);
+}
+.burger-btn.is-active .burger-line:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* ==========================================================================
+   3. DIRECTORY OVERLAY SHELF
+   ========================================================================== */
+.overlay-shelf {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 60px);
+  background: var(--shelf-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--motion-glide);
+  overflow-y: auto;
+}
+
+.overlay-shelf.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.shelf-catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-gold);
+  background: none;
+  border-top: none; border-left: none; border-right: none;
+  color: var(--text-heading);
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.accordion-chevron {
+  transition: transform var(--motion-fast);
+}
+
+.accordion-header.active .accordion-chevron {
+  transform: rotate(180deg);
+}
+
+/* ==========================================================================
+   4. LAYOUT & CARDS ENGINE
+   ========================================================================== */
+.container-reading {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.container-wide {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Card Border Deepening Rule */
+.topic-card, .blog-card, .carousel-card {
+  border: 1px solid var(--border-gold);
+  background-color: var(--bg-canvas);
+  transition: border-color var(--motion-fast);
+}
+
+.topic-card:hover, .blog-card:hover, .carousel-card:hover {
+  border-color: var(--border-gold-solid);
+}
+
+/* Hero Collage */
+.hero-wrapper {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.hero-collage-box {
+  width: 100%;
+  aspect-ratio: 1200 / 500;
+  object-fit: cover;
+  border: 1px solid var(--border-gold);
+  margin-top: 1.5rem;
+}
+
+.scroll-arrow-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 1.5rem auto 0;
+  display: block;
+  color: var(--border-gold-solid);
+}
+
+/* Staggered Topics Grid */
+.topics-grid-matrix {
+  display: grid;
+  grid-template-rows: repeat(2, 300px);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 4rem 0;
+}
+
+/* Chronological Blog Feed */
+.blog-feed-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.blog-card-media {
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  object-fit: cover;
+  background-color: var(--fallback-card);
+}
+
+.blog-card-content {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.blog-card-title {
+  font-size: 1.35rem;
+  line-height: 1.25;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.blog-card-excerpt {
+  font-size: 0.95rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.blog-card-link {
+  margin-top: auto;
+  color: var(--border-gold-solid);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.blog-card-link svg {
+  opacity: 0.7;
+  transition: transform var(--motion-fast), opacity var(--motion-fast);
+}
+
+.blog-card:hover .blog-card-link svg {
+  opacity: 1;
+  transform: translateX(5px);
+}
+
+/* YouTube Widescreen Spotlight */
+.youtube-spotlight {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border: 1px solid var(--border-gold);
+  overflow: hidden;
+  margin: 4rem 0;
+}
+
+.youtube-overlay-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+}
+
+.youtube-cta-pill {
+  background-color: var(--brand-red);
+  color: var(--text-white);
+  padding: 0.6rem 1.25rem;
+  border-radius: 999px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+/* Scrapbook Micro-Feeds */
+.scrapbook-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 4rem 0;
+}
+
+.scrapbook-card-tumblr {
+  transform: rotate(-3.5deg);
+  transition: transform var(--motion-fast), box-shadow var(--motion-fast);
+}
+
+.scrapbook-card-threads {
+  transform: rotate(3.5deg);
+  transition: transform var(--motion-fast), box-shadow var(--motion-fast);
+}
+
+.scrapbook-card-tumblr:hover, .scrapbook-card-threads:hover {
+  transform: rotate(0deg);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* ==========================================================================
+   5. IN-POST BREAKOUT SHORTCODES & MD ENGINE
+   ========================================================================== */
+.shortcode-breakout-full {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background: var(--fallback-card);
+  padding: 2rem 0;
+}
+
+.tag-capsule-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.tag-capsule {
+  background: rgba(235, 175, 36, 0.15);
+  color: var(--text-body);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+/* Mini Carousel */
+.mini-carousel-track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
+}
+
+.mini-carousel-card {
+  flex: 0 0 240px;
+  height: 62px;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+}
+
+.mini-carousel-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Serverless Discussions Feed */
+.discussions-box {
+  border: 1px solid var(--border-gold);
+  padding: 1.5rem;
+  margin-top: 3rem;
+}
+
+.discussion-input-top {
+  width: 100%;
+  padding: 1rem;
+  background: transparent;
+  border: 1px solid var(--border-gold);
+  color: var(--text-body);
+  margin-bottom: 1.5rem;
+}
+
+.comment-card {
+  position: relative;
+  border: 1px solid var(--border-gold);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.comment-dot-menu {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+/* Floating Back-To-Top Widget */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border-gold);
+  background-color: var(--bg-canvas);
+  color: var(--vector-nav);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--motion-fast);
+  z-index: 900;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Responsive Overrides */
+@media (max-width: 768px) {
+  .nav-search-btn { display: none; }
+  .topics-grid-matrix {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    grid-template-rows: none;
+  }
+  .scrapbook-grid { grid-template-columns: 1fr; }
+  .scrapbook-card-tumblr, .scrapbook-card-threads { transform: rotate(0deg); }
+}
