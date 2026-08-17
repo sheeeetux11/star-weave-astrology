@@ -1,0 +1,438 @@
+---
+import menuData from '../data/menu.json';
+import SunIcon from '../assets/icons/Sun.svg';
+import MoonIcon from '../assets/icons/Moon.svg';
+import SearchIcon from '../assets/icons/Search.svg';
+import MenuIcon from '../assets/icons/Menu.svg';
+import LogoPng from '../assets/icons/LogoStar.png';
+
+const { headerLogo = LogoPng } = Astro.props;
+const logoSrc = typeof headerLogo === 'string' ? headerLogo : headerLogo.src;
+
+// Clean base path normalization
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
+---
+
+<header id="site-header" class="site-header">
+  <div class="header-container">
+    <!-- Far Left: Logo Container with PNG Image Box -->
+    <a href={base || '/'} class="logo-box" aria-label="Star Weave Astrology Home">
+      <div class="star-logo">
+        <img src={logoSrc} alt="Star Weave Astrology Logo" />
+      </div>
+    </a>
+
+    <!-- Far Right: Action Buttons Group -->
+    <div class="header-actions">
+      <!-- Light/Dark Toggle Button -->
+      <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+        <span class="sun-icon-wrap"><SunIcon width="20" height="20" /></span>
+        <span class="moon-icon-wrap"><MoonIcon width="20" height="20" /></span>
+      </button>
+
+      <!-- Search Button -->
+      <button id="search-trigger-btn" class="icon-btn desktop-search-btn" aria-label="Open Search">
+        <SearchIcon width="20" height="20" />
+      </button>
+
+      <!-- Menu Burger Button -->
+      <button id="menu-toggle-btn" class="icon-btn burger-btn" aria-label="Open Navigation Menu">
+        <MenuIcon width="20" height="20" />
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Expanded Overlay Modal Drawer -->
+<div id="nav-overlay" class="nav-overlay" data-base={base}>
+  <div class="overlay-content container">
+    <!-- Top Row: Search Input + Action Button + Close Button -->
+    <div class="overlay-top-row">
+      <div class="overlay-search-bar">
+        <input type="text" placeholder="Search articles, planets, aspects..." id="overlay-search-input" />
+        <button id="search-submit-btn" class="search-submit-action" aria-label="Submit Search">
+          <span class="search-vector-inline"><SearchIcon width="20" height="20" /></span>
+        </button>
+      </div>
+      <button id="overlay-close-btn" class="icon-btn close-btn" aria-label="Close Menu">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Masterlists Grid Cards -->
+    <div class="masterlists-grid">
+      {menuData.masterlists.map((category) => (
+        <div class="masterlist-card">
+          <div class="card-header" role="button" tabindex="0">
+            <span class="category-title">{category.title}</span>
+            <svg class="chevron-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+          <ul class="sublist-links">
+            {category.sublinks.map((sub) => (
+              <li><a href={`${base}/${sub.url.replace(/^\//, '')}`}>{sub.text}</a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <!-- Footer Quick Links -->
+    <div class="overlay-footer-links">
+      {menuData.footer_links.map((link) => (
+        <a href={`${base}/${link.url.replace(/^\//, '')}`}>{link.text}</a>
+      ))}
+    </div>
+  </div>
+</div>
+
+<!-- style and script tags remain the same -->
+
+
+<style>
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: clamp(50px, 7vw, 56px);
+    z-index: 1000;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+
+  html:not(.dark) .site-header {
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 4px rgba(199, 228, 255, 0.25);
+  }
+  
+  html.dark .site-header {
+    background-color: #0D0F12;
+    box-shadow: 0 4px 4px rgba(40, 73, 105, 0.25);
+  }
+
+  .header-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 0 clamp(1rem, 2.5vw, 1.5rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+
+  .logo-box {
+    width: clamp(45px, 6vw, 56px);
+    height: clamp(45px, 6vw, 56px);
+    padding: clamp(4px, 1vw, 8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .star-logo {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .star-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.5rem, 1.5vw, 0.75rem);
+    padding: clamp(5px, 1vw, 10px);
+  }
+
+  .icon-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: clamp(36px, 5vw, 40px);
+    height: clamp(36px, 5vw, 40px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--heading-light);
+    position: relative;
+    transition: background-color 0.2s ease;
+  }
+  html.dark .icon-btn { color: var(--heading-dark, #FFFFFF); }
+
+  .icon-btn:hover, .icon-btn:active {
+    background-color: rgba(199, 228, 255, 0.15);
+  }
+
+  /* Theme Toggle Icon Switching */
+  html.dark .sun-icon-wrap { display: block; }
+  html.dark .moon-icon-wrap { display: none; }
+  html:not(.dark) .sun-icon-wrap { display: none; }
+  html:not(.dark) .moon-icon-wrap { display: block; }
+
+  .nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: clamp(2rem, 5vw, 4.5rem) 0;
+  }
+
+  html:not(.dark) .nav-overlay { background-color: rgba(255, 255, 255, 0.98); }
+  html.dark .nav-overlay { background-color: rgba(13, 15, 18, 0.98); }
+
+  .nav-overlay.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .overlay-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 3vw, 2rem);
+  }
+
+  .overlay-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+    gap: clamp(10px, 2vw, 20px);
+  }
+
+  .overlay-search-bar {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .overlay-search-bar input {
+    width: 100%;
+    height: clamp(44px, 6vw, 50px);
+    padding: 0 clamp(1rem, 2vw, 1.25rem);
+    padding-right: 55px;
+    border-radius: 25px;
+    border: 1px solid rgba(235, 175, 36, 0.4);
+    background: transparent;
+    color: inherit;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    outline: none;
+    box-sizing: border-box;
+  }
+
+  .search-submit-action {
+    position: absolute;
+    right: 15px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+  }
+
+  .search-vector-inline {
+    color: var(--accent-gold, #EBAF24);
+    display: flex;
+    align-items: center;
+  }
+
+  .masterlists-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 2vw, 2rem);
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .masterlist-card .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(235, 175, 36, 0.2);
+    margin-bottom: 12px;
+  }
+
+  .category-title {
+    font-family: 'Joan', serif;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--heading-light);
+  }
+  html.dark .category-title { color: var(--heading-dark, #FFFFFF); }
+
+  .chevron-icon {
+    color: var(--accent-gold, #EBAF24);
+    transition: transform 0.3s ease;
+  }
+
+  .sublist-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 500px;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    opacity: 1;
+  }
+
+  .masterlist-card.collapsed .sublist-links {
+    max-height: 0;
+    opacity: 0;
+    margin: 0;
+  }
+
+  .masterlist-card.collapsed .chevron-icon {
+    transform: rotate(180deg);
+  }
+
+  .sublist-links a {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.75rem, 1.2vw, 0.8rem);
+    opacity: 0.8;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s ease, color 0.2s ease;
+  }
+
+  .sublist-links a:hover {
+    opacity: 1;
+    color: var(--accent-gold, #EBAF24);
+  }
+
+  .overlay-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(1rem, 3vw, 2rem);
+    padding-top: clamp(1.5rem, 3vw, 2rem);
+    border-top: 1px solid rgba(235, 175, 36, 0.2);
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+  }
+
+  .overlay-footer-links a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .overlay-footer-links a:hover {
+    color: var(--accent-gold, #EBAF24);
+  }
+
+  @media(max-width: 1024px) {
+    .masterlists-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media(max-width: 768px) {
+    .desktop-search-btn { display: none; }
+    .masterlists-grid { grid-template-columns: 1fr; }
+    .overlay-footer-links { flex-direction: column; align-items: center; gap: 1rem; }
+  }
+</style>
+
+<script>
+  const themeToggle = document.getElementById('theme-toggle');
+  themeToggle?.addEventListener('click', () => {
+    const htmlEl = document.documentElement;
+    if (htmlEl.classList.contains('dark')) {
+      htmlEl.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    } else {
+      htmlEl.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+
+  const menuBtn = document.getElementById('menu-toggle-btn');
+  const searchTriggerBtn = document.getElementById('search-trigger-btn');
+  const overlay = document.getElementById('nav-overlay');
+  const overlayCloseBtn = document.getElementById('overlay-close-btn');
+
+  function toggleOverlay() {
+    overlay?.classList.toggle('open');
+    document.body.style.overflow = overlay?.classList.contains('open') ? 'hidden' : '';
+    if (overlay?.classList.contains('open')) {
+      setTimeout(() => {
+        document.getElementById('overlay-search-input')?.focus();
+      }, 100);
+    }
+  }
+
+  menuBtn?.addEventListener('click', toggleOverlay);
+  searchTriggerBtn?.addEventListener('click', toggleOverlay);
+  overlayCloseBtn?.addEventListener('click', toggleOverlay);
+
+  const searchInput = document.getElementById('overlay-search-input') as HTMLInputElement;
+  const searchSubmitBtn = document.getElementById('search-submit-btn');
+  const basePrefix = overlay?.getAttribute('data-base') || '/';
+
+  function executeSearch() {
+    const query = searchInput?.value.trim();
+    if (query) {
+      // Safely prepend base path to search route
+      const cleanBase = basePrefix.endsWith('/') ? basePrefix : basePrefix + '/';
+      window.location.href = `${cleanBase}blogs?search=${encodeURIComponent(query)}`;
+    }
+  }
+
+  searchSubmitBtn?.addEventListener('click', executeSearch);
+  searchInput?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      executeSearch();
+    }
+  });
+
+  document.querySelectorAll('.masterlist-card .card-header').forEach((header) => {
+    header.addEventListener('click', () => {
+      const card = header.parentElement;
+      card?.classList.toggle('collapsed');
+    });
+  });
+
+  let lastScrollTop = 0;
+  const header = document.getElementById('site-header');
+
+  window.addEventListener('scroll', () => {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop && scrollTop > 100) {
+      header!.style.transform = 'translateY(-100%)';
+    } else {
+      header!.style.transform = 'translateY(0)';
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  });
+
+  window.addEventListener('click', () => {
+    if (header && header.style.transform === 'translateY(-100%)') {
+      header.style.transform = 'translateY(0)';
+    }
+  });
+</script>

@@ -1,0 +1,287 @@
+---
+// src/components/MicroMedia.astro
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
+---
+
+<section class="micromedia-section">
+  <div class="container">
+    <!-- Header Row -->
+    <div class="micromedia-header">
+      <h2 class="micromedia-title">More on YouTube + Tumblr + Threads...</h2>
+      <p class="micromedia-description">
+        Meet <a href="/about" class="creator-link">Sheetu (the Creator)</a> on screen, and delve deeper into Astrology topics that you love to explore the most. Join our Magnificent Astrology community by Subscribing to the channel. Follow us on Tumblr + Threads for in-depth Astrology Observations and Short x Sweet Astrology blogs. Unique, Informative & Fun.
+      </p>
+    </div>
+
+    <!-- 3-Column Content Grid -->
+    <div class="micromedia-grid">
+      
+      <!-- 1. Tumblr Stack Link -->
+      <a href="https://www.tumblr.com" target="_blank" rel="noopener noreferrer" class="social-stack-card tumblr-card" aria-label="Visit our Tumblr profile">
+        <div class="card-stack-wrapper">
+          <div class="stack-item background-card"></div>
+          <div class="stack-item middle-card"></div>
+          <div class="stack-item foreground-card">
+            <img src={`${base}/images/tumblr-preview.png`} alt="Tumblr post preview" />
+          </div>
+        </div>
+      </a>
+
+      <!-- 2. YouTube Thumbnail Box with Bottom CTA Bar -->
+      <div class="youtube-spotlight-box">
+        <!-- Main Video Link Wrapper -->
+        <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="youtube-thumbnail-link" aria-label="Watch latest YouTube video">
+          <div class="youtube-thumbnail-bg">
+            <img src={`${base}/images/youtube-thumb-placeholder.png`} alt="YouTube Video Thumbnail" />
+          </div>
+        </a>
+
+        <!-- Anchored Bottom CTA Action Bar -->
+        <div class="youtube-action-bar">
+          <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="yt-icon-btn" aria-label="Open YouTube Video">
+            <svg viewBox="0 0 24 24" width="30" height="30" class="yt-svg-icon">
+              <path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+          <a href="https://www.youtube.com/@yourchannel?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="yt-subscribe-btn">
+            Subscribe
+          </a>
+        </div>
+      </div>
+
+      <!-- 3. Threads Stack Link -->
+      <a href="https://www.threads.net" target="_blank" rel="noopener noreferrer" class="social-stack-card threads-card" aria-label="Visit our Threads profile">
+        <div class="card-stack-wrapper">
+          <div class="stack-item background-card"></div>
+          <div class="stack-item middle-card"></div>
+          <div class="stack-item foreground-card">
+            <img src={`${base}/images/threads-preview.png`} alt="Threads post preview" />
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .micromedia-section {
+    width: 100%;
+    padding: var(--spacing-section) 0;
+    box-sizing: border-box;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 3vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  /* Header Row Layout */
+  .micromedia-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: left;
+  }
+
+  .micromedia-title {
+    font-size: var(--font-size-title);
+    margin: 0;
+    font-family: 'Joan', serif;
+  }
+
+  .micromedia-description {
+    font-size: var(--font-size-body);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 900px;
+    color: var(--body-dark);
+  }
+
+  html:not(.dark) .micromedia-description {
+    color: var(--body-light);
+  }
+
+  .creator-link {
+    color: var(--accent-gold);
+    text-decoration: underline;
+  }
+
+  /* 3-Column Grid */
+  .micromedia-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+    justify-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .micromedia-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  /* Social Stack Card Shells (Tumblr / Threads) */
+  .social-stack-card {
+    width: 100%;
+    max-width: 320px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+
+  .social-stack-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .card-stack-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .stack-item {
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    border: 1px solid var(--border-dark);
+    background-color: var(--canvas-dark);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+
+  html:not(.dark) .stack-item {
+    border-color: var(--border-light);
+    background-color: var(--canvas-light);
+  }
+
+  /* Specific Tilt Rotations for Scrapbook effect */
+  .tumblr-card .background-card { transform: rotate(-8deg) scale(0.92); opacity: 0.6; }
+  .tumblr-card .middle-card { transform: rotate(-4deg) scale(0.96); opacity: 0.8; }
+  .tumblr-card .foreground-card { transform: rotate(-2deg); }
+
+  .threads-card .background-card { transform: rotate(8deg) scale(0.92); opacity: 0.6; }
+  .threads-card .middle-card { transform: rotate(4deg) scale(0.96); opacity: 0.8; }
+  .threads-card .foreground-card { transform: rotate(2deg); }
+
+  .foreground-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* YouTube Spotlight Box (16:9 Aspect Ratio Container) */
+  .youtube-spotlight-box {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 16 / 9;
+    border-radius: 20px;
+    border: 1px solid var(--border-dark);
+    background-color: var(--canvas-dark);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  }
+
+  html:not(.dark) .youtube-spotlight-box {
+    border-color: var(--border-light);
+    background-color: var(--canvas-light);
+  }
+
+  .youtube-thumbnail-link {
+    flex: 1;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .youtube-thumbnail-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .youtube-spotlight-box:hover .youtube-thumbnail-bg img {
+    transform: scale(1.03);
+  }
+
+  /* Anchored Bottom Action Bar */
+  .youtube-action-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 52px;
+    background: rgba(13, 15, 18, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  html:not(.dark) .youtube-action-bar {
+    background: rgba(255, 255, 255, 0.85);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .yt-icon-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: background 0.2s ease;
+  }
+
+  .yt-icon-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .yt-subscribe-btn {
+    background-color: #FF0000;
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 6px 16px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .yt-subscribe-btn:hover {
+    background-color: #E00000;
+    transform: translateY(-1px);
+  }
+
+  /* Tablet/Desktop Horizontal Tweaks */
+  @media (min-width: 1024px) {
+    .micromedia-header {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+    
+    .micromedia-title {
+      flex-shrink: 0;
+      max-width: 400px;
+    }
+  }
+</style>

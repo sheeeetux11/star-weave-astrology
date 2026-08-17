@@ -1,0 +1,117 @@
+---
+// src/components/BlogYouTubePreview.astro
+const { youtubeUrl, youtubeTitle } = Astro.props;
+
+function getYouTubeThumbnail(url: string) {
+  if (!url) return '';
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  const match = url.match(regExp);
+  const videoId = (match && match[2].length === 11) ? match[2] : null;
+  return videoId ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` : '';
+}
+
+const thumbnailUrl = getYouTubeThumbnail(youtubeUrl);
+---
+
+{youtubeUrl && (
+  <a href={youtubeUrl} target="_blank" rel="noopener noreferrer" class="blog-youtube-preview-card">
+    <div class="thumbnail-box">
+      {thumbnailUrl ? (
+        <img src={thumbnailUrl} alt={youtubeTitle || "YouTube Video Preview"} />
+      ) : (
+        <div class="fallback-thumb"></div>
+      )}
+    </div>
+    <div class="preview-text-content">
+      <h4 class="preview-title">{youtubeTitle || "Watch on YouTube"}</h4>
+      <span class="preview-meta">Youtube • Star Weave Astrology</span>
+    </div>
+  </a>
+)}
+
+<style>
+  .blog-youtube-preview-card {
+    display: flex;
+    align-items: center;
+    gap: clamp(12px, 2vw, 20px);
+    width: 100%;
+    max-width: 800px;
+    height: clamp(70px, 8vw, 80px);
+    margin: 0 auto;
+    padding: clamp(6px, 1vw, 10px);
+    box-sizing: border-box;
+    border-radius: 20px;
+    text-decoration: none;
+    
+    background: linear-gradient(135deg, rgba(121, 168, 255, 0.6) 0%, rgba(223, 239, 255, 0.6) 100%);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  html.dark .blog-youtube-preview-card {
+    background: linear-gradient(135deg, rgba(40, 73, 105, 0.7) 0%, rgba(20, 35, 55, 0.7) 100%);
+    border: 1px solid rgba(121, 168, 255, 0.2);
+  }
+
+  .blog-youtube-preview-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .thumbnail-box {
+    width: clamp(80px, 12vw, 100px);
+    height: clamp(50px, 7vw, 60px);
+    flex-shrink: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+  }
+
+  .thumbnail-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .fallback-thumb {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.1);
+  }
+
+  .preview-text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .preview-title {
+    font-family: 'Joan', serif;
+    font-size: clamp(0.9rem, 1.3vw, 1rem);
+    font-weight: 600;
+    color: #1A1A1A;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  html.dark .preview-title {
+    color: #FFFFFF;
+  }
+
+  .preview-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.7rem, 1vw, 0.8rem);
+    color: rgba(26, 26, 26, 0.7);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  html.dark .preview-meta {
+    color: rgba(255, 255, 255, 0.7);
+  }
+</style>

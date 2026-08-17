@@ -1,0 +1,55 @@
+---
+// src/pages/blogs/[slug].astro
+import { getCollection, render } from 'astro:content';
+import InnerBlogLayout from '../../layouts/InnerBlogLayout.astro';
+import { normalizePost } from '../../utils/normalizeBlog';
+
+export async function getStaticPaths() {
+  const allBlogs = await getCollection('blogs');
+
+  const sortedRawBlogs = allBlogs.sort((a, b) => {
+    const dateA = a.data?.date ? new Date(a.data.date).getTime() : 0;
+    const dateB = b.data?.date ? new Date(b.data.date).getTime() : 0;
+    return dateB - dateA;
+  });
+
+  const blogMap = new Map();
+  allBlogs.forEach(b => {
+    blogMap.set(b.id, b);
+    blogMap.set(b.id.split('/').pop()?.replace(/\.[^/.]+$/, ''), b);
+  });
+
+  return sortedRawBlogs.map((post, index) => {
+    const autoPrevRaw = index < sortedRawBlogs.length - 1 ? sortedRawBlogs[index + 1] : null;
+    const autoNextRaw = index > 0 ? sortedRawBlogs[index - 1] : null;
+
+    const manualPrevRaw = post.data.manualPrev ? blogMap.get(post.data.manualPrev) : null;
+    const manualNextRaw = post.data.manualNext ? blogMap.get(post.data.manualNext) : null;
+
+    const finalPrevRaw = manualPrevRaw || autoPrevRaw;
+    const finalNextRaw = manualNextRaw || autoNextRaw;
+
+    const prevPost = finalPrevRaw ? normalizePost(finalPrevRaw) : null;
+    const nextPost = finalNextRaw ? normalizePost(finalNextRaw) : null;
+
+    const postSlug = (post.id.split('/').pop() || post.id).replace(/\.[^/.]+$/, '');
+
+    return {
+      params: { slug: postSlug },
+      props: { 
+        post, 
+        prevPost, 
+        nextPost 
+      },
+    };
+  });
+}
+
+const { post, prevPost, nextPost } = Astro.props;
+const normalizedCurrent = normalizePost(post);
+const { Content } = await render(post);
+---
+
+<InnerBlogLayout post={post} prevPost={prevPost} nextPost={nextPost} tags={normalizedCurrent.tags}>
+  <Content />
+</InnerBlogLayout>

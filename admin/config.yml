@@ -7,17 +7,59 @@ media_folder: "public/assets/images/uploads"
 public_folder: "/assets/images/uploads"
 
 collections:
-  - name: "blog"
-    label: "Blog Articles"
-    folder: "content/blogs"
+  - name: "blogs"
+    label: "Blogs"
+    folder: "src/content/blogs"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Excerpt", name: "excerpt", widget: "text" }
-      - { label: "Cover Image", name: "coverImage", widget: "image", required: false }
-      - { label: "Category", name: "category", widget: "select", options: ["Transits", "Natal", "Horoscopes", "Esoteric"] }
-      - { label: "Tags", name: "tags", widget: "list", default: ["Astrology"] }
-      - { label: "Featured Video ID", name: "youtubeId", widget: "string", required: false }
-      - { label: "Body Reading Column", name: "body", widget: "markdown" }
+      - { label: "Date", name: "date", widget: "string" }
+      - { label: "Read Time", name: "readTime", widget: "string" }
+      - { label: "Author", name: "author", widget: "string", default: "SHEETU", required: false }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - { label: "YouTube URL", name: "youtubeUrl", widget: "string", required: false }
+      - { label: "YouTube Title", name: "youtubeTitle", widget: "string", required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "navigation"
+    label: "Navigation & Menus"
+    files:
+      - file: "src/data/menu.json"
+        label: "Expanded Overlay Menu"
+        name: "overlay_menu"
+        fields:
+          - label: "Masterlist Cards"
+            name: "masterlists"
+            widget: "list"
+            fields:
+              - { label: "Category Title", name: "title", widget: "string" }
+              - label: "Sublist Links"
+                name: "sublinks"
+                widget: "list"
+                fields:
+                  - { label: "Link Text", name: "text", widget: "string" }
+                  - { label: "URL / Path", name: "url", widget: "string" }
+          - label: "Footer Quick Links"
+            name: "footer_links"
+            widget: "list"
+            fields:
+              - { label: "Link Text", name: "text", widget: "string" }
+              - { label: "URL / Path", name: "url", widget: "string" }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "src/content/pages/home.md"
+        label: "Home Page"
+        name: "home"
+        fields:
+          - { label: "Header Logo PNG", name: "header_logo", widget: "image" }
+          - { label: "Star Pattern Icon", name: "star_pattern", widget: "image" }
+          - { label: "Logo Typography Image", name: "logo_typography", widget: "image" }
+          - { label: "Main Slogan", name: "main_slogan", widget: "string" }
+          - { label: "Hero Featured Image", name: "hero_image", widget: "image" }
+          - { label: "Left Subtitle", name: "subtitle_left", widget: "text" }
+          - { label: "Right Subtitle", name: "subtitle_right", widget: "text" }
+          - { label: "CTA Slogan Text", name: "cta_text", widget: "string" }

@@ -1,0 +1,31 @@
+---
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import TopicsHub from '../components/TopicsHub.astro';
+import BlogFeed from '../components/BlogFeed.astro';
+import MicroMedia from '../components/MicroMedia.astro';
+import Footer from '../components/Footer.astro';
+import { getCollection } from 'astro:content';
+import { normalizePost } from '../utils/normalizeBlog';
+
+const allBlogs = await getCollection('blogs');
+
+// Sort and normalize posts cleanly
+const recentBlogs = allBlogs
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 6)
+  .map(normalizePost);
+---
+
+<Layout title="Star Weave Astrology">
+	<Header />
+	<main>
+		<Hero />
+		<TopicsHub />
+		<BlogFeed posts={recentBlogs} />
+		<MicroMedia />
+	</main>
+	<Footer />
+</Layout>

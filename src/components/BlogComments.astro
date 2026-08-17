@@ -1,0 +1,462 @@
+---
+// src/components/BlogComments.astro
+interface Comment {
+  id: string;
+  author: string;
+  date: string;
+  content: string;
+  avatarColor?: string;
+}
+
+interface Props {
+  postId: string;
+}
+
+const { postId } = Astro.props;
+
+const initialComments: Comment[] = [
+  {
+    id: '1',
+    author: "Commentor's Name",
+    date: 'March 12, 2023',
+    content: 'Their comments displayed here. Their comments displayed here. Their comments displayed here. Their comments displayed here. Their comments displayed here.',
+    avatarColor: '#FBDE9B'
+  },
+  {
+    id: '2',
+    author: 'Astraea Weaver',
+    date: 'March 14, 2023',
+    content: 'This analysis of Venus and Jupiter transit completely shifted my perspective! Thank you so much for sharing.',
+    avatarColor: '#FBD19B'
+  },
+  {
+    id: '3',
+    author: 'CelestialSeeker',
+    date: 'March 15, 2023',
+    content: 'Such a gorgeous write-up. The aesthetic of this blog matches the magical tone of the content so well.',
+    avatarColor: '#9BFBE0'
+  },
+  {
+    id: '4',
+    author: 'Starlight99',
+    date: 'March 18, 2023',
+    content: 'Bookmarking this page for the next lunar cycle. Looking forward to more deep dives!',
+    avatarColor: '#F99BFB'
+  },
+  {
+    id: '5',
+    author: 'LunaStruck',
+    date: 'March 20, 2023',
+    content: 'Absolute gold mine of information! Quick question, will you be doing a follow-up on house placements?',
+    avatarColor: '#9BCBFA'
+  }
+];
+---
+
+<section class="comments-section" data-post-id={postId}>
+  <!-- Magazine section header with decorative lines -->
+  <div class="section-header-line">
+    <span class="section-title">COMMENTS</span>
+  </div>
+
+  <!-- Comment Input Box -->
+  <form class="comment-form" id="commentForm">
+    <div class="commenter-avatar placeholder-avatar"></div>
+    <input 
+      type="text" 
+      name="commentText" 
+      placeholder="Leave a comment. Share your thoughts :)" 
+      class="comment-input" 
+      required 
+    />
+    <button type="submit" class="submit-comment-btn">Post</button>
+  </form>
+
+  <!-- Comments List -->
+  <div class="comments-list" id="commentsList">
+    {initialComments.map((comment, index) => (
+      <div class={`comment-card ${index >= 4 ? 'hidden-comment' : ''}`} data-id={comment.id}>
+        <div class="comment-card-top">
+          <div class="author-info-group">
+            <div class="commenter-avatar" style={`background-color: ${comment.avatarColor || '#FBDE9B'};`}></div>
+            <div class="author-meta">
+              <h4 class="comment-author">{comment.author}</h4>
+              <span class="comment-date">{comment.date}</span>
+            </div>
+          </div>
+          
+          <!-- Dropdown menu for Edit/Delete -->
+          <div class="comment-actions-wrapper">
+            <button class="options-btn" aria-label="Comment options">&hellip;</button>
+            <div class="options-dropdown">
+              <button class="dropdown-item edit-btn">Edit</button>
+              <button class="dropdown-item delete-btn">Delete</button>
+            </div>
+          </div>
+        </div>
+
+        <p class="comment-body">{comment.content}</p>
+        
+        <button class="add-reply-btn">Add Reply...</button>
+      </div>
+    ))}
+  </div>
+
+  <!-- See More Toggle Button -->
+  {initialComments.length > 4 && (
+    <div class="see-more-wrapper">
+      <button id="seeMoreBtn" class="see-more-btn">
+        See More <span class="arrow">&darr;</span>
+      </button>
+    </div>
+  )}
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const seeMoreBtn = document.getElementById('seeMoreBtn');
+    const commentsList = document.getElementById('commentsList');
+    const commentForm = document.getElementById('commentForm');
+
+    if (seeMoreBtn && commentsList) {
+      seeMoreBtn.addEventListener('click', () => {
+        const hiddenComments = commentsList.querySelectorAll('.hidden-comment');
+        const isExpanded = seeMoreBtn.classList.toggle('expanded');
+        
+        hiddenComments.forEach((el) => {
+          el.classList.toggle('reveal');
+        });
+
+        seeMoreBtn.innerHTML = isExpanded 
+          ? 'See Less <span class="arrow">&uarr;</span>' 
+          : 'See More <span class="arrow">&darr;</span>';
+      });
+    }
+
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      const optionsBtn = target.closest('.options-btn');
+      
+      document.querySelectorAll('.options-dropdown').forEach((dropdown) => {
+        if (!dropdown.contains(target) && !target.closest('.options-btn')) {
+          dropdown.classList.remove('show');
+        }
+      });
+
+      if (optionsBtn) {
+        const dropdown = optionsBtn.nextElementSibling;
+        dropdown?.classList.toggle('show');
+      }
+    });
+
+    if (commentForm) {
+      commentForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = commentForm.querySelector('input[name="commentText"]') as HTMLInputElement;
+        if (!input || !input.value.trim()) return;
+
+        alert('Comment submitted successfully!');
+        input.value = '';
+      });
+    }
+  });
+</script>
+
+<style>
+  .comments-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* Responsive gap using clamp: scales dynamically from 1rem on mobile to 1.5rem on desktop */
+    gap: clamp(1rem, 2vw, 1.5rem);
+    margin-top: clamp(1.5rem, 3vw, 2.5rem);
+    margin-bottom: 0;
+  }
+
+  .section-header-line {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .section-header-line::before,
+  .section-header-line::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #D7A021;
+    opacity: 0.4;
+  }
+
+  .section-title {
+    padding: 0 1.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #1A1A1A;
+  }
+  html.dark .section-title {
+    color: #F9FAFB;
+  }
+
+  /* Fixed comment form layout to prevent overflow on mobile */
+  .comment-form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+    border: 1px solid rgba(235, 175, 36, 0.4);
+    border-radius: 20px;
+    padding: 12px 16px;
+    box-sizing: border-box;
+    width: 100%;
+    transition: border-color 0.2s ease;
+  }
+
+  .comment-form:focus-within {
+    border-color: #EBAF24;
+  }
+
+  .commenter-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #FBDE9B;
+    flex-shrink: 0;
+  }
+
+  .comment-input {
+    flex: 1;
+    min-width: 0; /* Prevents flex items from overflowing bounds */
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    color: #EBAF24;
+  }
+  .comment-input::placeholder {
+    color: #EBAF24;
+    opacity: 0.8;
+  }
+
+  .submit-comment-btn {
+    background: #EBAF24;
+    color: #1A1A1A;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.82rem;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s ease;
+  }
+  .submit-comment-btn:hover {
+    background: #D7A021;
+  }
+
+  .comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .comment-card {
+    background: transparent;
+    border: 1px solid rgba(235, 175, 36, 0.4);
+    border-radius: 20px;
+    padding: 18px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: border-color 0.2s ease;
+  }
+
+  .comment-card:hover {
+    border-color: rgba(235, 175, 36, 0.7);
+  }
+
+  .hidden-comment {
+    display: none;
+  }
+  .hidden-comment.reveal {
+    display: flex;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .comment-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .author-info-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  .author-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  @media(min-width: 540px) {
+    .author-meta {
+      flex-direction: row;
+      align-items: baseline;
+      gap: 10px;
+    }
+  }
+
+  .comment-author {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  html.dark .comment-author {
+    color: #F9FAFB;
+  }
+
+  .comment-date {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    color: #6B7280;
+  }
+  html.dark .comment-date {
+    color: #9CA3AF;
+  }
+
+  .comment-body {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #4B5563;
+    margin: 0;
+    padding-left: 46px;
+  }
+  html.dark .comment-body {
+    color: #D1D5DB;
+  }
+
+  .add-reply-btn {
+    background: none;
+    border: none;
+    color: #EBAF24;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: left;
+    padding: 0;
+    margin-left: 46px;
+    width: fit-content;
+  }
+  .add-reply-btn:hover {
+    text-decoration: underline;
+  }
+
+  .comment-actions-wrapper {
+    position: relative;
+  }
+
+  .options-btn {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    color: #6B7280;
+    cursor: pointer;
+    padding: 4px 8px;
+    letter-spacing: 2px;
+  }
+  html.dark .options-btn {
+    color: #9CA3AF;
+  }
+
+  .options-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: #FFFFFF;
+    border: 1px solid rgba(235, 175, 36, 0.4);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    z-index: 10;
+    min-width: 90px;
+    overflow: hidden;
+  }
+  html.dark .options-dropdown {
+    background: #1F2937;
+    border-color: rgba(235, 175, 36, 0.3);
+  }
+
+  .options-dropdown.show {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dropdown-item {
+    background: none;
+    border: none;
+    padding: 8px 14px;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: #374151;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  html.dark .dropdown-item {
+    color: #E5E7EB;
+  }
+  .dropdown-item:hover {
+    background: rgba(235, 175, 36, 0.15);
+  }
+
+  .see-more-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.25rem;
+  }
+
+  .see-more-btn {
+    background: transparent;
+    border: 1px solid rgba(235, 175, 36, 0.5);
+    color: #EBAF24;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 8px 22px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+  }
+
+  .see-more-btn:hover {
+    background: rgba(235, 175, 36, 0.1);
+    border-color: #EBAF24;
+  }
+</style>

@@ -1,0 +1,203 @@
+---
+// src/components/TopicScrollAnchor.astro
+import { Image } from 'astro:assets';
+import LogoIcon from '../assets/icons/Logo.png';
+import ChevronIcon from '../assets/icons/Chevron.svg';
+
+interface Props {
+  topics?: string[];
+  activeTopic?: string;
+}
+
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
+
+const { 
+  topics = [
+    "Moon Astrology", 
+    "Natal Aspects", 
+    "Natal Placements", 
+    "Transits", 
+    "Planets + Points", 
+    "Aspects + Patterns", 
+    "Asteroid Astrology",
+    "Solar Return Astrology",
+    "Retrograde Astrology",
+    "Juno Astrology",
+    "Eclipses",
+    "Synastry",
+    "Houses",
+    "Composite Charts",
+    "Chiron Astrology"
+  ],
+  activeTopic = ""
+} = Astro.props;
+---
+
+<div class="topic-scroll-section">
+  <!-- Left Scroll Button (Chevron rotated 180deg to face left) -->
+  <button type="button" class="scroll-arrow scroll-left" aria-label="Scroll Left">
+    <Image src={ChevronIcon} alt="Scroll Left" width={16} height={16} class="rotate-left" />
+  </button>
+
+  <!-- Horizontal Scroll Container -->
+  <div class="topic-scroll-container" id="topicScrollContainer">
+    <!-- Exclusive Logo Tag on the Far Left -->
+    <a href={`${base}/tags`} class="topic-pill logo-topic-pill" aria-label="View all tags master-list" title="View all tags">
+      <img src={LogoIcon.src} alt="Star Weave Astrology" class="tag-logo-icon" />
+    </a>
+
+    <!-- Top Topic Tags -->
+    {topics.map((topic) => {
+      const isActive = activeTopic === topic;
+      return (
+        <a 
+          href={`${base}/blogs?topic=${encodeURIComponent(topic)}`} 
+          class={`topic-pill ${isActive ? 'active' : ''}`}
+        >
+          {topic}
+        </a>
+      );
+    })}
+  </div>
+
+  <!-- Right Scroll Button (Normal Chevron facing right) -->
+  <button type="button" class="scroll-arrow scroll-right" aria-label="Scroll Right">
+    <Image src={ChevronIcon} alt="Scroll Right" width={16} height={16} />
+  </button>
+</div>
+
+<script>
+  const container = document.getElementById('topicScrollContainer');
+  const leftBtn = document.querySelector('.scroll-left');
+  const rightBtn = document.querySelector('.scroll-right');
+
+  if (container && leftBtn && rightBtn) {
+    leftBtn.addEventListener('click', () => {
+      container.scrollBy({ left: -250, behavior: 'smooth' });
+    });
+    rightBtn.addEventListener('click', () => {
+      container.scrollBy({ left: 250, behavior: 'smooth' });
+    });
+  }
+</script>
+
+<style>
+  /* Styles remain exactly the same */
+  .topic-scroll-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .topic-scroll-container {
+    display: flex;
+    align-items: center;
+    gap: clamp(8px, 1.5vw, 0.75rem);
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 0.25rem 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .topic-scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .topic-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: clamp(36px, 4vw, 40px);
+    padding: 0 clamp(1rem, 2vw, 1.25rem);
+    background-color: rgba(255, 204, 66, 0.2);
+    border: 0.5px solid rgba(231, 185, 36, 0.3);
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.78rem, 1.2vw, 0.85rem);
+    font-weight: 500;
+    color: var(--heading-dark);
+    white-space: nowrap;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  html:not(.dark) .topic-pill {
+    color: var(--heading-light);
+  }
+
+  .topic-pill:hover {
+    background-color: rgba(255, 204, 66, 0.35);
+    border-color: rgba(231, 185, 36, 0.6);
+  }
+
+  .topic-pill.active {
+    background-color: rgba(255, 204, 66, 0.4);
+    border-color: rgba(231, 185, 36, 0.8);
+    font-weight: 600;
+  }
+
+  .logo-topic-pill {
+    width: clamp(36px, 4vw, 40px);
+    height: clamp(36px, 4vw, 40px);
+    padding: 0;
+    background-color: #EBAF24;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .logo-topic-pill:hover {
+    opacity: 0.9;
+    background-color: #EBAF24;
+    border-color: transparent;
+  }
+
+  .tag-logo-icon {
+    width: clamp(18px, 2.2vw, 22px);
+    height: clamp(18px, 2.2vw, 22px);
+    object-fit: contain;
+  }
+
+  .scroll-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+    z-index: 2;
+    transition: opacity 0.2s ease;
+  }
+
+  .scroll-arrow:hover {
+    opacity: 1;
+  }
+
+  .scroll-left {
+    left: clamp(4px, 1vw, 10px);
+  }
+
+  .scroll-right {
+    right: clamp(4px, 1vw, 10px);
+  }
+
+  .rotate-left {
+    transform: rotate(180deg);
+  }
+</style>

@@ -1,0 +1,225 @@
+---
+import Chevron from '../assets/icons/Chevron.svg';
+
+interface Props {
+  currentPage?: number;
+  totalPages?: number;
+  baseUrl?: string;
+  page?: {
+    currentPage: number;
+    lastPage: number;
+    url: {
+      prev?: string;
+      next?: string;
+    };
+  };
+}
+
+const { 
+  currentPage: propCurrent, 
+  totalPages: propTotal, 
+  baseUrl = '/blogs',
+  page 
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const cleanBaseUrl = baseUrl.startsWith('/') ? baseUrl : `/${baseUrl}`;
+const absoluteBaseUrl = `${base}${cleanBaseUrl}`;
+
+const currentPage = page?.currentPage || propCurrent || 1;
+const totalPages = page?.lastPage || propTotal || 40;
+
+function getPageNumbers(current: number, total: number) {
+  if (total <= 7) {
+    return Array.from({ length: total }, (_, i) => i + 1);
+  }
+
+  const delta = 2;
+  const range: number[] = [];
+  const rangeWithDots: (number | string)[] = [];
+  let l: number | undefined;
+
+  for (let i = 1; i <= total; i++) {
+    if (i === 1 || i === total || (i >= current - delta && i <= current + delta)) {
+      range.push(i);
+    }
+  }
+
+  range.forEach(i => {
+    if (l !== undefined) {
+      if (i - l === 2) {
+        rangeWithDots.push(l + 1);
+      } else if (i - l !== 1) {
+        rangeWithDots.push('...');
+      }
+    }
+    rangeWithDots.push(i);
+    l = i;
+  });
+
+  return rangeWithDots;
+}
+
+const pages = getPageNumbers(currentPage, totalPages);
+
+const getPageUrl = (pageNum: number) => {
+  if (pageNum === 1) return absoluteBaseUrl;
+  return `${absoluteBaseUrl}/${pageNum}`;
+};
+
+const prevUrl = page?.url?.prev ? `${base}${page.url.prev.startsWith('/') ? page.url.prev : `/${page.url.prev}`}` : (currentPage > 1 ? getPageUrl(currentPage - 1) : null);
+const nextUrl = page?.url?.next ? `${base}${page.url.next.startsWith('/') ? page.url.next : `/${page.url.next}`}` : (currentPage < totalPages ? getPageUrl(currentPage + 1) : null);
+---
+
+
+<nav class="pagination-nav" aria-label="Blog Pagination">
+  {/* Previous Button */}
+  {prevUrl ? (
+    <a href={prevUrl} class="pagination-btn prev-btn" aria-label="Previous Page">
+      <img src={Chevron.src} alt="Previous" class="chevron-icon left-chevron" />
+    </a>
+  ) : (
+    <span class="pagination-btn prev-btn disabled" aria-hidden="true">
+      <img src={Chevron.src} alt="Previous" class="chevron-icon left-chevron" />
+    </span>
+  )}
+
+  {/* Page Numbers & Ellipsis */}
+  <div class="pagination-numbers">
+    {pages.map((p) => {
+      const isCurrent = p === currentPage;
+      const pageNum = Number(p);
+
+      return p === '...' ? (
+        <span class="pagination-ellipsis">...</span>
+      ) : (
+        <a
+          href={getPageUrl(pageNum)}
+          class={`pagination-number ${isCurrent ? 'active' : ''}`}
+          aria-current={isCurrent ? 'page' : undefined}
+        >
+          {p}
+        </a>
+      );
+    })}
+  </div>
+
+  {/* Next Button */}
+  {nextUrl ? (
+    <a href={nextUrl} class="pagination-btn next-btn" aria-label="Next Page">
+      <img src={Chevron.src} alt="Next" class="chevron-icon right-chevron" />
+    </a>
+  ) : (
+    <span class="pagination-btn next-btn disabled" aria-hidden="true">
+      <img src={Chevron.src} alt="Next" class="chevron-icon right-chevron" />
+    </span>
+  )}
+</nav>
+
+<style>
+  .pagination-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(8px, 1.5vw, 12px);
+    width: 100%;
+    margin: clamp(2rem, 4vw, 3rem) 0;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+  }
+
+  .pagination-numbers {
+    display: flex;
+    align-items: center;
+    gap: clamp(4px, 1vw, 6px);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .pagination-btn {
+    width: clamp(40px, 4vw, 45px);
+    height: clamp(40px, 4vw, 45px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 0.5px solid rgba(231, 185, 36, 0.25);
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+  }
+
+  .pagination-btn:hover:not(.disabled) {
+    border-color: rgba(231, 185, 36, 0.7);
+    background-color: rgba(231, 185, 36, 0.1);
+  }
+
+  .pagination-btn.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .chevron-icon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+  }
+
+  /* Invert chevron icons automatically in dark mode if they use dark lines */
+  html.dark .chevron-icon {
+    filter: invert(1) hue-rotate(180deg);
+  }
+
+  .left-chevron {
+    transform: rotate(180deg);
+  }
+
+  .pagination-number {
+    min-width: clamp(32px, 3.5vw, 38px);
+    height: clamp(40px, 4vw, 45px);
+    padding: 0 clamp(4px, 1vw, 8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
+    font-weight: 500;
+    color: var(--heading-dark, #fbbf24);
+    opacity: 0.7;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 0.5px solid transparent;
+    transition: all 0.2s ease;
+  }
+
+  html:not(.dark) .pagination-number {
+    color: var(--heading-light, #d97706);
+  }
+
+  .pagination-number:hover {
+    opacity: 1;
+    background-color: rgba(231, 185, 36, 0.1);
+    border-color: rgba(231, 185, 36, 0.3);
+  }
+
+  .pagination-number.active {
+    opacity: 1;
+    background-color: rgba(231, 185, 36, 0.15);
+    border-color: rgba(231, 185, 36, 0.4);
+    font-weight: 600;
+  }
+
+  .pagination-ellipsis {
+    padding: 0 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
+    color: var(--heading-dark, #fbbf24);
+    opacity: 0.5;
+  }
+
+  html:not(.dark) .pagination-ellipsis {
+    color: var(--heading-light, #d97706);
+  }
+</style>

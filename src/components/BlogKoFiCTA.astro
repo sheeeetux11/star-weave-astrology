@@ -1,0 +1,98 @@
+---
+// src/components/BlogKoFiCTA.astro
+import koFiIcon from '../assets/icons/Socials/Kofi.png';
+
+interface Props {
+  koFiUrl?: string;
+}
+
+const { koFiUrl = 'https://ko-fi.com' } = Astro.props;
+---
+
+<section class="kofi-cta-section">
+  <div class="kofi-banner">
+    <p class="kofi-text">
+      Enjoy the Blog?! Consider supporting <span class="highlight-name">Sheetu</span> on <span class="highlight-brand">Ko-Fi</span>
+    </p>
+    <a href={koFiUrl} target="_blank" rel="noopener noreferrer" class="kofi-button">
+      <img src={koFiIcon.src} alt="" class="kofi-icon" />
+      <span>Support</span>
+    </a>
+  </div>
+</section>
+
+<style>
+  .kofi-cta-section {
+    width: 100%;
+    margin: clamp(2rem, 4vw, 2.5rem) 0 clamp(1rem, 3vw, 1.5rem) 0;
+    box-sizing: border-box;
+  }
+
+  .kofi-banner {
+    width: 100%;
+    min-height: clamp(110px, 15vw, 134px);
+    border-radius: 20px;
+    background: linear-gradient(90deg, rgba(255, 204, 66, 0.8) 0%, rgba(255, 255, 255, 0) 100%);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(16px, 3vw, 25px);
+    gap: clamp(10px, 2vw, 15px);
+    box-sizing: border-box;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+  }
+
+  html.dark .kofi-banner {
+    background: linear-gradient(90deg, rgba(70, 55, 15, 0.8) 0%, rgba(30, 25, 10, 0) 100%);
+    border-color: rgba(235, 175, 36, 0.3);
+  }
+
+  .kofi-text {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.9rem, 1.5vw, 1.15rem);
+    font-weight: 600;
+    color: #1A1A1A;
+    margin: 0;
+  }
+
+  html.dark .kofi-text {
+    color: #F9FAFB;
+  }
+
+  .highlight-name,
+  .highlight-brand {
+    color: #EBAF24;
+  }
+
+  .kofi-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(6px, 1vw, 8px);
+    background: #FFD560;
+    color: #1A1A1A;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.88rem, 1.2vw, 0.95rem);
+    font-weight: 600;
+    padding: clamp(8px, 1.2vw, 10px) clamp(16px, 2.5vw, 22px);
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .kofi-button:hover {
+    transform: translateY(-2px);
+    background: #FFC107;
+    box-shadow: 0 6px 16px rgba(235, 175, 36, 0.25);
+  }
+
+  .kofi-icon {
+    width: clamp(16px, 2vw, 20px);
+    height: clamp(16px, 2vw, 20px);
+    object-fit: contain;
+  }
+</style>

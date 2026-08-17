@@ -1,0 +1,46 @@
+---
+// src/pages/blogs/index.astro
+import BlogPageLayout from '../../layouts/BlogPageLayout.astro';
+import BlogSearchAndMode from '../../components/BlogSearchAndMode.astro';
+import TopicScrollAnchor from '../../components/TopicScrollAnchor.astro';
+import BlogFeedMasonry from '../../components/BlogFeedMasonry.astro';
+import BlogPaginationBar from '../../components/BlogPaginationBar.astro';
+import { getCollection } from 'astro:content';
+import { normalizePost } from '../../utils/normalizeBlog';
+
+const allBlogs = await getCollection('blogs');
+const formattedPosts = allBlogs
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .map(normalizePost);
+
+const currentPage = 1;
+const pageSize = 20;
+const totalPages = Math.max(1, Math.ceil(formattedPosts.length / pageSize));
+const paginatedPosts = formattedPosts.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+---
+
+<BlogPageLayout title="Blog Feed | Star Weave Astrology" pageTitle="Blog Feed">
+  <div class="blog-feed-page-content">
+    <!-- Search Bar & Mode Toggle Component -->
+    <BlogSearchAndMode />
+
+    <!-- Topic Scroll Anchor Component -->
+    <TopicScrollAnchor />
+
+    <!-- Blog Feed Masonry Component -->
+    <BlogFeedMasonry posts={paginatedPosts} />
+
+    <!-- Blog Pagination Bar Component -->
+    <BlogPaginationBar currentPage={currentPage} totalPages={totalPages} baseUrl="/blogs" />
+  </div>
+</BlogPageLayout>
+
+<style>
+  .blog-feed-page-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    box-sizing: border-box;
+  }
+</style>

@@ -1,0 +1,61 @@
+---
+// src/components/BlogContent.astro
+---
+
+<div class="blog-text-content">
+  <slot />
+</div>
+
+<style>
+  .blog-text-content {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+    line-height: 1.8;
+    /* Default light mode text color */
+    color: #374151; 
+    box-sizing: border-box;
+  }
+
+  /* Dark mode text color override */
+  html.dark .blog-text-content {
+    color: #D1D5DB;
+  }
+
+  /* Typography styling inside markdown content */
+  .blog-text-content :global(p) {
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .blog-text-content :global(h2) {
+    font-family: 'Joan', serif;
+    font-size: clamp(1.4rem, 2.5vw, 1.75rem);
+    color: #1A1A1A;
+    margin-top: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
+  }
+  html.dark .blog-text-content :global(h2) {
+    color: #F9FAFB;
+  }
+
+  .blog-text-content :global(h3) {
+    font-family: 'Joan', serif;
+    font-size: clamp(1.15rem, 2vw, 1.35rem);
+    color: #1A1A1A;
+    margin-top: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: clamp(0.5rem, 1.2vw, 0.75rem);
+  }
+  html.dark .blog-text-content :global(h3) {
+    color: #F9FAFB;
+  }
+
+  .blog-text-content :global(a) {
+    color: #2563EB;
+    text-decoration: underline;
+  }
+  html.dark .blog-text-content :global(a) {
+    color: #60A5FA;
+  }
+</style>

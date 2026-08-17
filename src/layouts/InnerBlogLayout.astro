@@ -1,0 +1,182 @@
+---
+// src/layouts/InnerBlogLayout.astro
+import Layout from './Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BlogHeaderMeta from '../components/BlogHeaderMeta.astro';
+import BlogImage from '../components/BlogImage.astro';
+import BlogContent from '../components/BlogContent.astro';
+import BlogYouTubePreview from '../components/BlogYouTubePreview.astro';
+import BlogPaginationNav from '../components/BlogPaginationNav.astro';
+import BlogShareAndLike from '../components/BlogShareAndLike.astro';
+import BlogTags from '../components/BlogTags.astro';
+import BlogRelatedPosts from '../components/BlogRelatedPosts.astro';
+import BlogMoreOnAstrology from '../components/BlogMoreOnAstrology.astro';
+import { globalMoreOnAstrology } from '../data/globalTopics';
+import BlogRecommendations from '../components/BlogRecommendations.astro';
+import BlogKoFiCTA from '../components/BlogKoFiCTA.astro';
+import BlogComments from '../components/BlogComments.astro';
+import { normalizePost } from '../utils/normalizeBlog';
+
+const { post, prevPost, nextPost } = Astro.props;
+
+// Normalize to grab clean post data across the board
+const normalized = normalizePost(post);
+
+const title = normalized.title || 'Untitled Post';
+const date = normalized.date;
+const readTime = normalized.readTime || '5 min read';
+const author = normalized.author || 'Star Weave Astrology';
+const image = normalized.image;
+const youtubeUrl = post?.data?.youtubeUrl || post?.youtubeUrl;
+const youtubeTitle = post?.data?.youtubeTitle || post?.youtubeTitle;
+const tags = post?.data?.tags || normalized.tags || [];
+const rawRelated = post?.data?.relatedPosts || post?.relatedPosts || normalized.relatedPosts || [];
+const relatedPosts = rawRelated.map((p: any) => ({
+  title: p.title,
+  url: p.url,
+  description: p.description || p.data?.description,
+  thumbnail: p.thumbnail || p.data?.thumbnail
+}));
+
+// Enforce robust fallback check so it defaults to the global array if empty/undefined
+const customTopics = post?.data?.moreOnAstrology || normalized.moreOnAstrology || [];
+const moreOnAstrology = [...globalMoreOnAstrology, ...customTopics];
+---
+
+<Layout title={`${title} | Star Weave Astrology`}>
+  <Header />
+  
+  <main class="inner-blog-wrapper">
+    <article class={`magazine-article ${!image ? 'no-hero-image' : ''}`}>
+      
+      <header class="article-header">
+        <h1 class="article-title">{title}</h1>
+        <div class="meta-row">
+          <span class="read-time">{readTime}</span>
+          <span class="meta-separator">|</span>
+          <BlogHeaderMeta author={author} date={date} />
+        </div>
+      </header>
+
+      {image && <BlogImage src={image} alt={title} />}
+
+      <BlogContent>
+        <slot />
+      </BlogContent>
+
+      <BlogYouTubePreview youtubeUrl={youtubeUrl} youtubeTitle={youtubeTitle} />
+
+      <BlogPaginationNav prevPost={prevPost} nextPost={nextPost} />
+
+      <BlogShareAndLike postId={normalized.slug} postTitle={title} />
+
+      <BlogTags tags={tags} />
+
+      <BlogRelatedPosts posts={relatedPosts} />
+
+      <BlogMoreOnAstrology topics={moreOnAstrology} />
+
+      <BlogRecommendations 
+        currentSlug={normalized.slug} 
+        currentTags={tags} 
+        currentTitle={title} 
+      />
+
+      <BlogKoFiCTA koFiUrl="https://ko-fi.com/yourprofile" />
+
+      <BlogComments postId={normalized.slug} />
+
+    </article>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  :root {
+    /* Fluid Spacing Scale: scales smoothly from mobile to desktop */
+    --spacing-section: clamp(1.5rem, 4vw, 3rem);
+    --spacing-element: clamp(1rem, 2.5vw, 1.75rem);
+    
+    /* Fluid Typography Scale */
+    --font-size-title: clamp(1.5rem, 3vw, 2.25rem);
+    --font-size-body: clamp(0.88rem, 1.2vw, 1rem);
+  }
+
+  /* Ensure all flex containers respect box-sizing and fluid gaps */
+  .inner-blog-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: calc(56px + var(--spacing-section)) clamp(1rem, 3vw, 1.5rem) var(--spacing-section) clamp(1rem, 3vw, 1.5rem);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-section);
+  }
+
+  /* Ensure all direct children inside the wrapper scale fluidly */
+  .inner-blog-wrapper > * {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Magazine Article Container */
+  .magazine-article {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-section);
+    width: 100%;
+  }
+
+  .article-header {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-element);
+  }
+
+  .article-title {
+    font-family: 'Joan', serif;
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    line-height: 1.2;
+    color: #1A1A1A;
+    margin: 0;
+  }
+  html.dark .article-title {
+    color: #F9FAFB;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(11px, 1.2vw, 12px);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #EBAF24;
+  }
+
+  .read-time {
+    font-weight: 500;
+  }
+
+  .meta-separator {
+    opacity: 0.6;
+  }
+
+  .blog-recommendations,
+  .kofi-cta-section,
+  .comments-section {
+    margin-top: var(--spacing-section);
+    margin-bottom: 0;
+  }
+</style>

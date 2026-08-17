@@ -1,0 +1,170 @@
+---
+import { Image } from 'astro:assets';
+import LogoStarPng from '../assets/icons/LogoStar.png';
+import LogoTypographyPng from '../assets/icons/LogoTypography.png';
+import ArrowHeroPng from '../assets/icons/ArrowHero.png';
+
+interface Props {
+  starPatternImg?: ImageMetadata | string;
+  logoTypoImg?: ImageMetadata | string;
+  mainSlogan?: string;
+  heroImage?: string;
+  ctaText?: string;
+}
+
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
+
+const {
+  starPatternImg = LogoStarPng,
+  logoTypoImg = LogoTypographyPng,
+  mainSlogan = "Weave the Cosmic Threads of your Life.",
+  heroImage = `${base}/assets/images/hero-default.png`,
+  ctaText = "Learn the Intuitive Art of Astrology"
+} = Astro.props;
+---
+
+<section class="hero-section">
+  <!-- Top Logos & Main Slogan Stack -->
+  <div class="hero-branding">
+    <div class="star-pattern-box">
+      <Image src={starPatternImg} alt="Star Pattern" width={111} height={112} densities={[1, 2]} quality="max" loading="eager" />
+    </div>
+    <div class="logo-typography-box">
+      <Image src={logoTypoImg} alt="Star Weave Astrology" width={560} height={186} densities={[1, 2]} quality="max" loading="eager" />
+    </div>
+    <p class="main-slogan">{mainSlogan}</p>
+  </div>
+
+  <!-- Hero Image Box -->
+  <div class="hero-image-container">
+    <div class="hero-image-wrapper">
+      <img src={heroImage} alt="Hero Featured Visual" />
+    </div>
+  </div>
+
+  <!-- CTA Section with Golden Glitter Arrow PNG directly following hero image -->
+  <div class="hero-cta-box">
+    <a href="#main-content" class="cta-link">
+      <span>{ctaText}</span>
+      <span class="gold-glitter-arrow">
+        <Image src={ArrowHeroPng} alt="Scroll Down Arrow" width={10} height={100} densities={[1, 2]} quality="max" />
+      </span>
+    </a>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: calc(56px + clamp(1.5rem, 4vw, 3rem)) clamp(1rem, 3vw, 2rem) clamp(1.5rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    color: #1A1A1A;
+  }
+
+  html.dark .hero-section {
+    color: #E2E4E9;
+  }
+
+  .hero-branding {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+    width: 100%;
+  }
+
+  .star-pattern-box img {
+    width: clamp(70px, 10vw, 111px);
+    height: auto;
+    object-fit: contain;
+    margin-bottom: clamp(0.75rem, 2vw, 1rem);
+  }
+
+  .logo-typography-box img {
+    max-width: clamp(280px, 50vw, 560px);
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: clamp(0.4rem, 1.5vw, 0.5rem);
+  }
+
+  .main-slogan {
+    font-family: 'Joan', serif;
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    letter-spacing: 0.05em;
+    opacity: 0.9;
+    color: #1A1A1A;
+    margin: 0;
+  }
+  html.dark .main-slogan { 
+    color: #E2E4E9; 
+  }
+
+  .hero-image-container {
+    width: 100%;
+    margin-bottom: clamp(1.5rem, 4vw, 3rem);
+  }
+
+  .hero-image-wrapper {
+    width: 100%;
+    aspect-ratio: 1200 / 500;
+    max-height: 500px;
+    border-radius: clamp(12px, 2vw, 20px);
+    overflow: hidden;
+    background: rgba(235, 175, 36, 0.05);
+    border: 1px solid rgba(235, 175, 36, 0.15);
+  }
+
+  .hero-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-cta-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .cta-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(10px, 2vw, 16px);
+    text-decoration: none;
+    font-family: 'Joan', serif;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    color: #1A1A1A;
+    transition: color 0.2s ease;
+  }
+  html.dark .cta-link { 
+    color: #E2E4E9; 
+  }
+
+  .cta-link:hover {
+    color: var(--accent-gold, #EBAF24);
+  }
+
+  .gold-glitter-arrow {
+    width: 10px;
+    height: clamp(60px, 12vw, 100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gold-glitter-arrow img {
+    width: 10px;
+    height: 100%;
+    object-fit: contain;
+  }
+</style>

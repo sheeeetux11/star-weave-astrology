@@ -1,0 +1,87 @@
+{
+  "masterlists": [
+    {
+      "title": "ASPECTS + PATTERNS",
+      "sublinks": [
+        { "text": "MAJOR + MINOR ASPECTS", "url": "/category/major-minor-aspects" },
+        { "text": "ASCENDNAT ASPECTS", "url": "/category/ascendant-aspects" },
+        { "text": "MIDHEAVEN ASPECTS", "url": "/category/midheaven-aspects" },
+        { "text": "NORTH NODE ASPECTS", "url": "/category/north-node-aspects" },
+        { "text": "ASPECTS PATTERNS", "url": "/category/aspects-patterns" },
+        { "text": "PLANETARY ASPECTS", "url": "/category/planetary-aspects" },
+        { "text": "RARE ASPECTS", "url": "/category/rare-aspects" }
+      ]
+    },
+    {
+      "title": "PLANETS + POINTS + RETROGRADES",
+      "sublinks": [
+        { "text": "10 PLANETS OF ASTROLOGY", "url": "/category/10-planets" },
+        { "text": "ASCENDANT + MIDHEAVEN + NORTH NODE", "url": "/category/nodes-angles" },
+        { "text": "PART OF FORTUNE + LILITH + IC", "url": "/category/fortune-lilith-ic" },
+        { "text": "RETROGRADES OF PLANETS", "url": "/category/retrogrades" },
+        { "text": "MYTHOLOGY + LORE", "url": "/category/mythology-lore" }
+      ]
+    },
+    {
+      "title": "SIGNS + HOUSES (PLACEMENTS)",
+      "sublinks": [
+        { "text": "12 ZODIAC SIGNS", "url": "/category/zodiac-signs" },
+        { "text": "12 HOUSES", "url": "/category/houses" },
+        { "text": "SIGN + HOUSE RULERS", "url": "/category/rulers" },
+        { "text": "MYTHOLOGY + LORE", "url": "/category/signs-mythology" }
+      ]
+    },
+    {
+      "title": "MOON + TRANSITS ASTROLOGY",
+      "sublinks": [
+        { "text": "MOON ASTROLOGY", "url": "/category/moon-astrology" },
+        { "text": "FULL + NEW MOON", "url": "/category/full-new-moon" },
+        { "text": "MOON CALENDAR", "url": "/category/moon-calendar" },
+        { "text": "PLANETS TRANSITS", "url": "/category/planets-transits" },
+        { "text": "RETROGRADE SURVIVAL GUIDES", "url": "/category/retrograde-guides" },
+        { "text": "2026 TRANSITS CALENDAR", "url": "/category/2026-transits" }
+      ]
+    },
+    {
+      "title": "ASTEROID ASTROLOGY",
+      "sublinks": [
+        { "text": "ASTEROIDS", "url": "/category/asteroids" },
+        { "text": "ASTEROID ASPECTS", "url": "/category/asteroid-aspects" },
+        { "text": "RETROGRADE ASTEROIDS", "url": "/category/retrograde-asteroids" },
+        { "text": "MYTHOLOGY + LORE", "url": "/category/asteroid-mythology" }
+      ]
+    },
+    {
+      "title": "CHART INTERPRETATION",
+      "sublinks": [
+        { "text": "NATAL (PLACIDUS + WHOLE SIGNS)", "url": "/category/natal-charts" },
+        { "text": "SYNASTRY + COMPOSITE", "url": "/category/synastry-composite" },
+        { "text": "SOLAR RETURN + SOLAR ARC", "url": "/category/solar-return" },
+        { "text": "ASTROCARTOGRAPHY", "url": "/category/astrocartography" }
+      ]
+    },
+    {
+      "title": "FIXED STARS + DEGREE THEORY",
+      "sublinks": [
+        { "text": "FIXED STARS", "url": "/category/fixed-stars" },
+        { "text": "DEGREE THEORY", "url": "/category/degree-theory" },
+        { "text": "CONSTELLATIONS", "url": "/category/constellations" },
+        { "text": "MYTHOLOGY + LORE", "url": "/category/stars-mythology" }
+      ]
+    },
+    {
+      "title": "SIDEREAL (VEDIC) ASTROLOGY",
+      "sublinks": [
+        { "text": "VEDIC ASTROLOGY", "url": "/category/vedic-astrology" },
+        { "text": "NAKSHATRAS (LUNAR MANSIONS)", "url": "/category/nakshatras" }
+      ]
+    }
+  ],
+  "footer_links": [
+    { "text": "Read Blog", "url": "/blog" },
+    { "text": "Watch on YouTube", "url": "/youtube" },
+    { "text": "Tumblr", "url": "https://tumblr.com" },
+    { "text": "Star Weave Astrology (About)", "url": "/about" },
+    { "text": "SHEETU (the Creator)", "url": "/creator" }
+  ]
+}

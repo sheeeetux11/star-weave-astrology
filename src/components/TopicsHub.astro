@@ -1,0 +1,384 @@
+---
+// src/components/TopicsHub.astro
+import { Image } from 'astro:assets';
+import ChevronIcon from '../assets/icons/Chevron.svg';
+
+interface TopicCard {
+  type: 'text' | 'image';
+  title?: string;
+  items?: string[];
+  imageSrc?: string;
+  imageAlt?: string;
+  link: string;
+}
+
+interface Props {
+  headerTitle?: string;
+  headerDescription?: string;
+  cards?: TopicCard[];
+}
+
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
+
+const {
+  headerTitle = "Explore the depths of Tropical + Sidereal Astrology.",
+  headerDescription = "Blend the Traditional & Ancient with the Modern & Evolutionary Astrology. From Reading Charts, Interpreting Placements, Aspects & Patterns to Astros, Solar Return Charts and other intriguing corners of Astrology. Learn and explore at your own pace from an extensive array of topics.",
+  cards = [
+    {
+      type: 'text',
+      title: 'Planets + Points + Retrogrades',
+      items: [
+        '10 Planets of Astrology',
+        'Ascendant + Midheaven + North Node + Part of Fortune + Lilith + IC',
+        'Retrograde Planets',
+        'Mythology + Lore'
+      ],
+      link: '/topics/planets-points-retrogrades'
+    },
+    {
+      type: 'text',
+      title: 'Signs + Houses (Placements)',
+      items: [
+        '12 Zodiac Signs',
+        '12 Houses',
+        'Mythology + Lore'
+      ],
+      link: '/topics/signs-houses-placements'
+    },
+    {
+      type: 'image',
+      imageSrc: '/assets/images/constellation-scorpio.png',
+      imageAlt: 'Asteroid Constellation',
+      link: '/topics/asteroid-astrology'
+    },
+    {
+      type: 'text',
+      title: 'Asteroid Astrology',
+      items: [
+        'Asteroids',
+        'Retrograde Asteroids',
+        'Mythology + Lore'
+      ],
+      link: '/topics/asteroid-astrology'
+    },
+    {
+      type: 'image',
+      imageSrc: '/assets/images/saturn-ring.png',
+      imageAlt: 'Saturn Ring Visual',
+      link: '/topics/aspects-patterns'
+    },
+    {
+      type: 'text',
+      title: 'Aspects + Patterns',
+      items: [
+        'Aspects Patterns',
+        'Major + Minor Aspects',
+        'Ascendant + Midheaven + North Node',
+        'Planetary + Rare + Asteroid Aspects'
+      ],
+      link: '/topics/aspects-patterns'
+    },
+    {
+      type: 'text',
+      title: 'Moon + Transits Astrology',
+      items: [
+        'Moon Astrology',
+        'Full + New Moon',
+        'Moon Calendar',
+        'Venus + Saturn Transits',
+        'Retrogrades Survival Guides',
+        '2026 Transits Calendar ...'
+      ],
+      link: '/topics/moon-transits'
+    },
+    {
+      type: 'text',
+      title: 'Chart Interpretation',
+      items: [
+        'Natal (Placidus + Whole Signs)',
+        'Synastry + Composite',
+        'Solar Return + Solar Arc',
+        'Astrocartography'
+      ],
+      link: '/topics/chart-interpretation'
+    }
+  ]
+} = Astro.props;
+
+// Ensure all card links and image paths correctly respect the base subpath
+const processedCards = cards.map(card => ({
+  ...card,
+  link: `${base}${card.link.startsWith('/') ? '' : '/'}${card.link}`,
+  imageSrc: card.imageSrc ? `${base}${card.imageSrc.startsWith('/') ? '' : '/'}${card.imageSrc}` : undefined
+}));
+---
+
+<section class="topics-hub-section" id="topics-hub">
+  <!-- Top Dual Text Boxes Header -->
+  <div class="topics-header-container">
+    <div class="header-box title-box">
+      <h2>{headerTitle}</h2>
+    </div>
+    <div class="header-box description-box">
+      <p>{headerDescription}</p>
+    </div>
+  </div>
+
+  <!-- Scroll Navigation Controls -->
+  <div class="topics-nav-controls">
+    <button class="scroll-btn scroll-left" aria-label="Scroll Left" type="button">
+      <span class="chevron-circle">
+        <Image src={ChevronIcon} alt="Scroll Left" width={10} height={16} class="chevron-img rotate-left" />
+      </span>
+    </button>
+    <button class="scroll-btn scroll-right" aria-label="Scroll Right" type="button">
+      <span class="chevron-circle">
+        <Image src={ChevronIcon} alt="Scroll Right" width={10} height={16} class="chevron-img" />
+      </span>
+    </button>
+  </div>
+
+  <!-- Horizontally Scrollable 2-Row Cards Container with Peek Effect & Fixed Left Alignment -->
+  <div class="topics-scroll-viewport" id="topicsViewport">
+    <div class="topics-grid-track" id="topicsTrack">
+      {processedCards.map((card) => (
+        <a href={card.link} class="topic-card">
+          {card.type === 'text' ? (
+            <div class="card-content-text">
+              <h3>{card.title}</h3>
+              {card.items && card.items.length > 0 && (
+                <ul class="master-list">
+                  {card.items.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ) : (
+            <div class="card-content-image">
+              <img src={card.imageSrc} alt={card.imageAlt || 'Topic Visual'} />
+            </div>
+          )}
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Robust Responsive Horizontal Scrolling Script tied to Chevrons & Track
+  const track = document.getElementById('topicsTrack');
+  const btnLeft = document.querySelector('.scroll-left');
+  const btnRight = document.querySelector('.scroll-right');
+
+  if (track && btnLeft && btnRight) {
+    const scrollOffset = 270; // card size (250px) + gap (20px)
+
+    btnLeft.addEventListener('click', () => {
+      track.parentElement?.scrollBy({ left: -scrollOffset, behavior: 'smooth' });
+    });
+
+    btnRight.addEventListener('click', () => {
+      track.parentElement?.scrollBy({ left: scrollOffset, behavior: 'smooth' });
+    });
+  }
+</script>
+
+<style>
+  /* Styles remain unchanged */
+  .topics-hub-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: clamp(3rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  .topics-header-container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: clamp(1rem, 3vw, 2rem);
+    margin-bottom: clamp(1.5rem, 3vw, 2rem);
+    width: 100%;
+  }
+
+  .header-box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  .title-box h2 {
+    font-family: 'Joan', serif;
+    font-size: clamp(2rem, 3vw, 2.75rem);
+    line-height: 1.2;
+    color: #1A56DB;
+    margin: 0;
+  }
+  html.dark .title-box h2 {
+    color: #60A5FA;
+  }
+
+  .description-box p {
+    font-family: 'Joan', serif;
+    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+    line-height: 1.6;
+    color: #374151;
+    margin: 0;
+    opacity: 0.9;
+  }
+  html.dark .description-box p {
+    color: #D1D5DB;
+  }
+
+  @media (max-width: 900px) {
+    .topics-header-container {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+
+  .topics-nav-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: clamp(0.75rem, 1.5vw, 1rem);
+    margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
+  }
+
+  .scroll-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .chevron-circle {
+    width: clamp(40px, 4.5vw, 45px);
+    height: clamp(40px, 4.5vw, 45px);
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid rgba(235, 175, 36, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+  }
+
+  .chevron-circle:hover {
+    background: rgba(235, 175, 36, 0.2);
+    border-color: #EBAF24;
+  }
+
+  .chevron-img {
+    width: 10px;
+    height: 16px;
+    object-fit: contain;
+  }
+
+  .rotate-left {
+    transform: rotate(180deg);
+  }
+
+  .topics-scroll-viewport {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 1rem;
+    scroll-behavior: smooth;
+    mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
+  }
+
+  .topics-scroll-viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .topics-grid-track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(2, clamp(220px, 22vw, 250px));
+    gap: clamp(14px, 2vw, 20px);
+    width: max-content;
+    justify-content: start;
+    padding: 4px clamp(1rem, 3vw, 2rem);
+  }
+
+  .topic-card {
+    width: clamp(220px, 22vw, 250px);
+    height: clamp(220px, 22vw, 250px);
+    border-radius: 20px;
+    border: 1px solid rgba(235, 175, 36, 0.4);
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: clamp(16px, 2.5vw, 24px);
+    box-sizing: border-box;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    overflow: hidden;
+  }
+
+  .topic-card:hover {
+    border-color: #EBAF24;
+    background: rgba(235, 175, 36, 0.03);
+  }
+
+  .card-content-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+  }
+
+  .card-content-text h3 {
+    font-family: 'Joan', serif;
+    font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+    line-height: 1.2;
+    color: #1A1A1A;
+    margin: 0 0 clamp(6px, 1vw, 10px) 0;
+  }
+  html.dark .card-content-text h3 {
+    color: #F9FAFB;
+  }
+
+  .master-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2px, 0.5vw, 3px);
+    font-family: 'Joan', serif;
+    font-size: clamp(0.7rem, 1vw, 0.76rem);
+    line-height: 1.35;
+    color: #4B5563;
+    overflow: hidden;
+  }
+  html.dark .master-list {
+    color: #9CA3AF;
+  }
+
+  .card-content-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-content-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+</style>

@@ -1,0 +1,103 @@
+---
+// src/components/BackToTop.astro
+import { Image } from 'astro:assets';
+import ChevronIcon from '../assets/icons/Chevron.svg';
+---
+
+<button id="back-to-top-btn" class="back-to-top-btn" aria-label="Back to top" type="button">
+  <span class="chevron-wrapper">
+    <Image src={ChevronIcon} alt="Scroll to top" width={10} height={16} class="back-to-top-icon" />
+  </span>
+</button>
+
+<style>
+  .back-to-top-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 45px;
+    height: 45px;
+    background: var(--bg-dark, #0D0F12);
+    border: 0.5px solid rgba(235, 175, 36, 0.4);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, border-color 0.2s ease, background-color 0.2s ease;
+    box-sizing: border-box;
+    padding: 0;
+  }
+
+  html:not(.dark) .back-to-top-btn {
+    background: #FFFFFF;
+    border-color: rgba(26, 86, 219, 0.3);
+  }
+
+  .back-to-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .back-to-top-btn:hover {
+    border-color: rgba(235, 175, 36, 0.9);
+    background: rgba(235, 175, 36, 0.05);
+  }
+
+  html:not(.dark) .back-to-top-btn:hover {
+    border-color: rgba(26, 86, 219, 0.8);
+    background: rgba(26, 86, 219, 0.05);
+  }
+
+  .chevron-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .back-to-top-icon {
+    /* Rotated 270 deg or -90 deg from right-facing Chevron to point straight UP matching your spec */
+    transform: rotate(-90deg);
+    width: 10px;
+    height: 16px;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(78%) sepia(45%) saturate(718%) hue-rotate(352deg) brightness(97%) contrast(91%);
+  }
+
+  html:not(.dark) .back-to-top-icon {
+    filter: brightness(0) saturate(100%) invert(27%) sepia(89%) saturate(1637%) hue-rotate(215deg) brightness(94%) contrast(97%);
+  }
+
+  @media (max-width: 768px) {
+    .back-to-top-btn {
+      bottom: 1.25rem;
+      right: 1.25rem;
+      width: 40px;
+      height: 40px;
+    }
+  }
+</style>
+
+<script>
+  const backToTopBtn = document.getElementById('back-to-top-btn');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTopBtn?.classList.add('visible');
+    } else {
+      backToTopBtn?.classList.remove('visible');
+    }
+  });
+
+  backToTopBtn?.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+</script>

@@ -1,0 +1,218 @@
+---
+interface TopicCard {
+  title: string;
+  image: string;
+  url: string;
+}
+
+interface Props {
+  topics?: TopicCard[];
+}
+
+const { topics = [] } = Astro.props;
+const safeTopics = Array.isArray(topics) ? topics : [];
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+{safeTopics.length > 0 && (
+  <section class="more-on-astrology-section">
+    <!-- Header with Section Title and Chevrons -->
+    <div class="more-header-wrapper">
+      <button class="scroll-btn left-btn" aria-label="Scroll left" id="scroll-left">
+        <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 13L1 7L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="header-content">
+        <div class="header-line"></div>
+        <h2 class="more-heading">MORE ON ASTROLOGY</h2>
+        <div class="header-line"></div>
+      </div>
+
+      <button class="scroll-btn right-btn" aria-label="Scroll right" id="scroll-right">
+        <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 13L7 7L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Scrollable Mini Cards Container with Pick-Through Fade -->
+    <div class="scroller-wrapper">
+      <div class="mini-cards-track" id="topics-track">
+        {safeTopics.map((topic) => {
+          const isInternal = topic.url.startsWith('/');
+          const resolvedUrl = isInternal ? `${base}${topic.url}` : topic.url;
+          
+          return (
+            <a href={resolvedUrl} class="mini-topic-card">
+              <div class="mini-card-image-wrapper">
+                <img src={topic.image} alt={topic.title} loading="lazy" />
+              </div>
+              <span class="mini-card-title">{topic.title}</span>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+
+  <script>
+    const track = document.getElementById('topics-track');
+    const leftBtn = document.getElementById('scroll-left');
+    const rightBtn = document.getElementById('scroll-right');
+
+    if (track && leftBtn && rightBtn) {
+      const scrollAmount = 300;
+      leftBtn.addEventListener('click', () => {
+        track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      });
+      rightBtn.addEventListener('click', () => {
+        track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      });
+    }
+  </script>
+)}
+
+<style>
+  .more-on-astrology-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: clamp(2rem, 4vw, 40px) auto;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(14px, 2vw, 20px);
+    box-sizing: border-box;
+    padding: 0 clamp(1rem, 2.5vw, 1.5rem);
+  }
+
+  /* Header Layout */
+  .more-header-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 2vw, 15px);
+  }
+
+  .header-content {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    gap: clamp(12px, 2vw, 20px);
+  }
+
+  .header-line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: rgba(34, 86, 136, 0.4);
+  }
+
+  html.dark .header-line {
+    background-color: rgba(235, 175, 36, 0.3);
+  }
+
+  .more-heading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: clamp(11px, 1.2vw, 12px);
+    letter-spacing: 0.05em;
+    color: #225688;
+    margin: 0;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  html.dark .more-heading {
+    color: #F9FAFB;
+  }
+
+  /* Chevron Buttons */
+  .scroll-btn {
+    background: transparent;
+    border: 1px solid rgba(235, 175, 36, 0.4);
+    color: #EBAF24;
+    width: clamp(32px, 4vw, 36px);
+    height: clamp(32px, 4vw, 36px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .scroll-btn:hover {
+    background-color: rgba(235, 175, 36, 0.1);
+    border-color: #EBAF24;
+  }
+
+  /* Scroller & Pick-Through Mask */
+  .scroller-wrapper {
+    width: 100%;
+    position: relative;
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  }
+
+  .mini-cards-track {
+    display: flex;
+    gap: clamp(12px, 2vw, 15px);
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 5px;
+  }
+
+  .mini-cards-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Mini Cards */
+  .mini-topic-card {
+    display: flex;
+    align-items: center;
+    gap: clamp(8px, 1.5vw, 10px);
+    background: transparent;
+    border: 1px solid rgba(235, 175, 36, 0.4);
+    padding: clamp(8px, 1.5vw, 10px) clamp(12px, 2vw, 16px);
+    border-radius: 20px;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+
+  .mini-topic-card:hover {
+    border-color: #EBAF24;
+    background-color: rgba(235, 175, 36, 0.05);
+  }
+
+  .mini-card-image-wrapper {
+    width: clamp(28px, 3.5vw, 32px);
+    height: clamp(28px, 3.5vw, 32px);
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #f0f0f0;
+  }
+
+  .mini-card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .mini-card-title {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.8rem, 1.2vw, 14px);
+    font-weight: 500;
+    color: #1A1A1A;
+    white-space: nowrap;
+  }
+
+  html.dark .mini-card-title {
+    color: #F9FAFB;
+  }
+</style>

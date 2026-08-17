@@ -1,0 +1,39 @@
+---
+// src/components/BlogHeaderMeta.astro
+interface Props {
+  author?: string;
+  date?: string;
+}
+
+const { author = "Star Weave Astrology", date = "" } = Astro.props;
+---
+
+{date && author && (
+  <div class="blog-header-meta">
+    {date && <span class="meta-item">{date}</span>}
+    {date && author && <span class="meta-separator">|</span>}
+    {author && <span class="meta-item">{author}</span>}
+  </div>
+)}
+
+<style>
+  .blog-header-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.5rem, 1.5vw, 0.75rem);
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(10px, 1.2vw, 12px);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #EBAF24;
+  }
+
+  .meta-separator {
+    opacity: 0.6;
+  }
+
+  .meta-item {
+    font-weight: 500;
+  }
+</style>

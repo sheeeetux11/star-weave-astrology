@@ -1,0 +1,234 @@
+---
+// src/components/Footer.astro
+import { Image } from 'astro:assets';
+import LogoStar from '../assets/icons/LogoStar.png';
+import LogoTypography from '../assets/icons/LogoTypography.png';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+interface SocialLink {
+  name: string;
+  url: string;
+  icon: string;
+}
+
+interface Props {
+  socials?: SocialLink[];
+  copyrightText?: string;
+}
+
+const {
+  socials = [
+    { name: "Tumblr", url: "https://tumblr.com", icon: "tumblr" },
+    { name: "YouTube", url: "https://youtube.com", icon: "youtube" },
+    { name: "Threads", url: "https://threads.net", icon: "threads" },
+    { name: "Instagram", url: "https://instagram.com", icon: "instagram" },
+    { name: "Pinterest", url: "https://pinterest.com", icon: "pinterest" },
+    { name: "Ko-Fi", url: "https://ko-fi.com", icon: "kofi" }
+  ],
+  copyrightText = "© COPYRIGHT 2026, Star Weave Astrology. ALL RIGHTS RESERVED."
+} = Astro.props;
+---
+
+<footer class="site-footer">
+  <div class="footer-container">
+    
+    <!-- Section 1: Dual Logos -->
+    <div class="footer-brand-container">
+      <div class="footer-logo-wrap">
+        <Image src={LogoStar} alt="Star Pattern Logo" class="footer-logo star-logo" />
+        <Image src={LogoTypography} alt="Star Weave Astrology" class="footer-logo text-logo" />
+      </div>
+    </div>
+
+    <!-- Section 2: Follow Along on our Socials -->
+    <div class="footer-socials-container">
+      <p class="socials-heading">Follow along on our Socials</p>
+      <div class="social-icons-list">
+        {socials.map((social) => (
+          <a href={social.url} target="_blank" rel="noopener noreferrer" class="social-icon-item" aria-label={social.name}>
+            {social.icon === 'tumblr' && (
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="18" height="18" class="flat-social-svg"><path d="M8.998 6.995v3.664c0 .924-.01 1.464.086 1.728.096.259.338.531.613.691a2.3 2.3 0 0 0 1.204.314c.811 0 1.296-.104 2.1-.629v2.405a8.956 8.956 0 0 1-1.838.636A7.542 7.542 0 0 1 9.369 16c-.733 0-1.169-.09-1.723-.273a4.131 4.131 0 0 1-1.443-.794c-.405-.34-.67-.703-.825-1.089-.158-.383-.232-.944-.232-1.679V6.558H2.999V4.291c.632-.207 1.332-.498 1.784-.879a4.43 4.43 0 0 0 1.07-1.378c.275-.528.462-1.211.566-2.034h2.579v4.001h4.003v2.994H8.998z" fill="currentColor"></path></svg>
+            )}
+            {social.icon === 'youtube' && (
+              <svg viewBox="0 0 24 24" width="26" height="26" class="flat-social-svg"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            )}
+            {social.icon === 'threads' && (
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20" class="flat-social-svg"><path fill="currentColor" d="M35.3843 22.2471C35.1775 22.148 34.9675 22.0526 34.7547 21.9613C34.3842 15.1346 30.654 11.2262 24.3905 11.1862C24.3621 11.1861 24.3339 11.1861 24.3055 11.1861C20.5591 11.1861 17.4433 12.7852 15.5255 15.6952L18.9702 18.0582C20.4029 15.8846 22.6513 15.4212 24.3071 15.4212C24.3263 15.4212 24.3455 15.4212 24.3644 15.4214C26.4268 15.4345 27.983 16.0342 28.9902 17.2035C29.7232 18.0548 30.2135 19.2313 30.4562 20.716C28.6277 20.4052 26.6502 20.3096 24.5362 20.4308C18.5812 20.7738 14.7528 24.247 15.0099 29.073C15.1404 31.521 16.3599 33.627 18.4438 35.0028C20.2056 36.1657 22.4748 36.7345 24.8331 36.6058C27.9475 36.435 30.3907 35.2467 32.0952 33.074C33.3897 31.424 34.2085 29.2857 34.57 26.5915C36.0542 27.4872 37.1543 28.666 37.7617 30.083C38.7948 32.4917 38.855 36.45 35.6253 39.677C32.7955 42.504 29.394 43.727 24.2534 43.7648C18.551 43.7225 14.2384 41.8937 11.4345 38.3293C8.80887 34.9915 7.45192 30.1705 7.4013 24C7.45192 17.8295 8.80887 13.0084 11.4345 9.67068C14.2384 6.10623 18.551 4.2775 24.2533 4.23513C29.997 4.27782 34.3848 6.11535 37.296 9.697C38.7235 11.4534 39.7998 13.6622 40.5093 16.2376L44.546 15.1606C43.686 11.9906 42.3327 9.25893 40.4912 6.9935C36.759 2.40167 31.3005 0.048787 24.2674 0H24.2392C17.2204 0.0486175 11.823 2.41045 8.19707 7.01982C4.97047 11.1216 3.3061 16.8289 3.25017 23.9831L3.25 24L3.25017 24.0169C3.3061 31.171 4.97047 36.8785 8.19707 40.9803C11.823 45.5895 17.2204 47.9515 24.2392 48H24.2674C30.5075 47.9567 34.906 46.323 38.5295 42.7028C43.2702 37.9665 43.1275 32.0298 41.565 28.3853C40.444 25.7717 38.3068 23.649 35.3843 22.2471ZM24.6101 32.3768C22.0001 32.5238 19.2886 31.3523 19.1549 28.843C19.0558 26.9825 20.479 24.9065 24.7703 24.6592C25.2617 24.6308 25.744 24.617 26.2178 24.617C27.7765 24.617 29.2347 24.7684 30.5605 25.0583C30.066 31.2337 27.1655 32.2365 24.6101 32.3768Z"></path></svg>
+            )}
+            {social.icon === 'instagram' && (
+              <svg viewBox="0 0 24 24" width="20" height="20" class="flat-social-svg"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            )}
+            {social.icon === 'pinterest' && (
+              <svg viewBox="0 0 24 24" width="21" height="21" class="flat-social-svg"><path fill="currentColor" d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.399.165-1.491-.693-2.424-2.875-2.424-4.629 0-3.767 2.738-7.229 7.892-7.229 4.144 0 7.365 2.953 7.365 6.905 0 4.122-2.599 7.442-6.204 7.442-1.211 0-2.35-.63-2.738-1.375l-.746 2.846c-.27 1.045-1.002 2.352-1.494 3.153 1.12.345 2.305.533 3.525.533 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+            )}
+            {social.icon === 'kofi' && (
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" class="flat-social-svg"><path d="M11.351 2.715c-2.7 0-4.986.025-6.83.26C2.078 3.285 0 5.154 0 8.61c0 3.506.182 6.13 1.585 8.493 1.584 2.701 4.233 4.182 7.662 4.182h.83c4.209 0 6.494-2.234 7.637-4a9.5 9.5 0 0 0 1.091-2.338C21.792 14.688 24 12.22 24 9.208v-.415c0-3.247-2.13-5.507-5.792-5.87-1.558-.156-2.65-.208-6.857-.208m0 1.947c4.208 0 5.09.052 6.571.182 2.624.311 4.13 1.584 4.13 4v.39c0 2.156-1.792 3.844-3.87 3.844h-.935l-.156.649c-.208 1.013-.597 1.818-1.039 2.546-.909 1.428-2.545 3.064-5.922 3.064h-.805c-2.571 0-4.831-.883-6.078-3.195-1.09-2-1.298-4.155-1.298-7.506 0-2.181.857-3.402 3.012-3.714 1.533-.233 3.559-.26 6.39-.26m6.547 2.287c-.416 0-.65.234-.65.546v2.935c0 .311.234.545.65.545 1.324 0 2.051-.754 2.051-2s-.727-2.026-2.052-2.026m-10.39.182c-1.818 0-3.013 1.48-3.013 3.142 0 1.533.858 2.857 1.949 3.897.727.701 1.87 1.429 2.649 1.896a1.47 1.47 0 0 0 1.507 0c.78-.467 1.922-1.195 2.623-1.896 1.117-1.039 1.974-2.364 1.974-3.897 0-1.662-1.247-3.142-3.039-3.142-1.065 0-1.792.545-2.338 1.298-.493-.753-1.246-1.298-2.312-1.298" fill="currentColor"></path></svg>
+            )}
+          </a>
+        ))}
+      </div>
+    </div>
+ 
+
+    <!-- Section 3: Copyright & Policy Links -->
+    <div class="footer-bottom-container">
+      <p class="copyright-text">{copyrightText}</p>
+      <div class="footer-legal-links">
+        <a href={`${base}/privacy-policy`}>Privacy Policy</a>
+        <a href={`${base}/terms`}>Terms</a>
+        <a href={`${base}/cookie-policy`}>Cookie Policy</a>
+      </div>
+    </div>
+
+
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    width: 100%;
+    background-color: transparent;
+    padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 3vw, 2rem) clamp(2rem, 4vw, 3rem);
+    box-sizing: border-box;
+    border-top: 1px solid rgba(235, 175, 36, 0.2);
+    margin-top: clamp(2rem, 5vw, 4rem);
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .footer-brand-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-logo-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.75rem, 2vw, 1.5rem);
+  }
+
+  .footer-logo {
+    height: clamp(50px, 8vw, 70px);
+    width: auto;
+    object-fit: contain;
+  }
+
+  @media (max-width: 600px) {
+    .footer-logo-wrap {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+
+  .footer-socials-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(0.5rem, 1.5vw, 1rem);
+  }
+
+  .socials-heading {
+    font-family: 'Joan', serif;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    color: #374151;
+    margin: 0;
+  }
+  html.dark .socials-heading {
+    color: #D1D5DB;
+  }
+
+  .social-icons-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.75rem, 2vw, 1.25rem);
+    flex-wrap: wrap;
+  }
+
+  .social-icon-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(35px, 5vw, 40px);
+    height: clamp(35px, 5vw, 40px);
+    border-radius: 50%;
+    background: transparent;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+
+  .flat-social-svg {
+    color: #1A1A1A;
+    transition: color 0.2s ease;
+  }
+  html.dark .flat-social-svg {
+    color: #F9FAFB;
+  }
+
+  .social-icon-item:hover {
+    transform: translateY(-3px);
+    background: rgba(235, 175, 36, 0.1);
+  }
+
+  .social-icon-item:hover .flat-social-svg {
+    color: #EBAF24;
+  }
+
+  .footer-bottom-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: clamp(1rem, 2vw, 1.5rem);
+    border-top: 1px solid rgba(235, 175, 36, 0.1);
+    font-family: 'Joan', serif;
+    font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+    color: #1A56DB;
+    flex-wrap: wrap;
+    gap: clamp(0.5rem, 2vw, 1rem);
+  }
+
+  html.dark .footer-bottom-container {
+    color: #60A5FA;
+  }
+
+  .copyright-text {
+    margin: 0;
+  }
+
+  .footer-legal-links {
+    display: flex;
+    gap: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .footer-legal-links a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .footer-legal-links a:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .footer-bottom-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+</style>
