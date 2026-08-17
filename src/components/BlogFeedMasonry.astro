@@ -21,14 +21,17 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     const description = postData?.description || postData?.excerpt || "";
     const topic = postData?.topic || "Astrology";
     
-    // Safer slug resolution handling collection entries (.id, .slug)
+    const rawId = post?.id || post?.slug || postData?.slug || "";
+    let slug = "";
+    if (typeof rawId === 'object' && rawId !== null) {
+      slug = rawId.id || rawId.slug || String(rawId);
+    } else {
+      slug = String(rawId || '');
+    }
+    
+    const cleanSlug = (slug.split('/').pop() || slug).replace(/\.[^/.]+$/, '');
     let url = post?.url;
     if (!url) {
-      const rawId = post?.id || post?.slug || postData?.slug || "";
-      const slug = typeof rawId === 'object' && rawId !== null 
-        ? (rawId as any).id || (rawId as any).slug || String(rawId) 
-        : String(rawId || '');
-      const cleanSlug = (slug.split('/').pop() || slug).replace(/\.[^/.]+$/, '');
       url = `${base}/blogs/${cleanSlug}`;
     } else if (url.startsWith('/')) {
       url = `${base}${url}`;
@@ -91,7 +94,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     }
   }
 
-  /* Force 2 columns across phones and tablets */
   @media (max-width: 768px) {
     .blog-masonry-grid {
       column-count: 2;
