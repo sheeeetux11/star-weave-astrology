@@ -1,3 +1,4 @@
+---
 // src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
@@ -9,17 +10,15 @@ import Footer from '../components/Footer.astro';
 import { getCollection } from 'astro:content';
 import { normalizePost } from '../utils/normalizeBlog';
 
-const allBlogs = await getCollection('blogs') || [];
+const allBlogs = await getCollection('blogs');
 
-// Sort and normalize posts safely
-const recentBlogs = allBlogs
-  .sort((a, b) => {
-    const dateA = new Date(a?.data?.date || 0).getTime();
-    const dateB = new Date(b?.data?.date || 0).getTime();
-    return dateB - dateA;
-  })
-  .slice(0, 6)
-  .map(normalizePost);
+const sortedBlogs = allBlogs ? allBlogs.sort((a, b) => {
+  const dateA = a && a.data && a.data.date ? new Date(a.data.date).getTime() : 0;
+  const dateB = b && b.data && b.data.date ? new Date(b.data.date).getTime() : 0;
+  return dateB - dateA;
+}) : [];
+
+const recentBlogs = sortedBlogs.slice(0, 6).map(normalizePost);
 ---
 
 <Layout title="Star Weave Astrology">
