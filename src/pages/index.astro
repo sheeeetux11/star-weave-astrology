@@ -9,11 +9,15 @@ import Footer from '../components/Footer.astro';
 import { getCollection } from 'astro:content';
 import { normalizePost } from '../utils/normalizeBlog';
 
-const allBlogs = await getCollection('blogs');
+const allBlogs = await getCollection('blogs') || [];
 
-// Sort and normalize posts cleanly
+// Sort and normalize posts safely
 const recentBlogs = allBlogs
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .sort((a, b) => {
+    const dateA = new Date(a?.data?.date || 0).getTime();
+    const dateB = new Date(b?.data?.date || 0).getTime();
+    return dateB - dateA;
+  })
   .slice(0, 6)
   .map(normalizePost);
 ---
