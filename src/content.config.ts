@@ -5,7 +5,7 @@ import { glob } from 'astro/loaders';
 const blogsCollection = defineCollection({
   loader: glob({ 
     pattern: '**/*.md', 
-    base: './content/blogs', // Points directly to your root content/blogs folder
+    base: './src/content/blogs', // Updated to point to src/content/blogs
     generateId: ({ entry }) => {
       return entry.replace(/\.md$/, '');
     }
