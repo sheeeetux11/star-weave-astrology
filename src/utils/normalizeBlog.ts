@@ -35,10 +35,10 @@ export function normalizePost(post: any) {
     }
   }
 
-  return {
+    return {
     id: post.id,
     slug: slug,
-    url: `${base}/blogs/${slug}/`,
+    url: `/star-weave-astrology/blogs/${slug}/`, // Explicitly correct for GitHub Pages subpath for now
     title: post.data?.title || 'Untitled',
     date: post.data?.date || '',
     readTime: post.data?.readTime || '',
@@ -51,4 +51,5 @@ export function normalizePost(post: any) {
     description: post.body ? post.body.slice(0, 150) + '...' : (post.data?.excerpt || ''),
     moreOnAstrology: moreOnAstrology,
   };
+
 }
