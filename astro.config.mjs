@@ -3,5 +3,5 @@ import { defineConfig } from 'astro/config';
 
 export default defineConfig({
   site: 'https://sheeeetux11.github.io',
-  base: '/star-weave-astrology',
+  base: '/star-weave-astrology/', // Ensure the trailing slash is here
 });
