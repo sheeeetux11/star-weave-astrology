@@ -38,7 +38,7 @@ export function normalizePost(post: any) {
   return {
     id: post.id,
     slug: slug,
-    url: `${base}/blogs/${slug}`,
+    url: `${base}/blogs/${slug}/`,
     title: post.data?.title || 'Untitled',
     date: post.data?.date || '',
     readTime: post.data?.readTime || '',
