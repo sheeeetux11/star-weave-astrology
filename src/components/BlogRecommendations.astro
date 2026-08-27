@@ -1,6 +1,8 @@
 ---
+// src/components/Recommendations.astro
 import { getCollection } from 'astro:content';
 import { asset } from '../utils/asset';
+import { normalizePost } from '../utils/normalizeBlog';
 
 interface Props {
   currentSlug: string;
@@ -10,10 +12,12 @@ interface Props {
 
 const { currentSlug, currentTags = [], currentTitle = '' } = Astro.props;
 
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
 
-// Fetch all blog posts
-const allPosts = await getCollection('blogs');
+// Fetch all blog posts and normalize them
+const allRawPosts = await getCollection('blogs');
+const allPosts = allRawPosts.map(normalizePost);
 
 // Filter out the current post
 const otherPosts = allPosts.filter((post) => post.id !== currentSlug && post.slug !== currentSlug);
@@ -21,7 +25,7 @@ const otherPosts = allPosts.filter((post) => post.id !== currentSlug && post.slu
 // Smart recommendation logic: Match by shared tags or similar title words, fallback to latest
 const scoredPosts = otherPosts.map((post) => {
   let score = 0;
-  const postTags = post.data.tags || [];
+  const postTags = post.tags || [];
   
   // Score based on overlapping tags
   const sharedTags = postTags.filter((tag: string) => currentTags.includes(tag));
@@ -29,7 +33,7 @@ const scoredPosts = otherPosts.map((post) => {
 
   // Score based on title similarity keywords
   const titleWords = currentTitle.toLowerCase().split(/\s+/);
-  const postTitleWords = post.data.title.toLowerCase().split(/\s+/);
+  const postTitleWords = post.title.toLowerCase().split(/\s+/);
   const sharedWords = postTitleWords.filter((word: string) => word.length > 3 && titleWords.includes(word));
   score += sharedWords.length;
 
@@ -49,20 +53,19 @@ const recommendedPosts = scoredPosts.slice(0, 4).map((item) => item.post);
 
     <div class="recommendations-grid">
       {recommendedPosts.map((post) => {
-        const rawUrl = `/blogs/${post.id || post.slug}`;
-        const postUrl = `${base}${rawUrl.startsWith('/') ? rawUrl : `/${rawUrl}`}`;
-        const description = post.data.description || (post.body ? post.body.slice(0, 110) + '...' : '');
-        const thumbnail = post.data.image ? asset(post.data.image) : '';
+        const postUrl = post.url;
+        const description = post.description || '';
+        const thumbnail = post.image ? asset(post.image) : '';
 
         return (
           <a href={postUrl} class="rec-card">
             {thumbnail && (
               <div class="rec-thumbnail-wrapper">
-                <img src={thumbnail} alt={post.data.title} class="rec-thumbnail" />
+                <img src={thumbnail} alt={post.title} class="rec-thumbnail" />
               </div>
             )}
             <div class="rec-content">
-              <h3 class="rec-card-title">{post.data.title}</h3>
+              <h3 class="rec-card-title">{post.title}</h3>
               {description && <p class="rec-card-desc">{description}</p>}
             </div>
           </a>
@@ -71,9 +74,6 @@ const recommendedPosts = scoredPosts.slice(0, 4).map((item) => item.post);
     </div>
   </section>
 )}
-
-<!-- style tags remain the same -->
-
 
 <style>
   .recommendations-section {

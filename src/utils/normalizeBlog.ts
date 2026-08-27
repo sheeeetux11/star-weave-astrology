@@ -7,18 +7,41 @@ export function normalizePost(post: any) {
   const slug = (rawId.split('/').pop() || rawId).replace(/\.[^/.]+$/, '');
 
   const rawRelated = post.data?.relatedPosts || [];
-  const relatedPosts = rawRelated.map((p: any) => ({
-    title: p.title,
-    url: p.url && p.url.startsWith('/') ? `${base}${p.url}` : p.url,
-    description: p.description || '',
-    thumbnail: p.thumbnail || ''
-  }));
+  const relatedPosts = rawRelated.map((p: any) => {
+    let pUrl = p.url || '';
+    if (pUrl.startsWith('/') && base && !pUrl.startsWith(base)) {
+      pUrl = `${base}${pUrl}`;
+    } else if (!pUrl.startsWith('http') && !pUrl.startsWith(base) && pUrl) {
+      pUrl = `${base}/${pUrl.replace(/^\//, '')}`;
+    }
+    // Ensure trailing slash on relative internal links
+    if (pUrl && !pUrl.endsWith('/') && !pUrl.includes('#')) {
+      pUrl = `${pUrl}/`;
+    }
+    return {
+      title: p.title,
+      url: pUrl,
+      description: p.description || '',
+      thumbnail: p.thumbnail || ''
+    };
+  });
 
   const rawMore = post.data?.moreOnAstrology || [];
-  const moreOnAstrology = rawMore.map((m: any) => ({
-    ...m,
-    url: m.url && m.url.startsWith('/') ? `${base}${m.url}` : m.url
-  }));
+  const moreOnAstrology = rawMore.map((m: any) => {
+    let mUrl = m.url || '';
+    if (mUrl.startsWith('/') && base && !mUrl.startsWith(base)) {
+      mUrl = `${base}${mUrl}`;
+    } else if (!mUrl.startsWith('http') && !mUrl.startsWith(base) && mUrl) {
+      mUrl = `${base}/${mUrl.replace(/^\//, '')}`;
+    }
+    if (mUrl && !mUrl.endsWith('/') && !mUrl.includes('#')) {
+      mUrl = `${mUrl}/`;
+    }
+    return {
+      ...m,
+      url: mUrl
+    };
+  });
 
   // Clean and normalize image path from Decap CMS
   let rawImage = post.data?.image || post.data?.coverImage || '';
@@ -35,10 +58,10 @@ export function normalizePost(post: any) {
     }
   }
 
-    return {
+  return {
     id: post.id,
     slug: slug,
-    url: `/star-weave-astrology/blogs/${slug}/`, // Explicitly correct for GitHub Pages subpath for now
+    url: `${base}/blogs/${slug}/`, 
     title: post.data?.title || 'Untitled',
     date: post.data?.date || '',
     readTime: post.data?.readTime || '',
@@ -51,5 +74,4 @@ export function normalizePost(post: any) {
     description: post.body ? post.body.slice(0, 150) + '...' : (post.data?.excerpt || ''),
     moreOnAstrology: moreOnAstrology,
   };
-
 }

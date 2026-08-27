@@ -1,5 +1,7 @@
 ---
 // src/components/BlogRelatedPosts.astro
+import { asset } from '../utils/asset';
+
 interface RelatedPost {
   title: string;
   url: string;
@@ -21,19 +23,23 @@ const { posts = [] } = Astro.props;
     </div>
 
     <div class="related-posts-grid">
-      {posts.map((post) => (
-        <a href={post.url} class="related-card">
-          {post.thumbnail && (
-            <div class="related-thumbnail-wrapper">
-              <img src={post.thumbnail} alt={post.title} class="related-thumbnail" />
+      {posts.map((post) => {
+        const thumbnail = post.thumbnail ? asset(post.thumbnail) : '';
+
+        return (
+          <a href={post.url} class="related-card">
+            {thumbnail && (
+              <div class="related-thumbnail-wrapper">
+                <img src={thumbnail} alt={post.title} class="related-thumbnail" />
+              </div>
+            )}
+            <div class="related-content">
+              <h3 class="related-card-title">{post.title}</h3>
+              {post.description && <p class="related-card-desc">{post.description}</p>}
             </div>
-          )}
-          <div class="related-content">
-            <h3 class="related-card-title">{post.title}</h3>
-            {post.description && <p class="related-card-desc">{post.description}</p>}
-          </div>
-        </a>
-      ))}
+          </a>
+        );
+      })}
     </div>
   </section>
 )}

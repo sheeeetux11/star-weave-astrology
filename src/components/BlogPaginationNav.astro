@@ -1,29 +1,33 @@
 ---
+// src/components/BlogPaginationNav.astro
 import leftArrowIcon from '../assets/icons/LeftArrow.svg';
 import rightArrowIcon from '../assets/icons/RightArrow.svg';
 
+interface Props {
+  prevPost?: any;
+  nextPost?: any;
+}
+
 const { prevPost, nextPost } = Astro.props;
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <nav class="blog-pagination-container">
   <div class="pagination-inner-border">
-    {prevPost ? (
-      <a href={`${base}/blogs/${prevPost.slug || prevPost.id}`} class="nav-link prev-link">
+    {prevPost && prevPost.url ? (
+      <a href={prevPost.url} class="nav-link prev-link">
         <img src={leftArrowIcon.src} alt="" class="nav-arrow left-arrow" />
         <span class="nav-text">{prevPost.title}</span>
       </a>
     ) : <div class="nav-placeholder"></div>}
 
-    {nextPost ? (
-      <a href={`${base}/blogs/${nextPost.slug || nextPost.id}`} class="nav-link next-link">
+    {nextPost && nextPost.url ? (
+      <a href={nextPost.url} class="nav-link next-link">
         <span class="nav-text">{nextPost.title}</span>
         <img src={rightArrowIcon.src} alt="" class="nav-arrow right-arrow" />
       </a>
     ) : <div class="nav-placeholder"></div>}
   </div>
 </nav>
-
 
 <style>
   .blog-pagination-container {

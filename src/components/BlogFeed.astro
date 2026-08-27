@@ -43,8 +43,7 @@ const displayPosts = posts.slice(0, 6);
   {/* Masonry Grid with 3 Official Card Variants */}
   <div class="blog-masonry-grid">
     {displayPosts.map((post, index) => {
-      // If the post was normalized through normalizePost, post.url is already fully formed.
-      // Otherwise, construct it safely using the base path.
+      // Trust normalized post.url directly; only construct manually if missing
       let url = post.url;
       if (!url) {
         const rawId = post.id || post.slug;
@@ -53,9 +52,7 @@ const displayPosts = posts.slice(0, 6);
           : String(rawId || '');
         
         const cleanSlug = (slug.split('/').pop() || slug).replace(/\.[^/.]+$/, '');
-        url = `${base}/blogs/${cleanSlug}`;
-      } else if (url.startsWith('/')) {
-        url = `${base}${url}`;
+        url = `${base}/blogs/${cleanSlug}/`;
       }
 
       const postData = post?.data || post;
