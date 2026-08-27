@@ -14,15 +14,29 @@ export function normalizePost(post: any) {
     } else if (!pUrl.startsWith('http') && !pUrl.startsWith(base) && pUrl) {
       pUrl = `${base}/${pUrl.replace(/^\//, '')}`;
     }
-    // Ensure trailing slash on relative internal links
     if (pUrl && !pUrl.endsWith('/') && !pUrl.includes('#')) {
       pUrl = `${pUrl}/`;
     }
+
+    // Clean and normalize related post thumbnail path from Decap CMS
+    let thumb = p.thumbnail || '';
+    if (thumb.startsWith('public/')) {
+      thumb = thumb.replace('public/', '/');
+    }
+    if (thumb && !thumb.startsWith('http') && !thumb.startsWith('data:')) {
+      const cleanThumb = thumb.startsWith('/') ? thumb : `/${thumb}`;
+      if (base && cleanThumb.startsWith(base)) {
+        thumb = cleanThumb;
+      } else {
+        thumb = `${base}${cleanThumb}`;
+      }
+    }
+
     return {
       title: p.title,
       url: pUrl,
       description: p.description || '',
-      thumbnail: p.thumbnail || ''
+      thumbnail: thumb
     };
   });
 
@@ -37,9 +51,24 @@ export function normalizePost(post: any) {
     if (mUrl && !mUrl.endsWith('/') && !mUrl.includes('#')) {
       mUrl = `${mUrl}/`;
     }
+
+    let thumb = m.thumbnail || '';
+    if (thumb.startsWith('public/')) {
+      thumb = thumb.replace('public/', '/');
+    }
+    if (thumb && !thumb.startsWith('http') && !thumb.startsWith('data:')) {
+      const cleanThumb = thumb.startsWith('/') ? thumb : `/${thumb}`;
+      if (base && cleanThumb.startsWith(base)) {
+        thumb = cleanThumb;
+      } else {
+        thumb = `${base}${cleanThumb}`;
+      }
+    }
+
     return {
       ...m,
-      url: mUrl
+      url: mUrl,
+      thumbnail: thumb
     };
   });
 
@@ -50,7 +79,6 @@ export function normalizePost(post: any) {
   }
   if (rawImage && !rawImage.startsWith('http') && !rawImage.startsWith('data:')) {
     const cleanPath = rawImage.startsWith('/') ? rawImage : `/${rawImage}`;
-    // Prevent double-prefixing if base is already included
     if (base && cleanPath.startsWith(base)) {
       rawImage = cleanPath;
     } else {

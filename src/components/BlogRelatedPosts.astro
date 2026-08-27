@@ -1,7 +1,5 @@
 ---
 // src/components/BlogRelatedPosts.astro
-import { asset } from '../utils/asset';
-
 interface RelatedPost {
   title: string;
   url: string;
@@ -14,6 +12,9 @@ interface Props {
 }
 
 const { posts = [] } = Astro.props;
+
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
 ---
 
 {posts.length > 0 && (
@@ -24,10 +25,31 @@ const { posts = [] } = Astro.props;
 
     <div class="related-posts-grid">
       {posts.map((post) => {
-        const thumbnail = post.thumbnail ? asset(post.thumbnail) : '';
+        let postUrl = post.url || '';
+        if (postUrl.startsWith('/') && base && !postUrl.startsWith(base)) {
+          postUrl = `${base}${postUrl}`;
+        } else if (!postUrl.startsWith('http') && !postUrl.startsWith(base) && postUrl) {
+          postUrl = `${base}/${postUrl.replace(/^\//, '')}`;
+        }
+        if (postUrl && !postUrl.endsWith('/') && !postUrl.includes('#')) {
+          postUrl = `${postUrl}/`;
+        }
+
+        let thumbnail = post.thumbnail || '';
+        if (thumbnail.startsWith('public/')) {
+          thumbnail = thumbnail.replace('public/', '/');
+        }
+        if (thumbnail && !thumbnail.startsWith('http') && !thumbnail.startsWith('data:')) {
+          const cleanThumb = thumbnail.startsWith('/') ? thumbnail : `/${thumbnail}`;
+          if (base && cleanThumb.startsWith(base)) {
+            thumbnail = cleanThumb;
+          } else {
+            thumbnail = `${base}${cleanThumb}`;
+          }
+        }
 
         return (
-          <a href={post.url} class="related-card">
+          <a href={postUrl} class="related-card">
             {thumbnail && (
               <div class="related-thumbnail-wrapper">
                 <img src={thumbnail} alt={post.title} class="related-thumbnail" />
