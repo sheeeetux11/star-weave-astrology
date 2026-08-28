@@ -132,6 +132,14 @@ declare module 'astro:content' {
   rendered?: RenderedContent;
   filePath?: string;
 }>;
+"master_lists": Record<string, {
+  id: string;
+  body?: string;
+  collection: "master_lists";
+  data: InferEntrySchema<"master_lists">;
+  rendered?: RenderedContent;
+  filePath?: string;
+}>;
 
 	};
 

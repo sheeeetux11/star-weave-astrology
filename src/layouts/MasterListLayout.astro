@@ -1,0 +1,191 @@
+---
+import Layout from './Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MasterListHeader from '../components/MasterListHeader.astro';
+import MasterListSection from '../components/MasterListSection.astro';
+import BlogLinkCard from '../components/BlogLinkCard.astro';
+import BlogPaginationNav from '../components/BlogPaginationNav.astro';
+import BlogRelatedPosts from '../components/BlogRelatedPosts.astro';
+import BlogMoreOnAstrology from '../components/BlogMoreOnAstrology.astro';
+import BlogKoFiCTA from '../components/BlogKoFiCTA.astro';
+
+interface Pill {
+  text: string;
+  target: string;
+}
+
+interface SubLink {
+  text: string;
+  url: string;
+}
+
+interface Card {
+  icon?: string;
+  title: string;
+  url?: string;
+  sub_links?: SubLink[];
+}
+
+interface Section {
+  heading: string;
+  description?: string;
+  isExpanded?: boolean;
+  cards: Card[];
+}
+
+interface LinkItem {
+  title: string;
+  url: string;
+  description?: string;
+  thumbnail?: string;
+}
+
+interface BlogLinkSection {
+  heading?: string;
+  links: LinkItem[];
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  headerPills?: Pill[];
+  introDescription?: string;
+  sections?: Section[];
+  blogLinkCards?: BlogLinkSection;
+  prevPost?: any;
+  nextPost?: any;
+  relatedPosts?: any[];
+  moreOnAstrology?: any[];
+}
+
+const {
+  title,
+  description = "A massive repository of astrological links, placements, and resources.",
+  headerPills = [],
+  introDescription = "",
+  sections = [],
+  blogLinkCards,
+  prevPost,
+  nextPost,
+  relatedPosts = [],
+  moreOnAstrology = []
+} = Astro.props;
+---
+
+<Layout title={`${title} | Star Weave Astrology`}>
+  <Header />
+
+  <main class="master-list-main">
+    {/* Master List Header with Title & Jump-Link Pills */}
+    <MasterListHeader title={title} pills={headerPills} />
+
+    {/* Optional 2-Column Description Box */}
+    {introDescription && (
+      <div class="master-list-intro-box">
+        <p>{introDescription}</p>
+      </div>
+    )}
+
+    {/* Main Content Area: Accordion Sections */}
+    <div class="master-list-sections-container">
+      {sections.map((section, index) => (
+        <div id={`section-${index}`}>
+          <MasterListSection 
+            heading={section.heading}
+            description={section.description}
+            isExpanded={section.isExpanded}
+            cards={section.cards}
+          />
+        </div>
+      ))}
+      
+      {/* Fallback slot if manual children are passed instead of props */}
+      <slot />
+    </div>
+
+    {/* Standalone Blog Link Cards (Responsive Pinterest Layout Grid) */}
+    {blogLinkCards && blogLinkCards.links && blogLinkCards.links.length > 0 && (
+      <div class="master-list-extra-container">
+        <BlogLinkCard 
+          heading={blogLinkCards.heading} 
+          links={blogLinkCards.links} 
+        />
+      </div>
+    )}
+
+    {/* Fallback slot for extra sections */}
+    <slot name="extra-section" />
+
+    {/* Global Bottom Modules */}
+    <div class="master-list-footer-modules">
+      <BlogPaginationNav prevPost={prevPost} nextPost={nextPost} />
+      {relatedPosts.length > 0 && <BlogRelatedPosts posts={relatedPosts} />}
+      {moreOnAstrology.length > 0 && <BlogMoreOnAstrology posts={moreOnAstrology} />}
+      <BlogKoFiCTA />
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .master-list-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: clamp(3rem, 5vw, 5rem) clamp(1rem, 3vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, 4vw, 3rem);
+    box-sizing: border-box;
+  }
+
+  /* 2-Column Intro Description with inherited theme typography */
+  .master-list-intro-box {
+    width: 100%;
+    columns: 2;
+    column-gap: clamp(2rem, 4vw, 3rem);
+    font-family: 'Joan', serif;
+    font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+    line-height: 1.7;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 768px) {
+    .master-list-intro-box {
+      columns: 1;
+    }
+  }
+
+  .master-list-sections-container {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    width: 100%;
+  }
+
+  .master-list-extra-container {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .master-list-footer-modules {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, 4vw, 2.5rem);
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+    .master-section {
+    border: 0.5px solid rgba(239, 175, 36, 0.4);
+    border-radius: 20px;
+    /* Replaced static padding with a clamp: min 14px, preferred 2vw, max 20px */
+    padding: clamp(0.875rem, 2vw, 1.25rem);
+    /* Replaced static margin-bottom with a clamp to control section spacing smoothly */
+    margin-bottom: clamp(1rem, 2.5vw, 1.75rem);
+    background-color: #ffffff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+</style>

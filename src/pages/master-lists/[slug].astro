@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content';
+import MasterListLayout from '../../layouts/MasterListLayout.astro';
+
+export async function getStaticPaths() {
+  const masterLists = await getCollection('master_lists');
+  return masterLists.map((entry) => ({
+    params: { slug: entry.id }, // Make sure it uses entry.id instead of entry.slug with the new content loader loader
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { title, description, headerPills, introDescription, sections, blogLinkCards } = entry.data;
+
+// Fetch blogs for footer modules if needed
+const allBlogs = await getCollection('blogs');
+const relatedPosts = allBlogs.slice(0, 2).map(b => ({
+  title: b.data.title,
+  slug: b.id,
+  url: `/blogs/${b.id}`,
+  image: b.data.image,
+  description: b.body?.slice(0, 100)
+}));
+---
+
+<MasterListLayout
+  title={title}
+  description={description}
+  headerPills={headerPills}
+  introDescription={introDescription}
+  sections={sections}
+  blogLinkCards={blogLinkCards}
+  relatedPosts={relatedPosts}
+>
+</MasterListLayout>

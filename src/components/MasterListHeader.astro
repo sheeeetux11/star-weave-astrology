@@ -1,0 +1,78 @@
+---
+interface Pill {
+  text: string;
+  target: string;
+}
+
+interface Props {
+  title: string;
+  pills?: Pill[];
+}
+
+const { title, pills = [] } = Astro.props;
+---
+
+<div class="master-list-header">
+  <h1 class="master-title">{title}</h1>
+
+  {pills && pills.length > 0 && (
+    <nav class="pills-nav" aria-label="Master List Sections">
+      {pills.map((pill) => (
+        <a href={pill.target} class="pill-link">
+          {pill.text}
+        </a>
+      ))}
+    </nav>
+  )}
+</div>
+
+<style>
+  .master-list-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    /* Clamped vertical padding and margin */
+    padding: clamp(1.5rem, 3vw, 2.5rem) 0;
+    margin-bottom: clamp(1rem, 2.5vw, 2rem);
+  }
+
+  .master-title {
+    font-family: 'Joan', serif;
+    font-size: clamp(2.25rem, 4vw, 3rem);
+    line-height: 1.2;
+    color: #225688;
+    /* Clamped space below the title */
+    margin: 0 0 clamp(0.75rem, 2vw, 1.25rem) 0;
+    letter-spacing: 0.02em;
+  }
+
+  .pills-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    /* Clamped gap between pills */
+    gap: clamp(0.4rem, 1vw, 0.75rem);
+  }
+
+  .pill-link {
+    /* Clamped padding and font size for fluid responsiveness */
+    padding: clamp(0.3rem, 0.6vw, 0.45rem) clamp(0.75rem, 1.5vw, 1.1rem);
+    border-radius: 9999px;
+    border: 1px solid rgba(239, 175, 36, 0.5);
+    background-color: transparent;
+    color: #EFAF24;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .pill-link:hover {
+    border-color: #EFAF24;
+    background-color: #f3deb0;
+  }
+</style>

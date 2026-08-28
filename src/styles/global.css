@@ -1,0 +1,42 @@
+/* src/styles/global.css */
+
+/* --- Color Design Tokens --- */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #1A1A1A;
+  --primary-color: #225688;
+  --accent-color: #EFAF24;
+}
+
+html.dark {
+  --bg-color: #0D0F12;
+  --text-color: #E2E4E9;
+  --primary-color: #60A5FA;
+  --accent-color: #EFAF24;
+}
+
+/* --- Base Resets --- */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Headings use Joan serif and your primary brand color */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-color);
+  font-family: 'Joan', serif;
+}
+
+/* Protect raw links from unwanted coloring */
+a {
+  text-decoration: none;
+  color: inherit;
+}
