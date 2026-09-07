@@ -1,7 +1,7 @@
 backend:
-  name: github
-  repo: sheeeetux11/star-weave-astrology
+  name: git-gateway
   branch: main
+
 
 media_folder: "public/assets/images/uploads"
 public_folder: "/assets/images/uploads"
