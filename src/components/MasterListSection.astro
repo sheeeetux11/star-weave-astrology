@@ -14,14 +14,13 @@ interface Card {
 interface Props {
   heading: string;
   description?: string;
-  headerIcon?: string; // <--- Added independent header icon prop
+  headerIcon?: string;
   isExpanded?: boolean;
   cards: Card[];
 }
 
 const { heading, description, headerIcon, isExpanded = false, cards = [] } = Astro.props;
 
-// Determine which icon to display in the header (uses headerIcon first, falls back to the first card's icon)
 const activeHeaderIcon = headerIcon || cards[0]?.icon;
 ---
 
@@ -33,7 +32,6 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
     aria-expanded={isExpanded}
   >
     <div class="header-left">
-      <!-- Header icon that transitions from 100px (collapsed) to 60px (expanded) -->
       {activeHeaderIcon && (
         <div class={`header-icon-wrapper ${isExpanded ? 'expanded' : ''}`}>
           <img src={activeHeaderIcon} alt="" class="header-thumb" />
@@ -58,18 +56,23 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
     <div class="cards-grid">
       {cards.map((card) => (
         <div class="mini-card">
-          {card.icon && (
-            <div class="card-icon-container">
-              <img src={card.icon} alt={card.title} class="card-icon" />
-            </div>
-          )}
-
-          <div class="card-title-wrap">
-            {card.url ? (
-              <a href={card.url} class="card-title link">{card.title}</a>
+          <!-- Conditional wrapper guarantees alignment whether icon exists or not -->
+          <div class="card-top-content">
+            {card.icon ? (
+              <div class="card-icon-container">
+                <img src={card.icon} alt={card.title} class="card-icon" />
+              </div>
             ) : (
-              <span class="card-title">{card.title}</span>
+              <div class="card-icon-placeholder" aria-hidden="true"></div>
             )}
+
+            <div class="card-title-wrap">
+              {card.url ? (
+                <a href={card.url} class="card-title link">{card.title}</a>
+              ) : (
+                <span class="card-title">{card.title}</span>
+              )}
+            </div>
           </div>
 
           {card.sub_links && card.sub_links.length > 0 && (
@@ -153,7 +156,6 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
     gap: clamp(0.85rem, 2vw, 1.25rem);
   }
 
-  /* Header icon starting fluidly when collapsed, shrinking when expanded */
   .header-icon-wrapper {
     width: clamp(75px, 10vw, 100px);
     height: clamp(75px, 10vw, 100px);
@@ -277,16 +279,11 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
     overflow: hidden;
   }
 
+  /* Cards Grid: Mobile defaults to 2 columns for a cohesive Pinterest flow */
   .cards-grid {
     display: grid;
-    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: clamp(1rem, 2.5vw, 1.5rem);
-  }
-
-  @media (min-width: 640px) {
-    .cards-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
   }
 
   @media (min-width: 768px) {
@@ -303,23 +300,36 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
 
   .mini-card {
     display: flex;
-    flex-direction: column;
+    flex-direction: column.cards-grid;
     padding: 0;
     border: none;
     background: transparent;
     box-shadow: none;
   }
 
-  .card-icon-container {
+  .card-top-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-icon-container,
+  .card-icon-placeholder {
     width: clamp(75px, 10vw, 100px);
     height: clamp(75px, 10vw, 100px);
     margin: 0 0 clamp(0.5rem, 1.5vw, 0.75rem) 0;
     border-radius: clamp(14px, 2vw, 20px);
+    flex-shrink: 0;
+  }
+
+  .card-icon-container {
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    flex-shrink: 0;
+  }
+
+  .card-icon-placeholder {
+    visibility: hidden; /* Keeps exact dimensional layout spacing when an icon is absent */
   }
 
   .card-icon {
@@ -334,7 +344,7 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
 
   .card-title {
     font-family: 'Joan', serif;
-    font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
     color: #225688;
     text-decoration: none;
     display: block;
@@ -351,13 +361,13 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
   .sub-links-container {
     display: flex;
     flex-direction: column;
-    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    font-size: clamp(0.85rem, 1.3vw, 0.95rem);
     margin-top: auto;
     padding-top: 0;
   }
 
   .sub-link {
-    padding: clamp(0.3rem, 0.6vw, 0.375rem) 0;
+    padding: clamp(0.25rem, 0.5vw, 0.35rem) 0;
     color: #1a1a1a;
     text-decoration: none;
     transition: color 0.2s ease;
@@ -380,6 +390,6 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
     border: none;
     border-top: 0.5px solid rgba(239, 175, 36, 0.6);
     width: clamp(75px, 10vw, 100px);
-    margin: clamp(0.2rem, 0.5vw, 0.25rem) 0;
+    margin: clamp(0.15rem, 0.4vw, 0.2rem) 0;
   }
 </style>
