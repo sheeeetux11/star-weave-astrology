@@ -56,23 +56,21 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
     <div class="cards-grid">
       {cards.map((card) => (
         <div class="mini-card">
-          <!-- Conditional wrapper guarantees alignment whether icon exists or not -->
-          <div class="card-top-content">
-            {card.icon ? (
-              <div class="card-icon-container">
-                <img src={card.icon} alt={card.title} class="card-icon" />
-              </div>
-            ) : (
-              <div class="card-icon-placeholder" aria-hidden="true"></div>
-            )}
-
-            <div class="card-title-wrap">
-              {card.url ? (
-                <a href={card.url} class="card-title link">{card.title}</a>
-              ) : (
-                <span class="card-title">{card.title}</span>
-              )}
+          <!-- Icon or hidden placeholder for layout consistency -->
+          {card.icon ? (
+            <div class="card-icon-container">
+              <img src={card.icon} alt={card.title} class="card-icon" />
             </div>
+          ) : (
+            <div class="card-icon-placeholder" aria-hidden="true"></div>
+          )}
+
+          <div class="card-title-wrap">
+            {card.url ? (
+              <a href={card.url} class="card-title link">{card.title}</a>
+            ) : (
+              <span class="card-title">{card.title}</span>
+            )}
           </div>
 
           {card.sub_links && card.sub_links.length > 0 && (
@@ -279,7 +277,7 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
     overflow: hidden;
   }
 
-  /* Cards Grid: Mobile defaults to 2 columns for a cohesive Pinterest flow */
+  /* Cards Grid: 2 columns on mobile, scaling up on larger screens */
   .cards-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -300,16 +298,11 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
 
   .mini-card {
     display: flex;
-    flex-direction: column.cards-grid;
+    flex-direction: column;
     padding: 0;
     border: none;
     background: transparent;
     box-shadow: none;
-  }
-
-  .card-top-content {
-    display: flex;
-    flex-direction: column;
   }
 
   .card-icon-container,
@@ -329,7 +322,7 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
   }
 
   .card-icon-placeholder {
-    visibility: hidden; /* Keeps exact dimensional layout spacing when an icon is absent */
+    visibility: hidden;
   }
 
   .card-icon {
