@@ -1,0 +1,143 @@
+backend:
+  name: git-gateway
+  branch: main
+
+
+media_folder: "public/assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+collections:
+  - name: "blogs"
+    label: "Blogs"
+    folder: "src/content/blogs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "string" }
+      - { label: "Read Time", name: "readTime", widget: "string" }
+      - { label: "Author", name: "author", widget: "string", default: "SHEETU", required: false }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - { label: "YouTube URL", name: "youtubeUrl", widget: "string", required: false }
+      - { label: "YouTube Title", name: "youtubeTitle", widget: "string", required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "navigation"
+    label: "Navigation & Menus"
+    files:
+      - file: "src/data/menu.json"
+        label: "Expanded Overlay Menu"
+        name: "overlay_menu"
+        fields:
+          - label: "Masterlist Cards"
+            name: "masterlists"
+            widget: "list"
+            fields:
+              - { label: "Category Title", name: "title", widget: "string" }
+              - label: "Sublist Links"
+                name: "sublinks"
+                widget: "list"
+                fields:
+                  - { label: "Link Text", name: "text", widget: "string" }
+                  - { label: "URL / Path", name: "url", widget: "string" }
+          - label: "Footer Quick Links"
+            name: "footer_links"
+            widget: "list"
+            fields:
+              - { label: "Link Text", name: "text", widget: "string" }
+              - { label: "URL / Path", name: "url", widget: "string" }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "src/content/pages/home.md"
+        label: "Home Page"
+        name: "home"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Hero Featured Image", name: "heroImage", widget: "image" }
+              - { label: "Left Subtitle", name: "subtitleLeft", widget: "text" }
+              - { label: "Right Subtitle", name: "subtitleRight", widget: "text" }
+              - { label: "CTA Button Text", name: "ctaText", widget: "string", default: "Learn the Intuitive Art of Astrology" }
+
+          - label: "Master List Sections on Home"
+            name: "masterSections"
+            widget: "list"
+            required: false
+            fields:
+              - { label: "Section Heading", name: "heading", widget: "string" }
+              - { label: "Section Description", name: "description", widget: "text", required: false }
+              - { label: "Header Icon", name: "headerIcon", widget: "image", required: false }
+              - { label: "Default Expanded", name: "isExpanded", widget: "boolean", default: false, required: false }
+              - label: "Mini Cards"
+                name: "cards"
+                widget: "list"
+                fields:
+                  - { label: "Card Icon", name: "icon", widget: "image", required: false }
+                  - { label: "Card Title", name: "title", widget: "string" }
+                  - { label: "Card URL", name: "url", widget: "string", required: false }
+                  - label: "Sub Links"
+                    name: "sub_links"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Link Text", name: "text", widget: "string" }
+                      - { label: "Link URL", name: "url", widget: "string" }
+
+  - name: "master_lists"
+    label: "Master Lists"
+    folder: "src/content/master-lists"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Page Title", name: "title", widget: "string", hint: "e.g., Planets + Points + Asteroids" }
+      - { label: "SEO Description", name: "description", widget: "text", required: false }
+      - label: "Header Jump-Link Pills"
+        name: "headerPills"
+        widget: "list"
+        fields:
+          - { label: "Pill Text", name: "text", widget: "string" }
+          - { label: "Target Anchor ID", name: "target", widget: "string", hint: "e.g., #section-0" }
+      - { label: "Intro Description (2-Column)", name: "introDescription", widget: "text", required: false }
+      
+      - label: "Master List Sections (Accordions)"
+        name: "sections"
+        widget: "list"
+        fields:
+          - { label: "Section Heading", name: "heading", widget: "string" }
+          - { label: "Section Description", name: "description", widget: "text", required: false }
+          - { label: "Header Icon", name: "headerIcon", widget: "image", required: false }
+          - { label: "Default Expanded", name: "is_expanded", widget: "boolean", default: false }
+          - label: "Mini Cards"
+            name: "cards"
+            widget: "list"
+            fields:
+              - { label: "Card Icon", name: "icon", widget: "image", required: false }
+              - { label: "Card Title", name: "title", widget: "string" }
+              - { label: "Card URL", name: "url", widget: "string", required: false }
+              - label: "Sub Links"
+                name: "sub_links"
+                widget: "list"
+                required: false
+                fields:
+                  - { label: "Link Text", name: "text", widget: "string" }
+                  - { label: "Link URL", name: "url", widget: "string" }
+
+      - label: "Standalone Blog Link Cards"
+        name: "blogLinkCards"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "Section Heading", name: "heading", widget: "string", required: false }
+          - label: "Cards List"
+            name: "links"
+            widget: "list"
+            fields:
+              - { label: "Card Title", name: "title", widget: "string" }
+              - { label: "Card URL / Link", name: "url", widget: "string" }
+              - { label: "Description", name: "description", widget: "text", required: false }
+              - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
