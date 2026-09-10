@@ -34,6 +34,62 @@ import SearchIcon from '../assets/icons/Search.svg';
   </div>
 </div>
 
+<script>
+  // Client-side state synchronization for search and display modes
+  const searchInput = document.getElementById('blog-search-input') as HTMLInputElement;
+  const modeSelect = document.getElementById('blog-mode-select') as HTMLSelectElement;
+  
+  // Parse URL search parameters on load
+  const urlParams = new URLSearchParams(window.location.search);
+  const currentQuery = urlParams.get('q') || '';
+  const currentMode = urlParams.get('mode') || 'recent';
+  const currentTopic = urlParams.get('topic') || '';
+
+  if (searchInput && currentQuery) {
+    searchInput.value = currentQuery;
+  }
+  if (modeSelect) {
+    if (currentTopic) {
+      modeSelect.value = 'search-results';
+    } else {
+      modeSelect.value = currentMode;
+    }
+  }
+
+  // Handle typing search queries
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      const query = (e.target as HTMLInputElement).value.trim();
+      const params = new URLSearchParams(window.location.search);
+      if (query) {
+        params.set('q', query);
+        params.set('mode', 'search-results');
+        if (modeSelect) modeSelect.value = 'search-results';
+      } else {
+        params.delete('q');
+        params.set('mode', 'recent');
+        if (modeSelect) modeSelect.value = 'recent';
+      }
+      // Update URL query parameters dynamically
+      window.location.search = params.toString();
+    });
+  }
+
+  // Handle dropdown mode selector changes
+  if (modeSelect) {
+    modeSelect.addEventListener('change', (e) => {
+      const mode = (e.target as HTMLSelectElement).value;
+      const params = new URLSearchParams(window.location.search);
+      params.set('mode', mode);
+      if (mode !== 'search-results') {
+        params.delete('q');
+        params.delete('topic');
+      }
+      window.location.search = params.toString();
+    });
+  }
+</script>
+
 <style>
   .blog-search-mode-wrapper {
     display: flex;

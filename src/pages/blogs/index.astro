@@ -13,10 +13,44 @@ const formattedPosts = allBlogs
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
   .map(normalizePost);
 
+// Dynamically extract all unique tags from your blog collection
+const dynamicTopics = [...new Set(allBlogs.flatMap(post => post.data.tags || []))];
+
+// Read URL search parameters for state handling
+const url = Astro.url;
+const searchMode = url.searchParams.get('mode') || 'recent';
+const searchQuery = (url.searchParams.get('q') || '').toLowerCase().trim();
+const selectedTopic = url.searchParams.get('topic') || '';
+
+// Filter posts based on search query or selected topic pill
+let filteredPosts = formattedPosts;
+if (searchQuery) {
+  filteredPosts = formattedPosts.filter(post => 
+    post.title.toLowerCase().includes(searchQuery) ||
+    (post.description && post.description.toLowerCase().includes(searchQuery)) ||
+    (post.tags && post.tags.some(tag => tag.toLowerCase().includes(searchQuery)))
+  );
+} else if (selectedTopic) {
+  filteredPosts = formattedPosts.filter(post => 
+    post.tags && post.tags.some(tag => tag.toLowerCase() === selectedTopic.toLowerCase())
+  );
+}
+
+// Group topics alphabetically for the "TOPICS A - Z" view mode
+const sortedTopics = [...dynamicTopics].sort((a, b) => a.localeCompare(b));
+const groupedTopics: Record<string, string[]> = {};
+sortedTopics.forEach(topic => {
+  const firstLetter = topic.charAt(0).toUpperCase();
+  if (!groupedTopics[firstLetter]) {
+    groupedTopics[firstLetter] = [];
+  }
+  groupedTopics[firstLetter].push(topic);
+});
+
 const currentPage = 1;
 const pageSize = 20;
-const totalPages = Math.max(1, Math.ceil(formattedPosts.length / pageSize));
-const paginatedPosts = formattedPosts.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+const totalPages = Math.max(1, Math.ceil(filteredPosts.length / pageSize));
+const paginatedPosts = filteredPosts.slice((currentPage - 1) * pageSize, currentPage * pageSize);
 ---
 
 <BlogPageLayout title="Blog Feed | Star Weave Astrology" pageTitle="Blog Feed">
@@ -24,14 +58,32 @@ const paginatedPosts = formattedPosts.slice((currentPage - 1) * pageSize, curren
     <!-- Search Bar & Mode Toggle Component -->
     <BlogSearchAndMode />
 
-    <!-- Topic Scroll Anchor Component -->
-    <TopicScrollAnchor />
+    <!-- Topic Scroll Anchor Component with dynamic topics and active state passed -->
+    <TopicScrollAnchor topics={dynamicTopics} activeTopic={selectedTopic} />
 
-    <!-- Blog Feed Masonry Component -->
-    <BlogFeedMasonry posts={paginatedPosts} />
-
-    <!-- Blog Pagination Bar Component -->
-    <BlogPaginationBar currentPage={currentPage} totalPages={totalPages} baseUrl="/blogs" />
+    {searchMode === 'topics-az' ? (
+      /* TOPICS A-Z MODE VIEW */
+      <div class="topics-az-container">
+        {Object.keys(groupedTopics).sort().map(letter => (
+          <div class="az-letter-group">
+            <h3 class="az-letter-heading">{letter}</h3>
+            <div class="az-pills-grid">
+              {groupedTopics[letter].map(topic => (
+                <a href={`/blogs?topic=${encodeURIComponent(topic)}`} class="topic-pill">
+                  {topic}
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    ) : (
+      /* RECENT POSTS OR SEARCH RESULTS FEED VIEW */
+      <>
+        <BlogFeedMasonry posts={paginatedPosts} />
+        <BlogPaginationBar currentPage={currentPage} totalPages={totalPages} baseUrl="/blogs" />
+      </>
+    )}
   </div>
 </BlogPageLayout>
 
@@ -42,5 +94,57 @@ const paginatedPosts = formattedPosts.slice((currentPage - 1) * pageSize, curren
     flex-direction: column;
     gap: clamp(1.5rem, 3vw, 2.5rem);
     box-sizing: border-box;
+  }
+
+  /* Topics A-Z Grid Layout Styling */
+  .topics-az-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .az-letter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .az-letter-heading {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #EBAF24;
+    letter-spacing: 0.05em;
+  }
+
+  .az-pills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .topic-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 0 1.25rem;
+    background-color: rgba(255, 204, 66, 0.2);
+    border: 1px solid rgba(231, 185, 36, 0.3);
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #EBAF24;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .topic-pill:hover {
+    background-color: rgba(255, 204, 66, 0.35);
+    border-color: rgba(231, 185, 36, 0.6);
   }
 </style>

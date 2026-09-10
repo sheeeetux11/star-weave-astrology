@@ -35,12 +35,12 @@ const {
 ---
 
 <div class="topic-scroll-section">
-  <!-- Left Scroll Button (Chevron rotated 180deg to face left) -->
+  <!-- Left Scroll Button -->
   <button type="button" class="scroll-arrow scroll-left" aria-label="Scroll Left">
     <Image src={ChevronIcon} alt="Scroll Left" width={16} height={16} class="rotate-left" />
   </button>
 
-  <!-- Horizontal Scroll Container -->
+  <!-- Horizontal Scroll Container with breathing room for arrows -->
   <div class="topic-scroll-container" id="topicScrollContainer">
     <!-- Exclusive Logo Tag on the Far Left -->
     <a href={`${base}/tags`} class="topic-pill logo-topic-pill" aria-label="View all tags master-list" title="View all tags">
@@ -61,7 +61,7 @@ const {
     })}
   </div>
 
-  <!-- Right Scroll Button (Normal Chevron facing right) -->
+  <!-- Right Scroll Button -->
   <button type="button" class="scroll-arrow scroll-right" aria-label="Scroll Right">
     <Image src={ChevronIcon} alt="Scroll Right" width={16} height={16} />
   </button>
@@ -89,7 +89,7 @@ const {
     align-items: center;
     width: 100%;
     box-sizing: border-box;
-    padding: 0 clamp(1.5rem, 3vw, 2.5rem);
+    padding: 0 clamp(0.75rem, 1.5vw, 1.25rem);
   }
 
   .topic-scroll-container {
@@ -100,7 +100,7 @@ const {
     scroll-behavior: smooth;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    padding: 0.25rem 0;
+    padding: 0.25rem clamp(2.75rem, 5vw, 3.5rem); /* Creates safe zones so items don't slide under arrows */
     width: 100%;
     box-sizing: border-box;
   }
