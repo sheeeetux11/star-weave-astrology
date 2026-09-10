@@ -177,15 +177,30 @@ const {
     margin-top: 1rem;
   }
 
-    .master-section {
+  /* Ensure footer modules don't render empty bordered boxes if data is missing */
+  .master-list-footer-modules:empty {
+    display: none;
+  }
+
+  .master-section {
     border: 0.5px solid rgba(239, 175, 36, 0.4);
     border-radius: 20px;
-    /* Replaced static padding with a clamp: min 14px, preferred 2vw, max 20px */
     padding: clamp(0.875rem, 2vw, 1.25rem);
-    /* Replaced static margin-bottom with a clamp to control section spacing smoothly */
     margin-bottom: clamp(1rem, 2.5vw, 1.75rem);
     background-color: #ffffff;
     transition: background-color 0.3s ease, border-color 0.3s ease;
   }
 
+  /* Dynamic Theme Heading Color Fix */
+  :global(html.dark) .master-list-main h1,
+  :global(html.dark) .master-list-main h2,
+  :global(html.dark) .master-list-main h3 {
+    color: #60A5FA !important;
+  }
+
+  :global(html:not(.dark)) .master-list-main h1,
+  :global(html:not(.dark)) .master-list-main h2,
+  :global(html:not(.dark)) .master-list-main h3 {
+    color: #225688 !important;
+  }
 </style>
