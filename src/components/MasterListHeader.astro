@@ -43,9 +43,13 @@ const { title, pills = [] } = Astro.props;
     font-size: clamp(2.25rem, 4vw, 3rem);
     line-height: 1.2;
     color: #225688;
-    /* Clamped space below the title */
     margin: 0 0 clamp(0.75rem, 2vw, 1.25rem) 0;
     letter-spacing: 0.02em;
+  }
+
+  /* Dark mode override for the main header title */
+  html.dark .master-title {
+    color: #60A5FA;
   }
 
   .pills-nav {

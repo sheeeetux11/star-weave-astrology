@@ -2,7 +2,6 @@ backend:
   name: git-gateway
   branch: main
 
-
 media_folder: "public/assets/images/uploads"
 public_folder: "/assets/images/uploads"
 
@@ -22,6 +21,20 @@ collections:
       - { label: "YouTube Title", name: "youtubeTitle", widget: "string", required: false }
       - { label: "Tags", name: "tags", widget: "list", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
+      
+      # Integration for BlogMoreOnAstrology component at the bottom of blog pages
+      - label: "More On Astrology (Mini-Card Carousel)"
+        name: "moreOnAstrology"
+        widget: "object"
+        required: false
+        fields:
+          - label: "Topics Cards"
+            name: "topics"
+            widget: "list"
+            fields:
+              - { label: "Topic Title", name: "title", widget: "string" }
+              - { label: "Thumbnail Image", name: "image", widget: "image" }
+              - { label: "Target URL / Path", name: "url", widget: "string" }
 
   - name: "navigation"
     label: "Navigation & Menus"
@@ -63,6 +76,58 @@ collections:
               - { label: "Left Subtitle", name: "subtitleLeft", widget: "text" }
               - { label: "Right Subtitle", name: "subtitleRight", widget: "text" }
               - { label: "CTA Button Text", name: "ctaText", widget: "string", default: "Learn the Intuitive Art of Astrology" }
+
+          # Integration for TopicsHub Component on Home Page
+          - label: "Topics Hub Section"
+            name: "topicsHub"
+            widget: "object"
+            required: false
+            fields:
+              - { label: "Header Title", name: "headerTitle", widget: "string", default: "Explore the depths of Tropical + Sidereal Astrology." }
+              - { label: "Header Description", name: "headerDescription", widget: "text" }
+              - label: "Cards Grid"
+                name: "cards"
+                widget: "list"
+                fields:
+                  - label: "Card Type"
+                    name: "type"
+                    widget: "select"
+                    options: ["text", "image"]
+                    default: "text"
+                  - { label: "Card Title (For Text Type)", name: "title", widget: "string", required: false }
+                  - label: "List Items (For Text Type)"
+                    name: "items"
+                    widget: "list"
+                    required: false
+                    field: { label: "Item", name: "item", widget: "string" }
+                  - { label: "Image Source (For Image Type)", name: "imageSrc", widget: "image", required: false }
+                  - { label: "Image Alt Text", name: "imageAlt", widget: "string", required: false }
+                  - { label: "Card Target Link", name: "link", widget: "string" }
+
+          # Integration for MicroMedia Component on Home Page
+          - label: "Micro Media Section (Socials & YouTube)"
+            name: "microMedia"
+            widget: "object"
+            required: false
+            fields:
+              - { label: "Section Title", name: "title", widget: "string", default: "More on YouTube + Tumblr + Threads..." }
+              - { label: "Description Text", name: "description", widget: "text" }
+              - label: "Tumblr Preview Image"
+                name: "tumblrPreview"
+                widget: "image"
+                required: false
+              - { label: "Tumblr Profile URL", name: "tumblrUrl", widget: "string", default: "https://www.tumblr.com" }
+              - label: "YouTube Thumbnail Image"
+                name: "youtubeThumb"
+                widget: "image"
+                required: false
+              - { label: "YouTube Video URL", name: "youtubeUrl", widget: "string", default: "https://www.youtube.com" }
+              - { label: "YouTube Subscribe URL", name: "youtubeSubUrl", widget: "string", default: "https://www.youtube.com/@yourchannel?sub_confirmation=1" }
+              - label: "Threads Preview Image"
+                name: "threadsPreview"
+                widget: "image"
+                required: false
+              - { label: "Threads Profile URL", name: "threadsUrl", widget: "string", default: "https://www.threads.net" }
 
           - label: "Master List Sections on Home"
             name: "masterSections"

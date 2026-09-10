@@ -9,6 +9,10 @@ interface Props {
 }
 
 const { prevPost, nextPost } = Astro.props;
+
+// Return nothing if neither prev nor next exists
+const hasPagination = (prevPost && prevPost.url) || (nextPost && nextPost.url);
+if (!hasPagination) return null;
 ---
 
 <nav class="blog-pagination-container">

@@ -13,7 +13,7 @@ sections:
     is_expanded: true
     cards:
       - title: "Venus"
-        icon: "/star-weave-astrology/images/Venus.png"
+        icon: "/images/Venus.png"
         url: "/blogs/venus-in-astrology"
         sub_links:
           - text: "Natal Signs & Houses"
@@ -21,7 +21,14 @@ sections:
           - text: "Transit Signs & Houses"
             url: "/blogs/venus-transits"
       - title: "Moon"
-        icon: "/star-weave-astrology/images/JupiterSide.jpeg"
+        icon: "/images/JupiterSide.jpeg"
+        url: "/blogs/moon-in-astrology"
+        sub_links:
+          - text: "Natal Signs & Houses"
+            url: "/blogs/moon-signs"
+          - text: "Transit Signs & Houses"
+            url: "/blogs/moon-transits"
+      - title: "Mercury"
         url: "/blogs/moon-in-astrology"
         sub_links:
           - text: "Natal Signs & Houses"

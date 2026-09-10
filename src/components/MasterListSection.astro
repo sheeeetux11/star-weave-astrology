@@ -14,14 +14,13 @@ interface Card {
 interface Props {
   heading: string;
   description?: string;
-  headerIcon?: string; // <--- Added independent header icon prop
+  headerIcon?: string;
   isExpanded?: boolean;
   cards: Card[];
 }
 
 const { heading, description, headerIcon, isExpanded = false, cards = [] } = Astro.props;
 
-// Determine which icon to display in the header (uses headerIcon first, falls back to the first card's icon)
 const activeHeaderIcon = headerIcon || cards[0]?.icon;
 ---
 
@@ -33,7 +32,6 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
     aria-expanded={isExpanded}
   >
     <div class="header-left">
-      <!-- Header icon that transitions from 100px (collapsed) to 60px (expanded) -->
       {activeHeaderIcon && (
         <div class={`header-icon-wrapper ${isExpanded ? 'expanded' : ''}`}>
           <img src={activeHeaderIcon} alt="" class="header-thumb" />
@@ -58,6 +56,7 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
     <div class="cards-grid">
       {cards.map((card) => (
         <div class="mini-card">
+          <!-- Only render icon container if an icon exists, allowing icon-less cards to start at the top -->
           {card.icon && (
             <div class="card-icon-container">
               <img src={card.icon} alt={card.title} class="card-icon" />
@@ -153,7 +152,6 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
     gap: clamp(0.85rem, 2vw, 1.25rem);
   }
 
-  /* Header icon starting fluidly when collapsed, shrinking when expanded */
   .header-icon-wrapper {
     width: clamp(75px, 10vw, 100px);
     height: clamp(75px, 10vw, 100px);
@@ -193,6 +191,11 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
     color: #225688;
     margin: 0;
     transition: color 0.2s ease;
+  }
+
+  /* Dark mode override for section heading */
+  html.dark .section-heading {
+    color: #60A5FA;
   }
 
   .accordion-toggle:hover .section-heading {
@@ -277,28 +280,11 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
     overflow: hidden;
   }
 
+  /* Cards Grid: Flexbox implementation for independent card wrapping */
   .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(1, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: clamp(1rem, 2.5vw, 1.5rem);
-  }
-
-  @media (min-width: 640px) {
-    .cards-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (min-width: 768px) {
-    .cards-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .cards-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
   }
 
   .mini-card {
@@ -308,6 +294,19 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
     border: none;
     background: transparent;
     box-shadow: none;
+    width: calc(50% - clamp(0.5rem, 1.25vw, 0.75rem));
+  }
+
+  @media (min-width: 768px) {
+    .mini-card {
+      width: calc(33.333% - clamp(0.66rem, 1.66vw, 1rem));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .mini-card {
+      width: calc(20% - clamp(0.8rem, 2vw, 1.2rem));
+    }
   }
 
   .card-icon-container {
@@ -315,11 +314,11 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
     height: clamp(75px, 10vw, 100px);
     margin: 0 0 clamp(0.5rem, 1.5vw, 0.75rem) 0;
     border-radius: clamp(14px, 2vw, 20px);
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    flex-shrink: 0;
   }
 
   .card-icon {
@@ -334,14 +333,15 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
 
   .card-title {
     font-family: 'Joan', serif;
-    font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
     color: #225688;
     text-decoration: none;
     display: block;
   }
 
+  /* Dark mode override for card titles */
   html.dark .card-title {
-    color: #E2E4E9;
+    color: #60A5FA; 
   }
 
   .card-title.link:hover {
@@ -351,13 +351,13 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
   .sub-links-container {
     display: flex;
     flex-direction: column;
-    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    font-size: clamp(0.85rem, 1.3vw, 0.95rem);
     margin-top: auto;
     padding-top: 0;
   }
 
   .sub-link {
-    padding: clamp(0.3rem, 0.6vw, 0.375rem) 0;
+    padding: clamp(0.25rem, 0.5vw, 0.35rem) 0;
     color: #1a1a1a;
     text-decoration: none;
     transition: color 0.2s ease;
@@ -380,6 +380,6 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
     border: none;
     border-top: 0.5px solid rgba(239, 175, 36, 0.6);
     width: clamp(75px, 10vw, 100px);
-    margin: clamp(0.2rem, 0.5vw, 0.25rem) 0;
+    margin: clamp(0.15rem, 0.4vw, 0.2rem) 0;
   }
 </style>

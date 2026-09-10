@@ -1,5 +1,4 @@
 ---
-// src/components/BlogShareAndLike.astro
 const { postId, postTitle } = Astro.props;
 ---
 
@@ -52,7 +51,7 @@ const { postId, postTitle } = Astro.props;
 </div>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
+  function initLikeAndShare() {
     const container = document.querySelector('.social-actions-container');
     if (!container) return;
     
@@ -66,23 +65,35 @@ const { postId, postTitle } = Astro.props;
       likeBtn?.classList.add('liked');
     }
 
-    likeBtn?.addEventListener('click', () => {
-      const currentlyLiked = likeBtn.classList.toggle('liked');
-      localStorage.setItem(storageKey, currentlyLiked.toString());
-    });
+    // Prevent duplicate event binding on re-initializations
+    if (likeBtn && !likeBtn.hasAttribute('data-bound')) {
+      likeBtn.setAttribute('data-bound', 'true');
+      likeBtn.addEventListener('click', () => {
+        const currentlyLiked = likeBtn.classList.toggle('liked');
+        localStorage.setItem(storageKey, currentlyLiked.toString());
+      });
+    }
 
-    copyBtn?.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText(window.location.href);
-        copyBtn.classList.add('copied');
-        setTimeout(() => {
-          copyBtn.classList.remove('copied');
-        }, 2000);
-      } catch (err) {
-        console.error('Failed to copy link: ', err);
-      }
-    });
-  });
+    if (copyBtn && !copyBtn.hasAttribute('data-bound')) {
+      copyBtn.setAttribute('data-bound', 'true');
+      copyBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(window.location.href);
+          copyBtn.classList.add('copied');
+          setTimeout(() => {
+            copyBtn.classList.remove('copied');
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy link: ', err);
+        }
+      });
+    }
+  }
+
+  // Run on initial load
+  document.addEventListener('DOMContentLoaded', initLikeAndShare);
+  // Run on Astro page transitions
+  document.addEventListener('astro:page-load', initLikeAndShare);
 </script>
 
 <style>
