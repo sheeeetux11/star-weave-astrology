@@ -1,5 +1,4 @@
 ---
-// src/components/BlogComments.astro
 interface Comment {
   id: string;
   author: string;
@@ -14,43 +13,8 @@ interface Props {
 
 const { postId } = Astro.props;
 
-const initialComments: Comment[] = [
-  {
-    id: '1',
-    author: "Commentor's Name",
-    date: 'March 12, 2023',
-    content: 'Their comments displayed here. Their comments displayed here. Their comments displayed here. Their comments displayed here. Their comments displayed here.',
-    avatarColor: '#FBDE9B'
-  },
-  {
-    id: '2',
-    author: 'Astraea Weaver',
-    date: 'March 14, 2023',
-    content: 'This analysis of Venus and Jupiter transit completely shifted my perspective! Thank you so much for sharing.',
-    avatarColor: '#FBD19B'
-  },
-  {
-    id: '3',
-    author: 'CelestialSeeker',
-    date: 'March 15, 2023',
-    content: 'Such a gorgeous write-up. The aesthetic of this blog matches the magical tone of the content so well.',
-    avatarColor: '#9BFBE0'
-  },
-  {
-    id: '4',
-    author: 'Starlight99',
-    date: 'March 18, 2023',
-    content: 'Bookmarking this page for the next lunar cycle. Looking forward to more deep dives!',
-    avatarColor: '#F99BFB'
-  },
-  {
-    id: '5',
-    author: 'LunaStruck',
-    date: 'March 20, 2023',
-    content: 'Absolute gold mine of information! Quick question, will you be doing a follow-up on house placements?',
-    avatarColor: '#9BCBFA'
-  }
-];
+// Cleared out test comments for production launch
+const initialComments: Comment[] = [];
 ---
 
 <section class="comments-section" data-post-id={postId}>
@@ -59,8 +23,18 @@ const initialComments: Comment[] = [
     <span class="section-title">COMMENTS</span>
   </div>
 
-  <!-- Comment Input Box -->
-  <form class="comment-form" id="commentForm">
+  <!-- Comment Input Box configured for Netlify Forms -->
+  <form 
+    class="comment-form" 
+    id="commentForm" 
+    name="blog-comments" 
+    method="POST" 
+    data-netlify="true"
+  >
+    <!-- Hidden fields required for Netlify Forms routing & association -->
+    <input type="hidden" name="form-name" value="blog-comments" />
+    <input type="hidden" name="postId" value={postId} />
+
     <div class="commenter-avatar placeholder-avatar"></div>
     <input 
       type="text" 
@@ -113,10 +87,10 @@ const initialComments: Comment[] = [
 </section>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('astro:page-load', () => {
     const seeMoreBtn = document.getElementById('seeMoreBtn');
     const commentsList = document.getElementById('commentsList');
-    const commentForm = document.getElementById('commentForm');
+    const commentForm = document.getElementById('commentForm') as HTMLFormElement;
 
     if (seeMoreBtn && commentsList) {
       seeMoreBtn.addEventListener('click', () => {
@@ -149,14 +123,28 @@ const initialComments: Comment[] = [
       }
     });
 
-    if (commentForm) {
-      commentForm.addEventListener('submit', (e) => {
+    if (commentForm && !commentForm.hasAttribute('data-bound')) {
+      commentForm.setAttribute('data-bound', 'true');
+      commentForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const input = commentForm.querySelector('input[name="commentText"]') as HTMLInputElement;
         if (!input || !input.value.trim()) return;
 
-        alert('Comment submitted successfully!');
-        input.value = '';
+        const formData = new FormData(commentForm);
+
+        try {
+          await fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData as any).toString()
+          });
+
+          alert('Thank you! Your comment has been submitted and is pending moderation.');
+          input.value = '';
+        } catch (error) {
+          console.error('Form submission error:', error);
+          alert('Oops! Something went wrong submitting your comment. Please try again.');
+        }
       });
     }
   });
@@ -167,7 +155,6 @@ const initialComments: Comment[] = [
     width: 100%;
     display: flex;
     flex-direction: column;
-    /* Responsive gap using clamp: scales dynamically from 1rem on mobile to 1.5rem on desktop */
     gap: clamp(1rem, 2vw, 1.5rem);
     margin-top: clamp(1.5rem, 3vw, 2.5rem);
     margin-bottom: 0;
@@ -201,7 +188,6 @@ const initialComments: Comment[] = [
     color: #F9FAFB;
   }
 
-  /* Fixed comment form layout to prevent overflow on mobile */
   .comment-form {
     display: flex;
     align-items: center;
@@ -229,7 +215,7 @@ const initialComments: Comment[] = [
 
   .comment-input {
     flex: 1;
-    min-width: 0; /* Prevents flex items from overflowing bounds */
+    min-width: 0;
     background: transparent;
     border: none;
     outline: none;
