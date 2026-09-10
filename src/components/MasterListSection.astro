@@ -280,23 +280,11 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
     overflow: hidden;
   }
 
-  /* Cards Grid: 2 columns on mobile, scaling up on larger screens */
+  /* Cards Grid: Flexbox implementation for independent card wrapping */
   .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: clamp(1rem, 2.5vw, 1.5rem);
-  }
-
-  @media (min-width: 768px) {
-    .cards-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .cards-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
   }
 
   .mini-card {
@@ -306,6 +294,19 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
     border: none;
     background: transparent;
     box-shadow: none;
+    width: calc(50% - clamp(0.5rem, 1.25vw, 0.75rem));
+  }
+
+  @media (min-width: 768px) {
+    .mini-card {
+      width: calc(33.333% - clamp(0.66rem, 1.66vw, 1rem));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .mini-card {
+      width: calc(20% - clamp(0.8rem, 2vw, 1.2rem));
+    }
   }
 
   .card-icon-container {
