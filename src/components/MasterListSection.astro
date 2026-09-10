@@ -56,13 +56,11 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
     <div class="cards-grid">
       {cards.map((card) => (
         <div class="mini-card">
-          <!-- Icon or hidden placeholder for layout consistency -->
-          {card.icon ? (
+          <!-- Only render icon container if an icon exists, allowing icon-less cards to start at the top -->
+          {card.icon && (
             <div class="card-icon-container">
               <img src={card.icon} alt={card.title} class="card-icon" />
             </div>
-          ) : (
-            <div class="card-icon-placeholder" aria-hidden="true"></div>
           )}
 
           <div class="card-title-wrap">
@@ -195,6 +193,11 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
     transition: color 0.2s ease;
   }
 
+  /* Dark mode override for section heading */
+  html.dark .section-heading {
+    color: #60A5FA;
+  }
+
   .accordion-toggle:hover .section-heading {
     color: #EFAF24;
   }
@@ -305,24 +308,16 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
     box-shadow: none;
   }
 
-  .card-icon-container,
-  .card-icon-placeholder {
+  .card-icon-container {
     width: clamp(75px, 10vw, 100px);
     height: clamp(75px, 10vw, 100px);
     margin: 0 0 clamp(0.5rem, 1.5vw, 0.75rem) 0;
     border-radius: clamp(14px, 2vw, 20px);
     flex-shrink: 0;
-  }
-
-  .card-icon-container {
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-  }
-
-  .card-icon-placeholder {
-    visibility: hidden;
   }
 
   .card-icon {
@@ -343,8 +338,9 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
     display: block;
   }
 
+  /* Dark mode override for card titles */
   html.dark .card-title {
-    color: #E2E4E9;
+    color: #60A5FA; 
   }
 
   .card-title.link:hover {
