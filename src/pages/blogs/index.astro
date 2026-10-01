@@ -11,18 +11,20 @@ import { normalizePost } from '../../utils/normalizeBlog';
 const allBlogs = await getCollection('blogs');
 const formattedPosts = allBlogs
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-  .map(normalizePost);
+  .map(normalizePost)
+  .filter(Boolean);
 
-// Dynamically extract all unique tags from your blog collection
+// Dynamically extract all unique tags
 const dynamicTopics = [...new Set(allBlogs.flatMap(post => post.data.tags || []))];
 
-// Read URL search parameters for state handling
+// Read URL parameters for search, topic filters, tags, and pagination page number
 const url = Astro.url;
 const searchMode = url.searchParams.get('mode') || 'recent';
 const searchQuery = (url.searchParams.get('q') || '').toLowerCase().trim();
-const selectedTopic = url.searchParams.get('topic') || '';
+const selectedTopic = url.searchParams.get('topic') || url.searchParams.get('tag') || '';
+const currentPage = parseInt(url.searchParams.get('page') || '1', 10);
 
-// Filter posts based on search query or selected topic pill
+// Filter posts based on search query or selected topic/tag pill
 let filteredPosts = formattedPosts;
 if (searchQuery) {
   filteredPosts = formattedPosts.filter(post => 
@@ -47,18 +49,20 @@ sortedTopics.forEach(topic => {
   groupedTopics[firstLetter].push(topic);
 });
 
-const currentPage = 1;
-const pageSize = 20;
+// Pagination calculations
+const pageSize = 12; // Adjusted posts per page
 const totalPages = Math.max(1, Math.ceil(filteredPosts.length / pageSize));
-const paginatedPosts = filteredPosts.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+const validCurrentPage = Math.min(Math.max(1, currentPage), totalPages);
+const paginatedPosts = filteredPosts.slice((validCurrentPage - 1) * pageSize, validCurrentPage * pageSize);
 ---
+
 
 <BlogPageLayout title="Blog Feed | Star Weave Astrology" pageTitle="Blog Feed">
   <div class="blog-feed-page-content">
     <!-- Search Bar & Mode Toggle Component -->
     <BlogSearchAndMode />
 
-    <!-- Topic Scroll Anchor Component with dynamic topics and active state passed -->
+    <!-- Topic Scroll Anchor Component -->
     <TopicScrollAnchor topics={dynamicTopics} activeTopic={selectedTopic} />
 
     {searchMode === 'topics-az' ? (
@@ -81,7 +85,7 @@ const paginatedPosts = filteredPosts.slice((currentPage - 1) * pageSize, current
       /* RECENT POSTS OR SEARCH RESULTS FEED VIEW */
       <>
         <BlogFeedMasonry posts={paginatedPosts} />
-        <BlogPaginationBar currentPage={currentPage} totalPages={totalPages} baseUrl="/blogs" />
+        <BlogPaginationBar currentPage={validCurrentPage} totalPages={totalPages} baseUrl="/blogs" />
       </>
     )}
   </div>
@@ -96,7 +100,6 @@ const paginatedPosts = filteredPosts.slice((currentPage - 1) * pageSize, current
     box-sizing: border-box;
   }
 
-  /* Topics A-Z Grid Layout Styling */
   .topics-az-container {
     display: flex;
     flex-direction: column;

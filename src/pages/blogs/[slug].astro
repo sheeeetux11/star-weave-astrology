@@ -4,52 +4,54 @@ import { getCollection, render } from 'astro:content';
 import InnerBlogLayout from '../../layouts/InnerBlogLayout.astro';
 import { normalizePost } from '../../utils/normalizeBlog';
 
-export async function getStaticPaths() {
-  const allBlogs = await getCollection('blogs');
+// In SSR mode ('server'), getStaticPaths isn't strictly required for dynamic routing,
+// but keeping it helps pre-render or generate static params if needed. 
+// However, since we are fully on server mode, let's handle slug matching dynamically and safely.
 
-  const sortedRawBlogs = allBlogs.sort((a, b) => {
-    const dateA = a.data?.date ? new Date(a.data.date).getTime() : 0;
-    const dateB = b.data?.date ? new Date(b.data.date).getTime() : 0;
-    return dateB - dateA;
-  });
+const { slug } = Astro.params;
+const allBlogs = await getCollection('blogs');
 
-  const blogMap = new Map();
-  allBlogs.forEach(b => {
-    blogMap.set(b.id, b);
-    blogMap.set(b.id.split('/').pop()?.replace(/\.[^/.]+$/, ''), b);
-  });
+const sortedRawBlogs = allBlogs.sort((a, b) => {
+  const dateA = a.data?.date ? new Date(a.data.date).getTime() : 0;
+  const dateB = b.data?.date ? new Date(b.data.date).getTime() : 0;
+  return dateB - dateA;
+});
 
-  return sortedRawBlogs.map((post, index) => {
-    const autoPrevRaw = index < sortedRawBlogs.length - 1 ? sortedRawBlogs[index + 1] : null;
-    const autoNextRaw = index > 0 ? sortedRawBlogs[index - 1] : null;
+const blogMap = new Map();
+allBlogs.forEach(b => {
+  blogMap.set(b.id, b);
+  blogMap.set(b.id.split('/').pop()?.replace(/\.[^/.]+$/, ''), b);
+});
 
-    const manualPrevRaw = post.data.manualPrev ? blogMap.get(post.data.manualPrev) : null;
-    const manualNextRaw = post.data.manualNext ? blogMap.get(post.data.manualNext) : null;
+// Find the post matching the current route slug
+const postIndex = sortedRawBlogs.findIndex(p => {
+  const postSlug = (p.id.split('/').pop() || p.id).replace(/\.[^/.]+$/, '');
+  return postSlug === slug;
+});
 
-    const finalPrevRaw = manualPrevRaw || autoPrevRaw;
-    const finalNextRaw = manualNextRaw || autoNextRaw;
+const post = postIndex !== -1 ? sortedRawBlogs[postIndex] : null;
 
-    const prevPost = finalPrevRaw ? normalizePost(finalPrevRaw) : null;
-    const nextPost = finalNextRaw ? normalizePost(finalNextRaw) : null;
-
-    const postSlug = (post.id.split('/').pop() || post.id).replace(/\.[^/.]+$/, '');
-
-    return {
-      params: { slug: postSlug },
-      props: { 
-        post, 
-        prevPost, 
-        nextPost 
-      },
-    };
-  });
+// 🛡️ Safety guard: If post doesn't exist, return a clean 404 response instead of crashing
+if (!post) {
+  return new Response('Blog post not found', { status: 404 });
 }
 
-const { post, prevPost, nextPost } = Astro.props;
+const autoPrevRaw = postIndex < sortedRawBlogs.length - 1 ? sortedRawBlogs[postIndex + 1] : null;
+const autoNextRaw = postIndex > 0 ? sortedRawBlogs[postIndex - 1] : null;
+
+const manualPrevRaw = post.data.manualPrev ? blogMap.get(post.data.manualPrev) : null;
+const manualNextRaw = post.data.manualNext ? blogMap.get(post.data.manualNext) : null;
+
+const finalPrevRaw = manualPrevRaw || autoPrevRaw;
+const finalNextRaw = manualNextRaw || autoNextRaw;
+
+const prevPost = finalPrevRaw ? normalizePost(finalPrevRaw) : null;
+const nextPost = finalNextRaw ? normalizePost(finalNextRaw) : null;
+
 const normalizedCurrent = normalizePost(post);
 const { Content } = await render(post);
 ---
 
-<InnerBlogLayout post={post} prevPost={prevPost} nextPost={nextPost} tags={normalizedCurrent.tags}>
+<InnerBlogLayout post={post} prevPost={prevPost} nextPost={nextPost} tags={normalizedCurrent?.tags || []}>
   <Content />
 </InnerBlogLayout>

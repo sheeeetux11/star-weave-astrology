@@ -14,7 +14,7 @@ const blogsCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     date: z.string(), 
-    readTime: z.string(), 
+    readTime: z.string().optional(), 
     author: z.string().default("SHEETU"),
     image: z.string().optional(),
     youtubeUrl: z.string().optional(),
@@ -66,7 +66,9 @@ const masterListsCollection = defineCollection({
       z.object({
         heading: z.string(),
         description: z.string().optional(),
-        is_expanded: z.boolean().default(false).optional(),
+        headerIcon: z.string().optional(),
+        isExpanded: z.boolean().optional(),
+        is_expanded: z.boolean().default(false).optional(), // Kept for backwards compatibility
         cards: z.array(
           z.object({
             icon: z.string().optional(),
@@ -74,12 +76,31 @@ const masterListsCollection = defineCollection({
             url: z.string().optional(),
             sub_links: z.array(
               z.object({
+                date: z.string().optional(),
                 text: z.string(),
                 url: z.string(),
               })
             ).optional(),
           })
-        ),
+        ).optional(), // Made optional so moon calendar sections don't require empty cards
+        
+        // New Moon & Full Moon Calendar Fields
+        newMoonIcon: z.string().optional(),
+        fullMoonIcon: z.string().optional(),
+        pairs: z.array(
+          z.object({
+            newMoon: z.object({
+              title: z.string(),
+              url: z.string(),
+              date: z.string(),
+            }).optional(), // Make newMoon optional
+            fullMoon: z.object({
+              title: z.string(),
+              url: z.string(),
+              date: z.string(),
+            }).optional(), // Make fullMoon optional
+          })
+        ).optional(),
       })
     ).optional(),
     blogLinkCards: z.object({

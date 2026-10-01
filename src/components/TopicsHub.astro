@@ -23,86 +23,107 @@ const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
 
 const {
   headerTitle = "Explore the depths of Tropical + Sidereal Astrology.",
-  headerDescription = "Blend the Traditional & Ancient with the Modern & Evolutionary Astrology. From Reading Charts, Interpreting Placements, Aspects & Patterns to Astros, Solar Return Charts and other intriguing corners of Astrology. Learn and explore at your own pace from an extensive array of topics.",
+  headerDescription = "Blend the Traditional & Ancient with the Modern & Evolutionary Astrology. From Reading Charts, Interpreting Placements, Aspects & Patterns to Asteroids, Solar Return Charts and other intriguing corners of Astrology. Learn and explore at your own pace from an extensive array of topics.",
   cards = [
     {
       type: 'text',
-      title: 'Planets + Points + Retrogrades',
+      title: 'Planets + Points + Asteroids ✨',
       items: [
         '10 Planets of Astrology',
-        'Ascendant + Midheaven + North Node + Part of Fortune + Lilith + IC',
-        'Retrograde Planets',
+        'Astrological Points',
+        '(Ascendant, Midheaven, North Node, Part of Fortune, Lilith, IC)',
+        'Aseroid Astrology',
+        'Retrogrades',
         'Mythology + Lore'
       ],
-      link: '/topics/planets-points-retrogrades'
+      link: '/master-lists/planets-points-asteroids'
     },
     {
       type: 'text',
-      title: 'Signs + Houses (Placements)',
-      items: [
-        '12 Zodiac Signs',
-        '12 Houses',
-        'Mythology + Lore'
-      ],
-      link: '/topics/signs-houses-placements'
-    },
-    {
-      type: 'image',
-      imageSrc: '/assets/images/constellation-scorpio.png',
-      imageAlt: 'Asteroid Constellation',
-      link: '/topics/asteroid-astrology'
-    },
-    {
-      type: 'text',
-      title: 'Asteroid Astrology',
-      items: [
-        'Asteroids',
-        'Retrograde Asteroids',
-        'Mythology + Lore'
-      ],
-      link: '/topics/asteroid-astrology'
-    },
-   
-    {
-      type: 'text',
-      title: 'Aspects + Patterns',
+      title: 'Aspects + Patterns ✨',
       items: [
         'Aspects Patterns',
         'Major + Minor Aspects',
         'Ascendant + Midheaven + North Node',
         'Planetary + Rare + Asteroid Aspects'
       ],
-      link: '/topics/aspects-patterns'
+      link: '/master-lists/aspects-patterns'
+    },
+    {
+      type: 'text',
+      title: 'Transits Astrology ✨',
+      items: [
+        'Transits Calendar',
+        '(2026, 2025, 2024, 2023, …)',
+        'Planetary Transits',
+        'Retrogrades + Guides'
+      ],
+      link: '/master-lists/transits-astrology'
+    },
+    {
+      type: 'image',
+      imageSrc: '/images/Saturn.png',
+      imageAlt: 'Planets Astrology',
+      link: '/master-lists/planets-astrology'
+    },
+    {
+      type: 'text',
+      title: 'Moon Astrology ✨',
+      items: [
+        'Moon Astrology',
+        'Full + New Moon Calendar',
+        'Moon Calendar'
+      ],
+      link: '/master-lists/full-and-new-moon-calendar'
+    },
+    {
+      type: 'text',
+      title: 'Asteroid Astrology ✨',
+      items: [
+        'Asteroids',
+        '(Chiron, Sirene, Juno, Pallas Athena, Ceres, Vesta, Aphrodite 1388, Eros 433, Psyche 16)',
+        'Retrograde Asteroids',
+        'Mythology + Lore'
+      ],
+      link: '/master-lists/asteroid-astrology'
     },
      {
       type: 'image',
-      imageSrc: '/assets/images/saturn-ring.png',
-      imageAlt: 'Saturn Ring Visual',
-      link: '/topics/aspects-patterns'
+      imageSrc: '/images/scorpio-zodiac.png',
+      imageAlt: 'Zodiac Astrology',
+      link: '/master-lists/signs-houses-placements'
     },
     {
       type: 'text',
-      title: 'Moon + Transits Astrology',
+      title: 'Retrograde Astrology ✨',
       items: [
-        'Moon Astrology',
-        'Full + New Moon',
-        'Moon Calendar',
-        'Venus + Saturn Transits',
-        'Retrogrades Survival Guides',
-        '2026 Transits Calendar ...'
+        'Planet Retrogrades',
+        'Retrograde Survival Guides',
+        'Asteroid Retrogrades'
       ],
-      link: '/topics/moon-transits'
+      link: '/master-lists/retrograde-astrology'
     },
     {
       type: 'text',
-      title: 'Chart Interpretation',
+      title: 'Chart Interpretation ✨',
       items: [
         'Natal (Placidus + Whole Signs)',
         'Synastry + Composite',
         'Solar Return + Solar Arc',
-        'Astrocartography'
+        'Astrocartography',
+        'Posts incoming soon ⚡️💛'
       ],
-      link: '/topics/chart-interpretation'
+      link: '/master-lists/chart-interpretation'
+    },
+    {  
+      type: 'text',
+      title: 'Sidereal Astrology ✨',
+      items: [
+        'Vedic Astrology',
+        'Nakshatras',
+        'Posts incoming soon ⚡️💛'
+      ],
+      link: '/master-lists/retrograde-astrology'
     }
   ]
 } = Astro.props;
@@ -359,7 +380,7 @@ const processedCards = cards.map(card => ({
     display: flex;
     flex-direction: column;
     gap: clamp(2px, 0.5vw, 3px);
-    font-family: 'Joan', serif;
+    font-family: 'Inter', sans-serif;
     font-size: clamp(0.7rem, 1vw, 0.76rem);
     line-height: 1.35;
     color: #4B5563;
