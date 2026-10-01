@@ -56,24 +56,47 @@ import SearchIcon from '../assets/icons/Search.svg';
     }
   }
 
-  // Handle typing search queries
+    // Handle typing search queries (Allows typing freely without reloading)
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
-      const query = (e.target as HTMLInputElement).value.trim();
+      // Just let the user type normally without triggering reloads
+    });
+
+    // Trigger search immediately on pressing Enter
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const query = searchInput.value.trim();
+        const params = new URLSearchParams(window.location.search);
+        if (query) {
+          params.set('q', query);
+          params.set('mode', 'search-results');
+        } else {
+          params.delete('q');
+          params.set('mode', 'recent');
+        }
+        window.location.search = params.toString();
+      }
+    });
+  }
+
+  // Handle clicking the search button icon
+  const searchBtn = document.getElementById('blog-search-btn');
+  if (searchBtn && searchInput) {
+    searchBtn.addEventListener('click', () => {
+      const query = searchInput.value.trim();
       const params = new URLSearchParams(window.location.search);
       if (query) {
         params.set('q', query);
         params.set('mode', 'search-results');
-        if (modeSelect) modeSelect.value = 'search-results';
       } else {
         params.delete('q');
         params.set('mode', 'recent');
-        if (modeSelect) modeSelect.value = 'recent';
       }
-      // Update URL query parameters dynamically
       window.location.search = params.toString();
     });
   }
+
+
 
   // Handle dropdown mode selector changes
   if (modeSelect) {

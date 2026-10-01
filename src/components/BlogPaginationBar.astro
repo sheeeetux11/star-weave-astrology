@@ -1,4 +1,5 @@
 ---
+// src/components/BlogPaginationBar.astro
 import Chevron from '../assets/icons/Chevron.svg';
 
 interface Props {
@@ -27,7 +28,7 @@ const cleanBaseUrl = baseUrl.startsWith('/') ? baseUrl : `/${baseUrl}`;
 const absoluteBaseUrl = `${base}${cleanBaseUrl}`;
 
 const currentPage = page?.currentPage || propCurrent || 1;
-const totalPages = page?.lastPage || propTotal || 40;
+const totalPages = page?.lastPage || propTotal || 1;
 
 function getPageNumbers(current: number, total: number) {
   if (total <= 7) {
@@ -62,15 +63,23 @@ function getPageNumbers(current: number, total: number) {
 
 const pages = getPageNumbers(currentPage, totalPages);
 
+// Construct page URL while keeping search query parameters intact
 const getPageUrl = (pageNum: number) => {
-  if (pageNum === 1) return absoluteBaseUrl;
-  return `${absoluteBaseUrl}/${pageNum}`;
+  const urlParams = new URLSearchParams(Astro.url.search);
+  if (pageNum === 1) {
+    urlParams.delete('page');
+  } else {
+    urlParams.set('page', pageNum.toString());
+  }
+  const queryString = urlParams.toString();
+  return `${absoluteBaseUrl}${queryString ? `?${queryString}` : ''}`;
 };
 
-const prevUrl = page?.url?.prev ? `${base}${page.url.prev.startsWith('/') ? page.url.prev : `/${page.url.prev}`}` : (currentPage > 1 ? getPageUrl(currentPage - 1) : null);
-const nextUrl = page?.url?.next ? `${base}${page.url.next.startsWith('/') ? page.url.next : `/${page.url.next}`}` : (currentPage < totalPages ? getPageUrl(currentPage + 1) : null);
----
 
+const prevUrl = currentPage > 1 ? getPageUrl(currentPage - 1) : null;
+const nextUrl = currentPage < totalPages ? getPageUrl(currentPage + 1) : null;
+
+---
 
 <nav class="pagination-nav" aria-label="Blog Pagination">
   {/* Previous Button */}
@@ -167,7 +176,6 @@ const nextUrl = page?.url?.next ? `${base}${page.url.next.startsWith('/') ? page
     object-fit: contain;
   }
 
-  /* Invert chevron icons automatically in dark mode if they use dark lines */
   html.dark .chevron-icon {
     filter: invert(1) hue-rotate(180deg);
   }

@@ -3,6 +3,9 @@ const rawBase = import.meta.env.BASE_URL;
 const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
 
 export function normalizePost(post: any) {
+  // Safety guard against undefined or null posts
+  if (!post) return null;
+
   const rawId = post.id || post.slug || '';
   const slug = (rawId.split('/').pop() || rawId).replace(/\.[^/.]+$/, '');
 

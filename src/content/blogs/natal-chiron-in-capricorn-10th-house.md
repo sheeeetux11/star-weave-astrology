@@ -1,0 +1,21 @@
+---
+title: "Natal Chiron in Capricorn (10th House) 🧸✨"
+date: "May 25, 2023" 
+manualPrev: "natal-chiron-in-sagittarius-9th-house"
+manualNext: "natal-chiron-in-aquarius-11th-house"
+tags: ["Chiron Astrology", "Chiron in Capricorn", "Chiron in 10H", "Chiron in Houses & Signs"]
+---
+
+Natal Chiron in Capricorn (10th House)
+
+You have a strong desire to accomplish your ambitions in life. You are driven to create a legacy of your own. But your inner wounds may have an inhibiting effect on you. Your childhood experiences left a strong impression on you. You might have felt belittled, neglected or overburdened by carrying out huge responsibilities as a child. You might have had to live up to certain standards or positions from a very young age making you feel robbed of a simple and playful childhood. You might have even had the responsibility to take care of others in your family due to circumstances. Your reliable nature can be impressive in your adult life, but you might be too hard on yourself sometimes. 
+
+You might even push yourself to attain goals even when you might not feel fully ready to pursue them or feel like you need to over-compensate in some way. You might feel like you need to prove your capabilities to others, especially if you grew up in a restrictive or demeaning household. You might have experienced discrimination or disrespect in your workplace, even have had stressful power struggles with your coworkers and higher-ups. You might feel over-looked despite your efforts and accomplishments. You will have to heal your deeper wounds of rejection, since you can dismiss your own capabilities to succeed sometimes. As a result, you might fear success even more than you fear failure. 
+
+You will also need to draw healthy boundaries in how much work you take on and how others treat you in your professional field. Your character will be strengthened through all the ups and downs. Your stamina and inner strength will help you leave a lasting impression on others. Your public and professional reputation will help you elevate in your life and fulfill your dreams by building your idealistic life and reach your goals without subjecting yourself or others to tyranny. Since, you might even have to be careful not to project on your coworkers or employees if you are in a higher position yourself, because unresolved inner wounds can make you unforgiving and domineering towards others. 
+
+You will have to cultivate a good work ethic; hence under-working or over-working can be detrimental to your overall productivity. Your struggles and downfalls can be quite public, meaning, others might be able to witness you at your lowest or your professional setbacks can make you feel like you are being judged by others. You have excellent organizational skills, you are methodical and well-equipped with knowledge and resources to accomplish all your goals and ambitions, but you will need to consciously use these incredible skills to manage your time and efforts. 
+
+Your self-doubts and negative self-talks will need to be consciously shifted towards a more realistic yet positive mindset. You will however have to make sure not to expect excellence from your loved ones the way you would from your coworkers/employees. You will also have to find peace with your inner wounds from childhood. Your healing through your career accomplishments will help you to establish a fulfilling family/home life. You can release excess pressure of maintaining a certain position or status in society by being true to yourself and your craft. 
+
+This way you can also be proud of your accomplishments without seeking external validation. You will have to be authentic in all your professional dealings and your public image must reflect your true character, otherwise your reputation will take a hit eventually since others can easily recognize when you are acting out of dubious intentions. Your authentic and responsible personality will earn you a good reputation, respect and support along with many honors. 

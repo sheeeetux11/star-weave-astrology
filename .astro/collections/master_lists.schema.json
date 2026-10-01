@@ -40,6 +40,12 @@
           "description": {
             "type": "string"
           },
+          "headerIcon": {
+            "type": "string"
+          },
+          "isExpanded": {
+            "type": "boolean"
+          },
           "is_expanded": {
             "default": false,
             "type": "boolean"
@@ -63,6 +69,9 @@
                   "items": {
                     "type": "object",
                     "properties": {
+                      "date": {
+                        "type": "string"
+                      },
                       "text": {
                         "type": "string"
                       },
@@ -81,11 +90,62 @@
                 "title"
               ]
             }
+          },
+          "newMoonIcon": {
+            "type": "string"
+          },
+          "fullMoonIcon": {
+            "type": "string"
+          },
+          "pairs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "newMoon": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "date": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "title",
+                    "url",
+                    "date"
+                  ]
+                },
+                "fullMoon": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "date": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "title",
+                    "url",
+                    "date"
+                  ]
+                }
+              }
+            }
           }
         },
         "required": [
-          "heading",
-          "cards"
+          "heading"
         ]
       }
     },

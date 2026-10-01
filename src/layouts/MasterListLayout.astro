@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import MasterListHeader from '../components/MasterListHeader.astro';
 import MasterListSection from '../components/MasterListSection.astro';
+import NewFullMoonCal from '../components/NewFullMoonCal.astro';
 import BlogLinkCard from '../components/BlogLinkCard.astro';
 import BlogPaginationNav from '../components/BlogPaginationNav.astro';
 import BlogRelatedPosts from '../components/BlogRelatedPosts.astro';
@@ -27,11 +28,26 @@ interface Card {
   sub_links?: SubLink[];
 }
 
+interface MoonCard {
+  title: string;
+  url: string;
+  date: string;
+}
+
+interface MoonPair {
+  newMoon: MoonCard;
+  fullMoon: MoonCard;
+}
+
 interface Section {
   heading: string;
   description?: string;
+  headerIcon?: string;
   isExpanded?: boolean;
-  cards: Card[];
+  cards?: Card[];
+  newMoonIcon?: string;
+  fullMoonIcon?: string;
+  pairs?: MoonPair[];
 }
 
 interface LinkItem {
@@ -87,22 +103,36 @@ const {
       </div>
     )}
 
-    {/* Main Content Area: Accordion Sections */}
-    <div class="master-list-sections-container">
-      {sections.map((section, index) => (
-        <div id={`section-${index}`}>
-          <MasterListSection 
-            heading={section.heading}
-            description={section.description}
-            isExpanded={section.isExpanded}
-            cards={section.cards}
-          />
-        </div>
-      ))}
-      
-      {/* Fallback slot if manual children are passed instead of props */}
-      <slot />
-    </div>
+    {/* Main Content Area: Accordion Sections (Standard or Moon Calendar) */}
+    {sections.length > 0 && (
+      <div class="master-list-sections-container">
+        {sections.map((section, index) => (
+          <div id={`section-${index}`}>
+            {section.pairs && section.pairs.length > 0 ? (
+              <NewFullMoonCal 
+                heading={section.heading}
+                description={section.description}
+                headerIcon={section.headerIcon}
+                isExpanded={section.isExpanded}
+                newMoonIcon={section.newMoonIcon || ''}
+                fullMoonIcon={section.fullMoonIcon || ''}
+                pairs={section.pairs}
+              />
+            ) : (
+              <MasterListSection 
+                heading={section.heading}
+                description={section.description}
+                isExpanded={section.isExpanded}
+                cards={section.cards || []}
+              />
+            )}
+          </div>
+        ))}
+        
+        {/* Fallback slot if manual children are passed instead of props */}
+        <slot />
+      </div>
+    )}
 
     {/* Standalone Blog Link Cards (Responsive Pinterest Layout Grid) */}
     {blogLinkCards && blogLinkCards.links && blogLinkCards.links.length > 0 && (
@@ -140,7 +170,6 @@ const {
     box-sizing: border-box;
   }
 
-  /* 2-Column Intro Description with inherited theme typography */
   .master-list-intro-box {
     width: 100%;
     columns: 2;
@@ -177,21 +206,10 @@ const {
     margin-top: 1rem;
   }
 
-  /* Ensure footer modules don't render empty bordered boxes if data is missing */
   .master-list-footer-modules:empty {
     display: none;
   }
 
-  .master-section {
-    border: 0.5px solid rgba(239, 175, 36, 0.4);
-    border-radius: 20px;
-    padding: clamp(0.875rem, 2vw, 1.25rem);
-    margin-bottom: clamp(1rem, 2.5vw, 1.75rem);
-    background-color: #ffffff;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-  }
-
-  /* Dynamic Theme Heading Color Fix */
   :global(html.dark) .master-list-main h1,
   :global(html.dark) .master-list-main h2,
   :global(html.dark) .master-list-main h3 {

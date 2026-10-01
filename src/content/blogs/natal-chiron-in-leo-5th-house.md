@@ -1,0 +1,21 @@
+---
+title: "Natal Chiron in Leo (5th House) 🧸✨"
+date: "May 25, 2023" 
+manualPrev: "natal-chiron-in-cancer-4th-house"
+manualNext: "natal-chiron-in-virgo-6th-house"
+tags: ["Chiron Astrology", "Chiron in Leo", "Chiron in 5H", "Chiron in Houses & Signs"]
+---
+
+Natal Chiron in Leo (5th House)
+
+You are humble but sometimes to your own detriment. Your kindness can be taken advantage of especially by people you consider your closest. You might even feel pressured to take the center-stage or responsibilities even when you secretly desire to be popular. You might take things too seriously and not allow your inner child to express itself fully. You might feel over-privileged in some areas of your life whereas feel lack in others, especially about simpler joys of life. You might have wounds from childhood where you felt you couldn’t spend much time with your parents or family due to unfortunate events or some other reasons. You might be carrying that trauma with you, feeling burdened. You might even feel the need to look happy on the outside just so your loved ones don’t feel upset sometimes, but this placement will make it harder for you to fake your emotions. 
+
+You might be too generous and outgoing, but you also need your alone time to recharge. Even though you like the attention and admiration you receive, you can feel overwhelmed easily. You like to keep your romance private. But if you are prone to attention seeking behaviors, you might not mind overly displaying your affection to your partner(s) in public, may be even fake your relationships. This is one of the things to be mindful of with this Chiron placement. You might even refuse to carry yourself with honesty and integrity but instead play a role of a perfect person just to gain validation from others or fit in. 
+
+You might feel inadequate in social settings, even when you have no reason to be so. You might be incredibly talented, but you can hide it out of fear of rejection. This self-sabotaging tendency might be the result of your upbringing where you might have lacked encouragement or been overly criticized. Standing up for yourself in the face of danger or opposition can also be a test of your inner strength with this placement. You might encounter people or situations where your integrity will be questioned and only your courage can prove your strength in character. 
+
+You will have to be honest with yourself with this placement and build your personality around that truth. You will have to adapt a positive mindset every time you face rejections or criticism, since you will always have people who support and admire you. Your belief in yourself and your capabilities to succeed must be undeniable in order to heal certain past traumas. If some of those inner wounds were related to your childhood/upbringing, you will have to address them by re-parenting yourself and giving yourself the freedom to express your creative and quirky sides. You can embrace the spotlight unapologetically. 
+
+This placement might also affect the way you see romance, since you might have issues with your partner(s) due to projection of your own insecurities or fears of abandonment, so you will need to be careful not to sabotage an otherwise promising relationship. Likewise, you will also need to be mindful of people who wish to be your friends/acquaintances/partners just so they can take advantage of your popularity or good graces, so drawing healthy boundaries in all kinds of relationships will be one of your lessons. You can heal yourself through your compassionate and graceful heart, you help and protect your loved ones fiercely. 
+
+Your presence in others’ lives can have a positive impact, especially when you actively make an effort to stay optimistic. Your courage and brave personality can serve as an inspiration to others by the way you take the lead, own the lime-light or face oppositions. Your creative self-expression can heal your fears of inadequacy, where you can face your insecurities and gain more confidence in presenting your skills and talents to others and being recognized. Your ego is powerful, but you must not dial-down on your confidence just to please others, so you can unapologetically show case your talents and accomplishments while also staying humble. 

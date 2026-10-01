@@ -13,7 +13,7 @@ const rawBase = import.meta.env.BASE_URL;
 const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
 
 const {
-  heroImage = `${base}/assets/images/hero-default.png`,
+  heroImage = `${base}/images/hero-image.png`,
   subtitleLeft = "Untangling the invisible threads\nof your Destiny.",
   subtitleRight = "Unveil the intricate tapestry\nof your True Potential.",
   ctaText = "Learn the Intuitive Art of Astrology"
@@ -51,7 +51,7 @@ const {
     max-width: 1440px;
     margin: 0 auto;
     /* Reduced top padding slightly while keeping it safe from the navbar */
-    padding: clamp(3.5rem, 5vw, 5rem) clamp(1rem, 2.5vw, 25px) clamp(1rem, 2vw, 2rem) clamp(1rem, 2.5vw, 25px);
+    padding: clamp(4.5rem, 5vw, 5rem) clamp(1rem, 2.5vw, 25px) clamp(1rem, 2vw, 2rem) clamp(1rem, 2.5vw, 25px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -71,8 +71,8 @@ const {
 
   .hero-image-wrapper {
     width: 100%;
-    aspect-ratio: 1380 / 600;
-    max-height: 600px;
+    aspect-ratio: 1380 / 778;
+    max-height: 778px;
     border-radius: clamp(12px, 2vw, 20px);
     overflow: hidden;
     background: transparent;

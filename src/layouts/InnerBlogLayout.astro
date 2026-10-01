@@ -17,6 +17,7 @@ import BlogRecommendations from '../components/BlogRecommendations.astro';
 import BlogKoFiCTA from '../components/BlogKoFiCTA.astro';
 import BlogComments from '../components/BlogComments.astro';
 import { normalizePost } from '../utils/normalizeBlog';
+import { calculateReadTime } from '../utils/readTime'; // 1. Import our read time utility
 
 const { post, prevPost, nextPost } = Astro.props;
 
@@ -25,8 +26,12 @@ const normalized = normalizePost(post);
 
 const title = normalized.title || 'Untitled Post';
 const date = normalized.date;
-const readTime = normalized.readTime || '5 min read';
 const author = normalized.author || 'Star Weave Astrology';
+
+// 2. Automatically calculate read time dynamically from post body/content if available, falling back to normalization
+const postBodyContent = post?.body || post?.rawContent?.() || normalized.content || '';
+const readTime = postBodyContent ? calculateReadTime(postBodyContent) : (normalized.readTime || '5 min read');
+
 const image = normalized.image;
 const youtubeUrl = post?.data?.youtubeUrl || post?.youtubeUrl;
 const youtubeTitle = post?.data?.youtubeTitle || post?.youtubeTitle;
@@ -52,11 +57,8 @@ const moreOnAstrology = [...globalMoreOnAstrology, ...customTopics];
       
       <header class="article-header">
         <h1 class="article-title">{title}</h1>
-        <div class="meta-row">
-          <span class="read-time">{readTime}</span>
-          <span class="meta-separator">|</span>
-          <BlogHeaderMeta author={author} date={date} />
-        </div>
+        <!-- 3. Pass readTime directly into BlogHeaderMeta -->
+        <BlogHeaderMeta author={author} date={date} readTime={readTime} />
       </header>
 
       {image && <BlogImage src={image} alt={title} />}
@@ -151,26 +153,6 @@ const moreOnAstrology = [...globalMoreOnAstrology, ...customTopics];
   }
   html.dark .article-title {
     color: #F9FAFB;
-  }
-
-  .meta-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(11px, 1.2vw, 12px);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: #EBAF24;
-  }
-
-  .read-time {
-    font-weight: 500;
-  }
-
-  .meta-separator {
-    opacity: 0.6;
   }
 
   .blog-recommendations,

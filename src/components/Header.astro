@@ -397,9 +397,9 @@ const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
   function executeSearch() {
     const query = searchInput?.value.trim();
     if (query) {
-      // Safely prepend base path to search route
+      // Safely prepend base path to search route and map to 'q' and 'search-results'
       const cleanBase = basePrefix.endsWith('/') ? basePrefix : basePrefix + '/';
-      window.location.href = `${cleanBase}blogs?search=${encodeURIComponent(query)}`;
+      window.location.href = `${cleanBase}blogs?q=${encodeURIComponent(query)}&mode=search-results`;
     }
   }
 

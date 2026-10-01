@@ -150,6 +150,7 @@ collections:
                     widget: "list"
                     required: false
                     fields:
+                      - { label: "Date Text", name: "date", widget: "string", required: false }
                       - { label: "Link Text", name: "text", widget: "string" }
                       - { label: "Link URL", name: "url", widget: "string" }
 
@@ -189,6 +190,7 @@ collections:
                 widget: "list"
                 required: false
                 fields:
+                  - { label: "Date Text", name: "date", widget: "string", required: false }
                   - { label: "Link Text", name: "text", widget: "string" }
                   - { label: "Link URL", name: "url", widget: "string" }
 

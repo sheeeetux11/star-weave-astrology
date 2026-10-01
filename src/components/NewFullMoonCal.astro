@@ -1,0 +1,399 @@
+---
+interface MoonCard {
+  title: string;
+  url?: string;
+  date: string;
+}
+
+interface MoonPair {
+  newMoon?: MoonCard;
+  fullMoon?: MoonCard;
+}
+
+interface Props {
+  heading: string;
+  description?: string;
+  headerIcon?: string;
+  newMoonIcon?: string;
+  fullMoonIcon?: string;
+  isExpanded?: boolean;
+  pairs: MoonPair[];
+}
+
+const { 
+  heading, 
+  description, 
+  headerIcon, 
+  newMoonIcon, 
+  fullMoonIcon, 
+  isExpanded = false, 
+  pairs = [] 
+} = Astro.props;
+
+const activeHeaderIcon = headerIcon || newMoonIcon;
+---
+
+<div class={`master-section moon-calendar-section ${isExpanded ? 'is-expanded' : ''}`}>
+  <!-- Accordion Header -->
+  <button 
+    type="button" 
+    class="moon-accordion-toggle"
+    aria-expanded={isExpanded}
+  >
+    <div class="header-left">
+      {activeHeaderIcon && (
+        <div class={`header-icon-wrapper ${isExpanded ? 'expanded' : ''}`}>
+          <img src={activeHeaderIcon} alt="" class="header-thumb" />
+        </div>
+      )}
+      
+      <div class="header-text-group">
+        <h2 class="section-heading">{heading}</h2>
+        {description && <p class={`section-desc ${isExpanded ? 'hidden' : ''}`}>{description}</p>}
+      </div>
+    </div>
+    
+    <div class="chevron-wrapper">
+      <svg class={`chevron-icon ${isExpanded ? 'expanded' : ''}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 9l6 6 6-6" />
+      </svg>
+    </div>
+  </button>
+
+  <!-- Accordion Content Body -->
+  <div class={`moon-content-wrapper ${isExpanded ? 'is-open' : ''}`}>
+    <div>
+      <div class="pairs-grid">
+        {pairs.map((pair, index) => (
+          <div class="moon-pair-row">
+            {/* Full Moon Card (Optional check) */}
+            {pair.fullMoon ? (
+              <div class="mini-card">
+                {index === 0 && fullMoonIcon && (
+                  <div class="card-icon-container">
+                    <img src={fullMoonIcon} alt="Full Moon" class="card-icon" />
+                  </div>
+                )}
+                
+                {pair.fullMoon.date && <span class="card-date">{pair.fullMoon.date}</span>}
+                
+                <div class="card-title-wrap">
+                  {pair.fullMoon.url ? (
+                    <a href={pair.fullMoon.url} class="card-title link">{pair.fullMoon.title}</a>
+                  ) : (
+                    <span class="card-title">{pair.fullMoon.title}</span>
+                  )}
+                </div>
+              </div>
+            ) : (
+              <div class="mini-card empty-card"></div>
+            )}
+
+            {/* New Moon Card (Optional check) */}
+            {pair.newMoon ? (
+              <div class="mini-card">
+                {index === 0 && newMoonIcon && (
+                  <div class="card-icon-container">
+                    <img src={newMoonIcon} alt="New Moon" class="card-icon" />
+                  </div>
+                )}
+                
+                {pair.newMoon.date && <span class="card-date">{pair.newMoon.date}</span>}
+                
+                <div class="card-title-wrap">
+                  {pair.newMoon.url ? (
+                    <a href={pair.newMoon.url} class="card-title link">{pair.newMoon.title}</a>
+                  ) : (
+                    <span class="card-title">{pair.newMoon.title}</span>
+                  )}
+                </div>
+              </div>
+            ) : (
+              <div class="mini-card empty-card"></div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initMoonCalendarAccordions() {
+    const moonSections = document.querySelectorAll('.moon-calendar-section');
+
+    moonSections.forEach((section) => {
+      const toggle = section.querySelector('.moon-accordion-toggle');
+      if (!toggle || toggle.hasAttribute('data-listener-attached')) return;
+
+      toggle.setAttribute('data-listener-attached', 'true');
+
+      toggle.addEventListener('click', () => {
+        const content = section.querySelector('.moon-content-wrapper');
+        const chevron = toggle.querySelector('.chevron-icon');
+        const headerIcon = section.querySelector('.header-icon-wrapper');
+        const desc = section.querySelector('.section-desc');
+        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+        toggle.setAttribute('aria-expanded', (!isExpanded).toString());
+        
+        if (isExpanded) {
+          section.classList.remove('is-expanded');
+          content?.classList.remove('is-open');
+          chevron?.classList.remove('expanded');
+          headerIcon?.classList.remove('expanded');
+          desc?.classList.remove('hidden');
+        } else {
+          section.classList.add('is-expanded');
+          content?.classList.add('is-open');
+          chevron?.classList.add('expanded');
+          headerIcon?.classList.add('expanded');
+          desc?.classList.add('hidden');
+        }
+      });
+    });
+  }
+
+  initMoonCalendarAccordions();
+  document.addEventListener('astro:page-load', initMoonCalendarAccordions);
+</script>
+
+
+<style>
+  .master-section {
+    border: 0.5px solid rgba(239, 175, 36, 0.4);
+    border-radius: clamp(14px, 2vw, 20px);
+    padding: clamp(1rem, 2vw, 1.5rem);
+    margin-bottom: clamp(1rem, 2.5vw, 1.75rem);
+    background-color: #ffffff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  html.dark .master-section {
+    background-color: #0d0f12;
+  }
+
+  .moon-accordion-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.85rem, 2vw, 1.25rem);
+  }
+
+  .header-icon-wrapper {
+    width: clamp(75px, 10vw, 100px);
+    height: clamp(75px, 10vw, 100px);
+    border-radius: clamp(14px, 2vw, 20px);
+    flex-shrink: 0;
+    transition: width 0.3s ease, height 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  html.dark .header-icon-wrapper {
+    background-color: transparent;
+  }
+
+  .header-icon-wrapper.expanded {
+    width: clamp(48px, 6vw, 60px);
+    height: clamp(48px, 6vw, 60px);
+  }
+
+  .header-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .header-text-group {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.15rem, 0.5vw, 0.25rem);
+  }
+
+  .section-heading {
+    font-family: 'Joan', serif;
+    font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+    color: #225688;
+    margin: 0;
+    transition: color 0.2s ease;
+  }
+
+  html.dark .section-heading {
+    color: #60A5FA;
+  }
+
+  .moon-accordion-toggle:hover .section-heading {
+    color: #EFAF24;
+  }
+
+  .section-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.8rem, 1.2vw, 0.875rem);
+    color: #6b7280;
+    margin: 0;
+    transition: opacity 0.2s ease, max-height 0.2s ease;
+    opacity: 1;
+    max-height: 50px;
+  }
+
+  html.dark .section-desc {
+    color: #9ca3af;
+  }
+
+  .section-desc.hidden {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .chevron-wrapper {
+    width: clamp(1.75rem, 3vw, 2rem);
+    height: clamp(1.75rem, 3vw, 2rem);
+    border-radius: 50%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #225688;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  html.dark .chevron-wrapper {
+    color: #E2E4E9;
+  }
+
+  .moon-accordion-toggle:hover .chevron-wrapper,
+  .master-section.is-expanded .chevron-wrapper {
+    background-color: #FFF9E6;
+  }
+
+  html.dark .moon-accordion-toggle:hover .chevron-wrapper,
+  html.dark .master-section.is-expanded .chevron-wrapper {
+    background-color: rgba(239, 175, 36, 0.15);
+  }
+
+  .chevron-icon {
+    width: clamp(0.85rem, 1.5vw, 1rem);
+    height: clamp(0.85rem, 1.5vw, 1rem);
+    transition: transform 0.3s ease;
+  }
+
+  .chevron-icon.expanded {
+    transform: rotate(180deg);
+  }
+
+  .moon-content-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    overflow: hidden;
+    transition: grid-template-rows 0.35s ease, opacity 0.35s ease, margin-top 0.35s ease;
+    margin-top: 0;
+  }
+
+  .moon-content-wrapper.is-open {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    margin-top: clamp(1rem, 2.5vw, 1.5rem);
+  }
+
+  .moon-content-wrapper > div {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .pairs-grid {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.5rem, 3vw, 2rem);
+  }
+
+  .moon-pair-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(1rem, 2.5vw, 1.5rem);
+  }
+
+  @media (min-width: 768px) {
+    .moon-pair-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .mini-card {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    width: 100%;
+  }
+
+  .card-icon-container {
+    width: clamp(75px, 10vw, 100px);
+    height: clamp(75px, 10vw, 100px);
+    margin: 0 0 clamp(0.5rem, 1.5vw, 0.75rem) 0;
+    border-radius: clamp(14px, 2vw, 20px);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .card-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card-date {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.75rem, 1.1vw, 0.85rem);
+    color: #6b7280;
+    margin-bottom: clamp(0.2rem, 0.4vw, 0.3rem);
+    display: block;
+  }
+
+  html.dark .card-date {
+    color: #9ca3af;
+  }
+
+  .card-title-wrap {
+    margin-bottom: 0;
+  }
+
+  .card-title {
+    font-family: 'Joan', serif;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: #225688;
+    text-decoration: none;
+    display: block;
+  }
+
+  html.dark .card-title {
+    color: #60A5FA; 
+  }
+
+  .card-title.link:hover {
+    text-decoration: underline;
+  }
+</style>

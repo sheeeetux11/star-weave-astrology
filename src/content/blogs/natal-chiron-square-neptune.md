@@ -1,0 +1,13 @@
+---
+title: "Natal Chiron Square Neptune ✨"
+date: "January 15, 2026" 
+tags: ["Rare Aspects", "Chiron Aspects", "Chiron Square Neptune", "Neptune Aspects", "Aspects Astrology"]
+---
+
+A generational transit. Recent: 1996-97.
+
+Neptune & Chiron often make a great impact in our Natal Chart, since they are both similar in their energies, focused on self-healing & service to others. You might have had extreme paranoia and fears regarding your past, even as a kid, due to your surroundings, household situations, or even past life experiences. This might have made you afraid of looking into your own inner self, from exploring your subconscious without feeling overwhelmed at first. There may have been instances where you had to face extreme circumstances that left you traumatized, making you sensitive to triggers from then on. You might even have a harder time standing up for your beliefs, appreciating yourself worth and developing your inner character. 
+
+There may be subconscious programming since childhood about what is right for you and what is not which may not be entirely true to who you are. This could lead to personality issues, where you might not know who you truly are, and may be even prompt you to assume certain personality traits to please others. There may be initial fears with regards to seeking help, to even admit that you need assistance in unraveling your own mind & feelings. So, paying attention to your inner wounds (especially from childhood), will be vital to your general attitude towards life, since these wounds may be deep, and they can spill into your subconscious patterns. Initially, running away from anything that hurts you on a soul-level, which consumes your thoughts & clouds your mental clarity will only result in relying on substances or other forms of escapism, which can further affect your mental and physical health. 
+
+You may have felt drawn to helping others with similar or even darker past wounds & traumas, in a subconscious need to heal your own, and eventually realizing how important it is to be compassionate towards yourself just the way you are to others. So, any and every effort made towards healing your past wounds, and correcting your self-sabotaging behaviors will lead you forward in life, helping you attain mental stability & emotional security. You are quite intuitive and might even be psychically gifted. You are in tune with the collective subconscious especially through tough situations, global crises or generational traumas. By healing your inner wounds and accepting your true purpose in life, you will be able to help others in their recovery. Hence, your healing journey will deeply inspire those around you as well. 
