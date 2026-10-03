@@ -13,16 +13,6 @@ sections:
     description: "Placements in Natal, Solar Return & Transit Charts"
     is_expanded: true
     cards: 
-      - title: "Sun"
-        icon: "/images/Sun.png"
-        sub_links:
-          - text: "Natal Signs & Houses"
-            url: "/blogs/natal-merucry-retrograde"
-      - title: "Moon"
-        icon: "/images/full-moon.png"
-        sub_links:
-          - text: "Natal Signs & Houses"
-            url: "/blogs/venus-ingress-in-taurus-venus-transit-astrology"
       - title: "Mercury"
         icon: "/images/Mercury.png"
         sub_links:
@@ -72,7 +62,7 @@ sections:
 
   - heading: "Astrological Points"
     description: "Placements in Natal, Solar Return & Transit Charts"
-    is_expanded: true
+    is_expanded: false
     cards: 
       - title: "Part of Fortune"
         sub_links:
@@ -81,7 +71,7 @@ sections:
 
   - heading: "Asteroid Astrology"
     description: "Placements in Natal, Solar Return & Transit Charts"
-    is_expanded: true
+    is_expanded: false
     cards: 
       - title: "Chiron"
         sub_links:

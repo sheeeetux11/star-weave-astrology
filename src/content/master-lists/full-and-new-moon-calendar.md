@@ -139,7 +139,7 @@ sections:
     headerIcon: "/images/full-moon.png"
     newMoonIcon: "/images/new-moon.png"
     fullMoonIcon: "/images/full-moon.png"
-    isExpanded: true
+    isExpanded: false
     pairs:
       - fullMoon:
           title: "Cancer Full Moon 23º"
@@ -251,7 +251,7 @@ sections:
     headerIcon: "/images/full-moon.png"
     newMoonIcon: "/images/new-moon.png"
     fullMoonIcon: "/images/full-moon.png"
-    isExpanded: true
+    isExpanded: false
     pairs:
       - fullMoon:
           title: "Leo Full Moon 5º"

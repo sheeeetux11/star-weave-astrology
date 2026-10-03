@@ -50,7 +50,17 @@ const resolvedImage = image.startsWith('http') ? image : `${base}${image.startsW
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Joan&display=swap" rel="stylesheet">
+			<script is:inline>
+			// Check local storage for saved theme preference on page load
+			const savedTheme = localStorage.getItem('theme');
+			if (savedTheme === 'light') {
+				document.documentElement.classList.remove('dark');
+			} else {
+				document.documentElement.classList.add('dark');
+			}
+		</script>
 	</head>
+
 	<body>
 		<slot />
 

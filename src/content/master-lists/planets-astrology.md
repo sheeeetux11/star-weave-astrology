@@ -12,9 +12,8 @@ headerPills:
 
 sections:
   - heading: "Venus"
-    icon: "/images/Venus.png"
     description: "Placements in Natal, Solar Return & Transit Charts"
-    is_expanded: true
+    is_expanded: false
     cards: 
       - title: "Taurus + 2H"
         sub_links:
@@ -22,9 +21,9 @@ sections:
             url: "/blogs/venus-ingress-in-taurus-venus-transit-astrology"
 
   - heading: "Saturn"
-    icon: "/images/Saturn.png"
     description: "Placements in Natal, Solar Return & Transit Charts"
-    is_expanded: true
+    headerIcon: "/images/Saturn.png"
+    is_expanded: false
     cards: 
       - title: "Aries + 1H"
         sub_links:
@@ -76,9 +75,8 @@ sections:
             url: "/blogs/natal-saturn-in-pisces-12th-house-generation"
 
   - heading: "Neptune"
-    icon: "/images/Neptune.png"
     description: "Placements in Natal, Solar Return & Transit Charts"
-    is_expanded: true
+    is_expanded: false
     cards: 
       - title: "5H"
         sub_links:
@@ -86,8 +84,9 @@ sections:
             url: "/blogs/natal-neptune-in-5th-house"
 
   - heading: "Planet Retrogrades"
-    description: "Retrogrades in Natal Chart & Transits + Retrograde Survival Guides"
-    is_expanded: true
+    url: "/master-lists/retrograde-astrology"
+    description: "Placements in Natal Chart & Transits"
+    is_expanded: false
     cards: 
       - title: "Mercury"
         sub_links:

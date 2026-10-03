@@ -16,39 +16,39 @@ sections:
       - title: "Mercury"
         sub_links:
           - text: "Natal Rx"
-            url: "/blogs/planets-astrology"
+            url: "/blogs/natal-mercury-retrograde"
       - title: "Venus"
         sub_links:
           - text: "Natal Rx"
-            url: "/blogs/planets-astrology"
+            url: "/blogs/natal-venus-retrograde"
       - title: "Mars"
         sub_links:
           - text: "Natal Rx"
-            url: "/blogs/planets-astrology"
+            url: "/blogs/natal-mars-retrograde"
       - title: "Jupiter"
         sub_links:
           - text: "Natal Rx"
-            url: "/blogs/planets-astrology"
+            url: "/blogs/natal-jupiter-retrograde"
       - title: "Saturn"
         sub_links:
           - text: "Natal Rx"
-            url: "/blogs/planets-astrology"
+            url: "/blogs/natal-saturn-retrograde"
       - title: "Uranus"
         sub_links:
           - text: "Natal Rx"
-            url: "/blogs/planets-astrology"
+            url: "/blogs/natal-uranus-retrograde"
       - title: "Neptune"
         sub_links:
           - text: "Natal Rx"
-            url: "/blogs/planets-astrology"
+            url: "/blogs/natal-neptune-retrograde"
       - title: "Pluto"
         sub_links:
           - text: "Natal Rx"
-            url: "/blogs/planets-astrology"
+            url: "/blogs/natal-pluto-retrograde"
 
   - heading: "Retrograde Survival Guides"
     description: "Survival Guides for Transit Retrogrades"
-    is_expanded: true
+    is_expanded: false
     cards: 
       - title: "Mercury"
         sub_links:
@@ -61,7 +61,7 @@ sections:
 
   - heading: "Asteroid Retrogrades"
     description: "Placements in Natal Chart & Transits"
-    is_expanded: true
+    is_expanded: false
     cards: 
       - title: "Chiron"
         sub_links:

@@ -122,7 +122,8 @@ const {
               <MasterListSection 
                 heading={section.heading}
                 description={section.description}
-                isExpanded={section.isExpanded}
+                headerIcon={section.headerIcon} 
+                isExpanded={section.isExpanded || section.is_expanded}
                 cards={section.cards || []}
               />
             )}
@@ -133,6 +134,7 @@ const {
         <slot />
       </div>
     )}
+
 
     {/* Standalone Blog Link Cards (Responsive Pinterest Layout Grid) */}
     {blogLinkCards && blogLinkCards.links && blogLinkCards.links.length > 0 && (

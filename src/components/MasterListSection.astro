@@ -1,5 +1,3 @@
-
-
 ---
 interface SubLink {
   text: string;
@@ -264,7 +262,6 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
     transform: rotate(180deg);
   }
 
-    /* Bulletproof max-height accordion transition */
   .accordion-content-wrapper {
     max-height: 0;
     opacity: 0;
@@ -274,7 +271,7 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
   }
 
   .accordion-content-wrapper.is-open {
-    max-height: 3000px; /* Generous height limit to fit all content comfortably */
+    max-height: 3000px;
     opacity: 1;
     margin-top: clamp(1.25rem, 3vw, 2rem);
   }
@@ -283,9 +280,6 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
     min-height: 0;
   }
 
-
-  /* Improved Grid Structure to keep titles and sublinks compactly locked together */
-  /* Pinterest-inspired masonry/column flow for smaller viewports, expanding to columns on desktop */
   .cards-grid {
     column-count: 2;
     column-gap: clamp(1rem, 2vw, 1.5rem);
@@ -300,7 +294,7 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
 
   @media (min-width: 1024px) {
     .cards-grid {
-      column-count: 5; /* Matches your 5-column desktop transit layout */
+      column-count: 5;
     }
   }
 
@@ -315,7 +309,6 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
     break-inside: avoid;
     margin-bottom: clamp(1.5rem, 2.5vw, 2rem);
   }
-
 
   .card-icon-container {
     width: clamp(75px, 10vw, 100px);
@@ -401,6 +394,6 @@ const activeHeaderIcon = headerIcon || cards[0]?.icon;
   }
 
   .sub-divider {
-    display: none; /* Replaced with clean gap spacing between list items for a polished layout */
+    display: none;
   }
 </style>

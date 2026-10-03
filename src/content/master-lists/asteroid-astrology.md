@@ -3,7 +3,7 @@ title: "Asteroid Astrology ✨"
 headerPills:
   - text: "Chiron"
     target: "#section-0"
-  - text: "Sirene 1009"
+  - text: "Black Moon Lilith"
     target: "#section-1"
   - text: "Sirene 1009"
     target: "#section-2"
@@ -14,6 +14,7 @@ headerPills:
 
 sections:
   - heading: "Chiron"
+    url: "/blogs/chiron-the-crux-of-transcendence"
     description: "Placements in Natal, Solar Return & Transit Charts"
     is_expanded: true
     cards: 
@@ -68,7 +69,7 @@ sections:
 
   - heading: "Black Moon Lilith"
     description: "Placements in Natal, Solar Return & Transit Charts"
-    is_expanded: true
+    is_expanded: false
     cards: 
       - title: "Related Posts"
         sub_links:
@@ -79,8 +80,9 @@ sections:
             url: "/blogs/black-moon-lilith-transit-in-leo-jan-8-2023"
 
   - heading: "Sirene 1009"
+    url: "/blogs/sirene-asteroid-1009-astrology-natal-placements-degrees-aspects-mythology"
     description: "Placements in Natal, Solar Return & Transit Charts"
-    is_expanded: true
+    is_expanded: false
     cards: 
       - title: "Aries + 1H"
         sub_links:
@@ -139,7 +141,7 @@ sections:
 
   - heading: "Asteroid Retrogrades"
     description: "Placements in Natal Chart & Transits"
-    is_expanded: true
+    is_expanded: false
     cards: 
       - title: "Chiron"
         sub_links:
@@ -183,8 +185,9 @@ sections:
             url: "/blogs/sirene-asteroid-in-retrograde-natal"
 
   - heading: "Asteroid Mythology"
+    url: "/blogs/mythology-x-astrology-of-asteroids"
     description: "Placements in Natal Chart & Transits"
-    is_expanded: true
+    is_expanded: false
     cards: 
       - title: "Chiron"
         sub_links:

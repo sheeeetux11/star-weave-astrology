@@ -13,7 +13,7 @@ headerPills:
 sections: 
   - heading: "2026 Transits Astrology"
     description: "Placements in Natal Chart & Transits"
-    is_expanded: true
+    is_expanded: false
     cards: 
       - title: "January 2026"
         sub_links:
@@ -29,8 +29,8 @@ sections:
             text: "Leo Full Moon 13º"
             url: "/blogs/full-moon-in-leo-13-feb-1-2026"
           - date: "Feb 17, 2026"
-            text: "Annular Solar Eclipse + New Moon in Aquarius 28° 2026 !"
-            url: "/blogs/annular-solar-eclipse-new-moon-in-aquarius-2026"
+            text: "Annular Solar Eclipse + New Moon in Aquarius 28° 2026"
+            url: "/blogs/annular-solar-eclipse-new-moon-in-aquarius-28-feb-17-2026"
       - title: "March 2026"
         sub_links:
           - date: "Mar 3, 2026" 
@@ -58,7 +58,7 @@ sections:
 
   - heading: "2025 Transits Astrology"
     description: "Placements in Natal Chart & Transits"
-    is_expanded: true
+    is_expanded: false
     cards: 
       - title: "January 2025"
         sub_links:
@@ -161,7 +161,7 @@ sections:
 
   - heading: "2024 Transits Astrology"
     description: "Placements in Natal Chart & Transits"
-    is_expanded: true
+    is_expanded: false
     cards: 
       - title: "March 2024"
         sub_links:
@@ -218,7 +218,7 @@ sections:
 
   - heading: "2023 Transits Astrology"
     description: "Placements in Natal Chart & Transits"
-    is_expanded: true
+    is_expanded: false
     cards: 
       - title: "January 2023"
         sub_links:

@@ -78,7 +78,7 @@ sections:
 
   - heading: "Midheaven MC Aspects"
     description: "Natal Midheaven MC Aspects"
-    is_expanded: true
+    is_expanded: false
     cards: 
       - title: "+ Sun"
         sub_links:
@@ -127,7 +127,7 @@ sections:
 
   - heading: "North Node Aspects"
     description: "Natal North Node Aspects"
-    is_expanded: true
+    is_expanded: false
     cards: 
       - title: "+ Sun"
         sub_links:
@@ -172,7 +172,7 @@ sections:
 
   - heading: "Planetary Aspects ✨"
     description: "Natal Aspects of Planets"
-    is_expanded: true
+    is_expanded: false
     cards: 
       - title: "Saturn Aspects"
         sub_links:
@@ -181,7 +181,7 @@ sections:
 
   - heading: "Rare Aspects ❄️✨"
     description: "Rare Natal Aspects"
-    is_expanded: true
+    is_expanded: false
     cards: 
       - title: "Rare Jupiter Aspects"
         sub_links:
@@ -222,7 +222,7 @@ sections:
 
   - heading: "Asteroid Aspects ❄️✨"
     description: "Natal Aspects of Asteroids"
-    is_expanded: true
+    is_expanded: false
     cards: 
       - title: "Natal Sirene Aspects"
         sub_links:
@@ -235,7 +235,7 @@ sections:
 
   - heading: "Astrological Point Aspects ❄️✨"
     description: "Natal Aspects of Astrological Points"
-    is_expanded: true
+    is_expanded: false
     cards: 
       - title: "Black Moon Lilith Aspects"
         sub_links:
