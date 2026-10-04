@@ -11,6 +11,7 @@ headerPills:
 sections: 
   - heading: "Planets Astrology"
     description: "Placements in Natal, Solar Return & Transit Charts"
+    headerIcon: "/images/Venus.png"
     is_expanded: true
     cards: 
       - title: "Mercury"

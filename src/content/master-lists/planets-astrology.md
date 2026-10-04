@@ -13,6 +13,7 @@ headerPills:
 sections:
   - heading: "Venus"
     description: "Placements in Natal, Solar Return & Transit Charts"
+    headerIcon: "/images/Venus.png"
     is_expanded: false
     cards: 
       - title: "Taurus + 2H"
@@ -76,6 +77,7 @@ sections:
 
   - heading: "Neptune"
     description: "Placements in Natal, Solar Return & Transit Charts"
+    headerIcon: "/images/Neptune.png"
     is_expanded: false
     cards: 
       - title: "5H"

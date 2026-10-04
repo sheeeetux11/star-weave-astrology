@@ -15,6 +15,8 @@ headerPills:
     target: "#section-5"
   - text: "Astrological Point Aspects"
     target: "#section-6"
+  - text: "Major + Minor Aspects"
+    target: "#section-6"
 
 blogLinkCards:
   heading: "MAJOR + MINOR ASPECTS"
@@ -24,7 +26,7 @@ blogLinkCards:
       description: “Astrological charts in general are made of 12 signs occupying 30 degs of a circle covering 360 degs. Each planet, asteroid, calculation point occupies their places within this circle. Aspects are defined as angles that the planets, asteroids, or calculation points make to one another. "
     - title: "Minor Aspects in Astrology"
       url: "/blogs/minor-aspects-in-astrology"
-      description: “Post updating soon ;)"
+      description: “Post updating soon ♥︎"
 
 sections: 
   - heading: "Ascendant Aspects"

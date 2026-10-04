@@ -13,7 +13,7 @@ headerPills:
 sections: 
   - heading: "2026 Transits Astrology"
     description: "Placements in Natal Chart & Transits"
-    is_expanded: false
+    is_expanded: true
     cards: 
       - title: "January 2026"
         sub_links:
