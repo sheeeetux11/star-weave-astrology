@@ -22,11 +22,12 @@ collections:
       - { label: "Tags", name: "tags", widget: "list", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
       
-      # Integration for BlogMoreOnAstrology component at the bottom of blog pages
-      - label: "More On Astrology (Mini-Card Carousel)"
-        name: "moreOnAstrology"
-        widget: "object"
-        required: false
+  - name: "more_on_astrology"
+    label: "More on Astrology"
+    files:
+      - file: "src/content/settings/more-on-astrology.json"
+        label: "Mini-Card Carousel Settings"
+        name: "more_on_astrology_settings"
         fields:
           - label: "Topics Cards"
             name: "topics"

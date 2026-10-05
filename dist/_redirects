@@ -1,2 +1,0 @@
-# Matches any four-digit year, two-digit month, and .html filename, forwarding the slug to your new blog path
-/:year/:month/:slug.html    /blogs/:slug    301

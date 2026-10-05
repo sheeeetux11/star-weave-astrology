@@ -131,6 +131,7 @@ declare module 'astro:content' {
   data: InferEntrySchema<"blogs">;
   rendered?: RenderedContent;
   filePath?: string;
+  digest?: string | number;
 }>;
 "master_lists": Record<string, {
   id: string;
@@ -139,6 +140,7 @@ declare module 'astro:content' {
   data: InferEntrySchema<"master_lists">;
   rendered?: RenderedContent;
   filePath?: string;
+  digest?: string | number;
 }>;
 
 	};
