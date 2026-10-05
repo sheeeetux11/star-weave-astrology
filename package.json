@@ -10,12 +10,15 @@
     "build": "astro build",
     "preview": "astro preview --host 0.0.0.0",
     "astro": "astro",
-    "deploy": "astro build && npx gh-pages -d dist"
+    "deploy": "astro build && npx gh-pages -d dist",
+    "generate-types": "wrangler types"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^14.3.3",
     "@astrojs/netlify": "^8.2.6",
     "@astrojs/sitemap": "^3.7.4",
-    "astro": "^7.1.6"
+    "astro": "^7.1.6",
+    "wrangler": "^4.147.0"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0"

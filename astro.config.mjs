@@ -1,23 +1,14 @@
 import { defineConfig } from 'astro/config';
-import netlify from '@astrojs/netlify';
-
 import sitemap from '@astrojs/sitemap';
+import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
-  site: 'https://starweaveastrology.com', // Replace with your actual production domain when ready
+  site: 'https://starweaveastrology.com',
   output: 'server',
-
-  adapter: netlify({
-    // Disables local Edge Functions emulation in Codespaces dev mode
-    devFeatures: {
-      edgeFunctions: false
-    }
-  }),
-
+  adapter: cloudflare(),
   server: {
     port: 3000,
-    host: true
+    host: true,
   },
-
-  integrations: [sitemap()]
+  integrations: [sitemap()],
 });
