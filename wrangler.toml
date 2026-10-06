@@ -1,3 +1,7 @@
 name = "star-weave-astrology"
-pages_build_output_dir = "dist"
-compatibility_date = "2026-10-05"
+compatibility_date = "2026-03-17"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = "./dist"
+binding = "STATIC_ASSETS"
