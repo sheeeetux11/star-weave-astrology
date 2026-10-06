@@ -3,14 +3,19 @@
 import { getCollection } from 'astro:content';
 import MasterListLayout from '../../layouts/MasterListLayout.astro';
 
-const { slug } = Astro.params;
-const masterLists = await getCollection('master_lists');
+export async function getStaticPaths() {
+  const masterLists = await getCollection('master_lists');
+  return masterLists.map((item) => {
+    const slug = (item.id.split('/').pop() || item.id).replace(/\.[^/.]+$/, '');
+    return {
+      params: { slug },
+      props: { entry: item },
+    };
+  });
+}
 
-// Find the master list entry matching the route slug safely
-const entry = masterLists.find((item) => {
-  const itemId = (item.id.split('/').pop() || item.id).replace(/\.[^/.]+$/, '');
-  return itemId === slug || item.id === slug;
-});
+const { slug } = Astro.params;
+const { entry } = Astro.props;
 
 // 🛡️ Safety guard: If entry doesn't exist, return a clean 404 response
 if (!entry) {
