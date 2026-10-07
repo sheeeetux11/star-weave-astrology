@@ -10,3 +10,4 @@ directory = "./dist/client"
 
 [[kv_namespaces]]
 binding = "SESSION"
+id = "cb3c32fa56e341ffb9a4df276d89c09e"
