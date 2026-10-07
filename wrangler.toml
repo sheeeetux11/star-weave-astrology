@@ -2,8 +2,11 @@ name = "star-weave-astrology"
 compatibility_date = "2026-03-17"
 compatibility_flags = ["nodejs_compat"]
 
-# Required for Cloudflare Pages to map your build output correctly
 pages_build_output_dir = "./dist"
+
+[assets]
+binding = "STATIC_ASSETS"
+directory = "./dist/client"
 
 [[kv_namespaces]]
 binding = "SESSION"
