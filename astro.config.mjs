@@ -3,14 +3,14 @@ import sitemap from '@astrojs/sitemap';
 import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
-  site: 'https://starweaveastrology.com',
-  output: 'static',
+  site: 'https://starweaveastrology.com', // <-- Add this line
+  output: 'server', // Enables dynamic SSR handling for query parameters
   adapter: cloudflare({
+    imageService: 'cloudflare'
   }),
-  session: false,
+  integrations: [sitemap()],
   server: {
     port: 3000,
     host: true,
-  },
-  integrations: [sitemap()],
+  }
 });

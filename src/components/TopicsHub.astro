@@ -1,6 +1,5 @@
 ---
 // src/components/TopicsHub.astro
-import { Image } from 'astro:assets';
 import ChevronIcon from '../assets/icons/Chevron.svg';
 
 interface TopicCard {
@@ -151,12 +150,12 @@ const processedCards = cards.map(card => ({
   <div class="topics-nav-controls">
     <button class="scroll-btn scroll-left" aria-label="Scroll Left" type="button">
       <span class="chevron-circle">
-        <Image src={ChevronIcon} alt="Scroll Left" width={10} height={16} class="chevron-img rotate-left" />
+        <img src={ChevronIcon.src} alt="Scroll Left" width={10} height={16} class="chevron-img rotate-left" />
       </span>
     </button>
     <button class="scroll-btn scroll-right" aria-label="Scroll Right" type="button">
       <span class="chevron-circle">
-        <Image src={ChevronIcon} alt="Scroll Right" width={10} height={16} class="chevron-img" />
+        <img src={ChevronIcon.src} alt="Scroll Right" width={10} height={16} class="chevron-img" />
       </span>
     </button>
   </div>

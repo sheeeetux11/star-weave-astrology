@@ -1,6 +1,5 @@
 ---
 // src/components/Footer.astro
-import { Image } from 'astro:assets';
 import LogoStar from '../assets/icons/LogoStar.png';
 import LogoTypography from '../assets/icons/LogoTypography.png';
 
@@ -36,8 +35,8 @@ const {
     <!-- Section 1: Dual Logos -->
     <div class="footer-brand-container">
       <div class="footer-logo-wrap">
-        <Image src={LogoStar} alt="Star Pattern Logo" class="footer-logo star-logo" />
-        <Image src={LogoTypography} alt="Star Weave Astrology" class="footer-logo text-logo" />
+        <img src={LogoStar.src} alt="Star Pattern Logo" class="footer-logo star-logo" />
+        <img src={LogoTypography.src} alt="Star Weave Astrology" class="footer-logo text-logo" />
       </div>
     </div>
 

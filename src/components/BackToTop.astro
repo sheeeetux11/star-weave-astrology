@@ -1,12 +1,11 @@
 ---
 // src/components/BackToTop.astro
-import { Image } from 'astro:assets';
 import ChevronIcon from '../assets/icons/Chevron.svg';
 ---
 
 <button id="back-to-top-btn" class="back-to-top-btn" aria-label="Back to top" type="button">
   <span class="chevron-wrapper">
-    <Image src={ChevronIcon} alt="Scroll to top" width={10} height={16} class="back-to-top-icon" />
+    <img src={ChevronIcon.src} alt="Scroll to top" width={10} height={16} class="back-to-top-icon" />
   </span>
 </button>
 

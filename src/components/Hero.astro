@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets';
 import ArrowHeroPng from '../assets/icons/ArrowHero.png';
 
 interface Props {
@@ -39,7 +38,7 @@ const {
     <a href="#main-content" class="cta-link">
       <span>{ctaText}</span>
       <span class="gold-glitter-arrow">
-        <Image src={ArrowHeroPng} alt="Scroll Down Arrow" width={10} height={100} densities={[1, 2]} quality="max" />
+        <img src={ArrowHeroPng.src} alt="Scroll Down Arrow" width={10} height={100} densities={[1, 2]} quality="max" />
       </span>
     </a>
   </div>

@@ -1,6 +1,5 @@
 ---
 // src/components/TopicScrollAnchor.astro
-import { Image } from 'astro:assets';
 import LogoIcon from '../assets/icons/Logo.png';
 import ChevronIcon from '../assets/icons/Chevron.svg';
 
@@ -37,7 +36,7 @@ const {
 <div class="topic-scroll-section">
   <!-- Left Scroll Button -->
   <button type="button" class="scroll-arrow scroll-left" aria-label="Scroll Left">
-    <Image src={ChevronIcon} alt="Scroll Left" width={16} height={16} class="rotate-left" />
+    <img src={ChevronIcon.src} alt="Scroll Left" width={16} height={16} class="rotate-left" />
   </button>
 
   <!-- Horizontal Scroll Container with breathing room for arrows -->
@@ -63,7 +62,7 @@ const {
 
   <!-- Right Scroll Button -->
   <button type="button" class="scroll-arrow scroll-right" aria-label="Scroll Right">
-    <Image src={ChevronIcon} alt="Scroll Right" width={16} height={16} />
+    <img src={ChevronIcon.src} alt="Scroll Right" width={16} height={16} />
   </button>
 </div>
 
@@ -170,7 +169,7 @@ const {
     transform: translateY(-50%);
     width: clamp(36px, 4vw, 40px);
     height: clamp(36px, 4vw, 40px);
-    background-color: rgba(255, 204, 66, 0.2);
+    background-color: rgb(255, 231, 164);
     border: 0.5px solid rgba(231, 185, 36, 0.3);
     border-radius: 10px;
     cursor: pointer;
@@ -181,12 +180,12 @@ const {
     z-index: 2;
     transition: all 0.2s ease;
     color: #EBAF24;
-    opacity: 0.85;
+
   }
 
   .scroll-arrow:hover {
-    background-color: rgba(255, 204, 66, 0.35);
-    border-color: rgba(231, 185, 36, 0.6);
+    background-color: rgb(255, 222, 133);
+    border-color: rgb(231, 186, 36);
     opacity: 1;
   }
 

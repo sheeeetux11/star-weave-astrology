@@ -1,6 +1,5 @@
 ---
 // src/components/BlogFeed.astro
-import { Image } from 'astro:assets';
 import ArrowRightIcon from '../assets/icons/RightArrow.svg';
 import BlogImage from './BlogImage.astro';
 
@@ -111,7 +110,7 @@ const displayPosts = posts.slice(0, 6);
   <div class="blog-footer-cta">
     <a href={safeViewAllLink} class="explore-all-btn">
       <span>Explore All Blogs</span>
-      <Image src={ArrowRightIcon} alt="Arrow Right" width={20} height={12} class="right-arrow-icon" />
+      <img src={ArrowRightIcon.src} alt="Arrow Right" width={20} height={12} class="right-arrow-icon" />
     </a>
   </div>
 </section>
