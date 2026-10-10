@@ -18,7 +18,7 @@ sections:
         icon: "/images/Mercury.png"
         sub_links:
           - text: "Natal Rx"
-            url: "/blogs/natal-merucry-retrograde"
+            url: "/blogs/natal-mercury-retrograde"
       - title: "Venus"
         icon: "/images/Venus.png"
         sub_links:
@@ -40,7 +40,7 @@ sections:
         icon: "/images/Saturn.png"
         sub_links:
           - text: "Natal Signs & Houses"
-            url: "/master-lists/planets-astrology"
+            url: "/master-lists/saturn-astrology"
           - text: "Natal Rx"
             url: "/blogs/natal-saturn-retrograde"
       - title: "Uranus"

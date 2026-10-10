@@ -1,13 +1,9 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
   site: 'https://starweaveastrology.com',
-  output: 'server', // Enables dynamic SSR handling for query parameters
-  adapter: cloudflare({
-    imageService: 'cloudflare',
-  }),
+  // output: 'static', // Static is the default, so you can leave it out or specify it explicitly
   integrations: [sitemap()],
   server: {
     port: 3000,

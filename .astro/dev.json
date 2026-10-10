@@ -1,5 +1,5 @@
 {
-	"pid": 40148,
+	"pid": 45231,
 	"port": 3000,
 	"url": "http://localhost:3000",
 	"urls": {
@@ -7,12 +7,12 @@
 			"http://localhost:3000/"
 		],
 		"network": [
-			"http://10.0.14.242:3000/"
+			"http://10.0.14.34:3000/"
 		],
 		"networkInterfaceNames": [
 			"eth0"
 		]
 	},
 	"background": false,
-	"startedAt": "2026-10-07T11:04:03.120Z"
+	"startedAt": "2026-10-10T08:20:41.722Z"
 }

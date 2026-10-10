@@ -1,20 +1,10 @@
 ---
-interface Comment {
-  id: string;
-  author: string;
-  date: string;
-  content: string;
-  avatarColor?: string;
-}
-
+// src/components/BlogComments.astro
 interface Props {
   postId: string;
 }
 
 const { postId } = Astro.props;
-
-// Cleared out test comments for production launch
-const initialComments: Comment[] = [];
 ---
 
 <section class="comments-section" data-post-id={postId}>
@@ -23,132 +13,54 @@ const initialComments: Comment[] = [];
     <span class="section-title">COMMENTS</span>
   </div>
 
-  <!-- Comment Input Box configured for Netlify Forms -->
-  <form 
-    class="comment-form" 
-    id="commentForm" 
-    name="blog-comments" 
-    method="POST" 
-    data-netlify="true"
-  >
-    <!-- Hidden fields required for Netlify Forms routing & association -->
-    <input type="hidden" name="form-name" value="blog-comments" />
-    <input type="hidden" name="postId" value={postId} />
-
-    <div class="commenter-avatar placeholder-avatar"></div>
-    <input 
-      type="text" 
-      name="commentText" 
-      placeholder="Leave a comment. Share your thoughts :)" 
-      class="comment-input" 
-      required 
-    />
-    <button type="submit" class="submit-comment-btn">Post</button>
-  </form>
-
-  <!-- Comments List -->
-  <div class="comments-list" id="commentsList">
-    {initialComments.map((comment, index) => (
-      <div class={`comment-card ${index >= 4 ? 'hidden-comment' : ''}`} data-id={comment.id}>
-        <div class="comment-card-top">
-          <div class="author-info-group">
-            <div class="commenter-avatar" style={`background-color: ${comment.avatarColor || '#FBDE9B'};`}></div>
-            <div class="author-meta">
-              <h4 class="comment-author">{comment.author}</h4>
-              <span class="comment-date">{comment.date}</span>
-            </div>
-          </div>
-          
-          <!-- Dropdown menu for Edit/Delete -->
-          <div class="comment-actions-wrapper">
-            <button class="options-btn" aria-label="Comment options">&hellip;</button>
-            <div class="options-dropdown">
-              <button class="dropdown-item edit-btn">Edit</button>
-              <button class="dropdown-item delete-btn">Delete</button>
-            </div>
-          </div>
-        </div>
-
-        <p class="comment-body">{comment.content}</p>
-        
-        <button class="add-reply-btn">Add Reply...</button>
-      </div>
-    ))}
+  <!-- Giscus GitHub Discussions Comments Container -->
+  <div class="giscus-container">
+    <script 
+      src="https://giscus.app/client.js"
+      data-repo="sheeeetux11/star-weave-astrology-comments"
+      data-repo-id="R_kgDOVDaC4Q"
+      data-category="Announcements"
+      data-category-id="DIC_kwDOVDaC4c4DHeVO"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="light"
+      data-lang="en"
+      crossorigin="anonymous"
+      async>
+    </script>
   </div>
+  <script>
+    function updateGiscusTheme() {
+      const isDark = document.documentElement.classList.contains('dark');
+      const theme = isDark ? 'dark' : 'light';
+    
+      const iframe = document.querySelector<HTMLIFrameElement>('iframe.giscus-frame');
+      if (!iframe || !iframe.contentWindow) return;
 
-  <!-- See More Toggle Button -->
-  {initialComments.length > 4 && (
-    <div class="see-more-wrapper">
-      <button id="seeMoreBtn" class="see-more-btn">
-        See More <span class="arrow">&darr;</span>
-      </button>
-    </div>
-  )}
-</section>
-
-<script>
-  document.addEventListener('astro:page-load', () => {
-    const seeMoreBtn = document.getElementById('seeMoreBtn');
-    const commentsList = document.getElementById('commentsList');
-    const commentForm = document.getElementById('commentForm') as HTMLFormElement;
-
-    if (seeMoreBtn && commentsList) {
-      seeMoreBtn.addEventListener('click', () => {
-        const hiddenComments = commentsList.querySelectorAll('.hidden-comment');
-        const isExpanded = seeMoreBtn.classList.toggle('expanded');
-        
-        hiddenComments.forEach((el) => {
-          el.classList.toggle('reveal');
-        });
-
-        seeMoreBtn.innerHTML = isExpanded 
-          ? 'See Less <span class="arrow">&uarr;</span>' 
-          : 'See More <span class="arrow">&darr;</span>';
-      });
+      iframe.contentWindow.postMessage(
+        { giscus: { setConfig: { theme } } },
+        'https://giscus.app'
+      );
     }
 
-    document.addEventListener('click', (e) => {
-      const target = e.target as HTMLElement;
-      const optionsBtn = target.closest('.options-btn');
-      
-      document.querySelectorAll('.options-dropdown').forEach((dropdown) => {
-        if (!dropdown.contains(target) && !target.closest('.options-btn')) {
-          dropdown.classList.remove('show');
-        }
-      });
+    // Sync theme when page loads and when class toggles
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initial check after iframe loads
+      setTimeout(updateGiscusTheme, 1000);
 
-      if (optionsBtn) {
-        const dropdown = optionsBtn.nextElementSibling;
-        dropdown?.classList.toggle('show');
-      }
+      // Watch for class changes on <html> (dark mode toggles)
+      const observer = new MutationObserver(updateGiscusTheme);
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class'],
+      });
     });
+  </script>
 
-    if (commentForm && !commentForm.hasAttribute('data-bound')) {
-      commentForm.setAttribute('data-bound', 'true');
-      commentForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const input = commentForm.querySelector('input[name="commentText"]') as HTMLInputElement;
-        if (!input || !input.value.trim()) return;
-
-        const formData = new FormData(commentForm);
-
-        try {
-          await fetch('/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(formData as any).toString()
-          });
-
-          alert('Thank you! Your comment has been submitted and is pending moderation.');
-          input.value = '';
-        } catch (error) {
-          console.error('Form submission error:', error);
-          alert('Oops! Something went wrong submitting your comment. Please try again.');
-        }
-      });
-    }
-  });
-</script>
+</section>
 
 <style>
   .comments-section {
@@ -188,261 +100,8 @@ const initialComments: Comment[] = [];
     color: #F9FAFB;
   }
 
-  .comment-form {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: transparent;
-    border: 1px solid rgba(235, 175, 36, 0.4);
-    border-radius: 20px;
-    padding: 12px 16px;
-    box-sizing: border-box;
+  .giscus-container {
     width: 100%;
-    transition: border-color 0.2s ease;
-  }
-
-  .comment-form:focus-within {
-    border-color: #EBAF24;
-  }
-
-  .commenter-avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background-color: #FBDE9B;
-    flex-shrink: 0;
-  }
-
-  .comment-input {
-    flex: 1;
-    min-width: 0;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.88rem;
-    color: #EBAF24;
-  }
-  .comment-input::placeholder {
-    color: #EBAF24;
-    opacity: 0.8;
-  }
-
-  .submit-comment-btn {
-    background: #EBAF24;
-    color: #1A1A1A;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 16px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 0.82rem;
-    cursor: pointer;
-    flex-shrink: 0;
-    transition: background 0.2s ease;
-  }
-  .submit-comment-btn:hover {
-    background: #D7A021;
-  }
-
-  .comments-list {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .comment-card {
-    background: transparent;
-    border: 1px solid rgba(235, 175, 36, 0.4);
-    border-radius: 20px;
-    padding: 18px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    transition: border-color 0.2s ease;
-  }
-
-  .comment-card:hover {
-    border-color: rgba(235, 175, 36, 0.7);
-  }
-
-  .hidden-comment {
-    display: none;
-  }
-  .hidden-comment.reveal {
-    display: flex;
-    animation: fadeIn 0.3s ease-in-out;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-6px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .comment-card-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-  }
-
-  .author-info-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    min-width: 0;
-  }
-
-  .author-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    min-width: 0;
-  }
-
-  @media(min-width: 540px) {
-    .author-meta {
-      flex-direction: row;
-      align-items: baseline;
-      gap: 10px;
-    }
-  }
-
-  .comment-author {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #1A1A1A;
-    margin: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  html.dark .comment-author {
-    color: #F9FAFB;
-  }
-
-  .comment-date {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.72rem;
-    color: #6B7280;
-  }
-  html.dark .comment-date {
-    color: #9CA3AF;
-  }
-
-  .comment-body {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
-    line-height: 1.5;
-    color: #4B5563;
-    margin: 0;
-    padding-left: 46px;
-  }
-  html.dark .comment-body {
-    color: #D1D5DB;
-  }
-
-  .add-reply-btn {
-    background: none;
-    border: none;
-    color: #EBAF24;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.78rem;
-    font-weight: 500;
-    cursor: pointer;
-    text-align: left;
-    padding: 0;
-    margin-left: 46px;
-    width: fit-content;
-  }
-  .add-reply-btn:hover {
-    text-decoration: underline;
-  }
-
-  .comment-actions-wrapper {
-    position: relative;
-  }
-
-  .options-btn {
-    background: none;
-    border: none;
-    font-size: 1.25rem;
-    color: #6B7280;
-    cursor: pointer;
-    padding: 4px 8px;
-    letter-spacing: 2px;
-  }
-  html.dark .options-btn {
-    color: #9CA3AF;
-  }
-
-  .options-dropdown {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 100%;
-    background: #FFFFFF;
-    border: 1px solid rgba(235, 175, 36, 0.4);
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    z-index: 10;
-    min-width: 90px;
-    overflow: hidden;
-  }
-  html.dark .options-dropdown {
-    background: #1F2937;
-    border-color: rgba(235, 175, 36, 0.3);
-  }
-
-  .options-dropdown.show {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .dropdown-item {
-    background: none;
-    border: none;
-    padding: 8px 14px;
-    text-align: left;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.8rem;
-    color: #374151;
-    cursor: pointer;
-    transition: background 0.15s ease;
-  }
-  html.dark .dropdown-item {
-    color: #E5E7EB;
-  }
-  .dropdown-item:hover {
-    background: rgba(235, 175, 36, 0.15);
-  }
-
-  .see-more-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 0.25rem;
-  }
-
-  .see-more-btn {
-    background: transparent;
-    border: 1px solid rgba(235, 175, 36, 0.5);
-    color: #EBAF24;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 600;
-    padding: 8px 22px;
-    border-radius: 20px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.2s ease;
-  }
-
-  .see-more-btn:hover {
-    background: rgba(235, 175, 36, 0.1);
-    border-color: #EBAF24;
+    margin-top: 0.5rem;
   }
 </style>

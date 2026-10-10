@@ -1,4 +1,5 @@
 ---
+// src/components/BlogTags.astro
 import LogoIcon from '../assets/icons/Logo.png';
 
 interface Props {
@@ -22,14 +23,14 @@ const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
 
     <!-- Tag Pills Container -->
     <div class="tags-container">
-      <!-- Logo Tag linked to Blog Feed Topics A-Z view -->
-      <a href={`${base}/blogs/?mode=topics`} class="tag-pill logo-tag-pill" aria-label="View all topics A-Z" title="View all topics">
+      <!-- Logo Tag linked to default Blog Feed reset -->
+      <a href={`${base}/blogs`} class="tag-pill logo-tag-pill" aria-label="View all blogs and topics" title="View all blogs">
         <img src={LogoIcon.src} alt="Star Weave Astrology" class="tag-logo-icon" />
       </a>
 
-      <!-- Dynamic Post Tags linked to Blog Feed filtered by tag query -->
+      <!-- Dynamic Post Tags linked to Blog Feed filtered by topic query -->
       {safeTags.map((tag) => (
-        <a href={`${base}/blogs/?tag=${encodeURIComponent(tag)}`} class="tag-pill">
+        <a href={`${base}/blogs?topic=${encodeURIComponent(tag)}`} class="tag-pill">
           {tag}
         </a>
       ))}

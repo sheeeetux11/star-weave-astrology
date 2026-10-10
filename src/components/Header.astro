@@ -1,4 +1,5 @@
 ---
+// src/components/Header.astro
 import menuData from '../data/menu.json';
 import SunIcon from '../assets/icons/Sun.svg';
 import MoonIcon from '../assets/icons/Moon.svg';
@@ -90,9 +91,6 @@ const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
     </div>
   </div>
 </div>
-
-<!-- style and script tags remain the same -->
-
 
 <style>
   .site-header {
@@ -392,13 +390,12 @@ const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
 
   const searchInput = document.getElementById('overlay-search-input') as HTMLInputElement;
   const searchSubmitBtn = document.getElementById('search-submit-btn');
-  const basePrefix = overlay?.getAttribute('data-base') || '/';
+  const basePrefix = overlay?.getAttribute('data-base') || '';
 
   function executeSearch() {
     const query = searchInput?.value.trim();
     if (query) {
-      // Safely prepend base path to search route and map to 'q' and 'search-results'
-      const cleanBase = basePrefix.endsWith('/') ? basePrefix : basePrefix + '/';
+      const cleanBase = basePrefix ? (basePrefix.endsWith('/') ? basePrefix : basePrefix + '/') : '/';
       window.location.href = `${cleanBase}blogs?q=${encodeURIComponent(query)}&mode=search-results`;
     }
   }
@@ -423,9 +420,9 @@ const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
   window.addEventListener('scroll', () => {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     if (scrollTop > lastScrollTop && scrollTop > 100) {
-      header!.style.transform = 'translateY(-100%)';
+      if (header) header.style.transform = 'translateY(-100%)';
     } else {
-      header!.style.transform = 'translateY(0)';
+      if (header) header.style.transform = 'translateY(0)';
     }
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
   });

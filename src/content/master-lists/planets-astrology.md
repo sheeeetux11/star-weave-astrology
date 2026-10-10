@@ -95,7 +95,7 @@ sections:
           - text: "Natal Rx"
             url: "/blogs/natal-mercury-retrograde"
           - text: "Retrograde Survival Guide (Transit)"
-            url: "/master-lists/asteroid-astrology"
+            url: "/blogs/mercury-retrograde-guide-handle-mercury-rx-with-ease"
       - title: "Venus"
         sub_links:
           - text: "Natal Rx"
@@ -105,7 +105,7 @@ sections:
           - text: "Natal Rx"
             url: "/blogs/natal-mars-retrograde"
           - text: "Retrograde Survival Guide (Transit)"
-            url: "/master-lists/asteroid-astrology"
+            url: "/blogs/mars-retrograde-guide-handle-mars-rx-like-a-warrior"
       - title: "Jupiter"
         sub_links:
           - text: "Natal Rx"

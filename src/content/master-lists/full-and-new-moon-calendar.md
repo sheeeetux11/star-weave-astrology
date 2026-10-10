@@ -31,15 +31,15 @@ sections:
           date: "Feb 1, 2026"
         newMoon:
           title: "Aquarius New Moon 28º"
-          url: "/blogs/annular-solar-eclipse-in-aquarius-new-moon-in-aquarius-28-feb-17-2026"
+          url: "/blogs/annular-solar-eclipse-new-moon-in-aquarius-28-feb-17-2026"
           date: "Feb 17, 2026"
       - fullMoon:
           title: "Virgo 12º Total Lunar Eclipse 2026"
-          url: "/blogs/total-lunar-eclipse-in-virgo-12-mar-3-2026"
+          url: "/blogs/lunar-eclipse-full-moon-in-virgo-12-mar-3-2026"
           date: "Mar 3, 2026" 
         newMoon:
           title: "Aquarius 28º Annular Solar Eclipse 2026"
-          url: "/blogs/annular-solar-eclipse-in-aquarius-new-moon-in-aquarius-28-feb-17-2026"
+          url: "/blogs/annular-solar-eclipse-new-moon-in-aquarius-28-feb-17-2026"
           date: "Feb 17, 2026"                 
       - fullMoon:
           title: "Virgo Full Moon 12º"

@@ -11,6 +11,7 @@ import SearchIcon from '../assets/icons/Search.svg';
       id="blog-search-input" 
       placeholder="Search Blogs, Topics and more...." 
       class="blog-search-input"
+      autocomplete="off"
     />
     <button type="button" id="blog-search-btn" class="blog-search-btn" aria-label="Search">
       <SearchIcon width="20" height="20" />
@@ -48,55 +49,52 @@ import SearchIcon from '../assets/icons/Search.svg';
   if (searchInput && currentQuery) {
     searchInput.value = currentQuery;
   }
+  
   if (modeSelect) {
-    if (currentTopic) {
+    if (currentTopic || currentQuery) {
       modeSelect.value = 'search-results';
     } else {
       modeSelect.value = currentMode;
     }
   }
 
-    // Handle typing search queries (Allows typing freely without reloading)
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      // Just let the user type normally without triggering reloads
-    });
+  // Helper function to execute search navigation
+  function executeSearch() {
+    if (!searchInput) return;
+    const query = searchInput.value.trim();
+    const params = new URLSearchParams(window.location.search);
+    
+    if (query) {
+      params.set('q', query);
+      params.set('mode', 'search-results');
+      params.delete('topic'); // Clear active topic when performing free text search
+    } else {
+      params.delete('q');
+      if (params.get('mode') === 'search-results') {
+        params.set('mode', 'recent');
+      }
+    }
+    window.location.search = params.toString();
+  }
 
-    // Trigger search immediately on pressing Enter
+  // Trigger search on pressing Enter
+  if (searchInput) {
     searchInput.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
-        const query = searchInput.value.trim();
-        const params = new URLSearchParams(window.location.search);
-        if (query) {
-          params.set('q', query);
-          params.set('mode', 'search-results');
-        } else {
-          params.delete('q');
-          params.set('mode', 'recent');
-        }
-        window.location.search = params.toString();
+        e.preventDefault();
+        executeSearch();
       }
     });
   }
 
   // Handle clicking the search button icon
   const searchBtn = document.getElementById('blog-search-btn');
-  if (searchBtn && searchInput) {
-    searchBtn.addEventListener('click', () => {
-      const query = searchInput.value.trim();
-      const params = new URLSearchParams(window.location.search);
-      if (query) {
-        params.set('q', query);
-        params.set('mode', 'search-results');
-      } else {
-        params.delete('q');
-        params.set('mode', 'recent');
-      }
-      window.location.search = params.toString();
+  if (searchBtn) {
+    searchBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      executeSearch();
     });
   }
-
-
 
   // Handle dropdown mode selector changes
   if (modeSelect) {
@@ -104,9 +102,11 @@ import SearchIcon from '../assets/icons/Search.svg';
       const mode = (e.target as HTMLSelectElement).value;
       const params = new URLSearchParams(window.location.search);
       params.set('mode', mode);
+      
       if (mode !== 'search-results') {
         params.delete('q');
         params.delete('topic');
+        if (searchInput) searchInput.value = '';
       }
       window.location.search = params.toString();
     });

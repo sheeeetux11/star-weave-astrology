@@ -17,27 +17,6 @@ const formattedPosts = allBlogs
 // Dynamically extract all unique tags
 const dynamicTopics = [...new Set(allBlogs.flatMap(post => post.data.tags || []))];
 
-// Read URL parameters for search, topic filters, tags, and pagination page number
-const url = Astro.url;
-const searchMode = url.searchParams.get('mode') || 'recent';
-const searchQuery = (url.searchParams.get('q') || '').toLowerCase().trim();
-const selectedTopic = url.searchParams.get('topic') || url.searchParams.get('tag') || '';
-const currentPage = parseInt(url.searchParams.get('page') || '1', 10);
-
-// Filter posts based on search query or selected topic/tag pill
-let filteredPosts = formattedPosts;
-if (searchQuery) {
-  filteredPosts = formattedPosts.filter(post => 
-    post.title.toLowerCase().includes(searchQuery) ||
-    (post.description && post.description.toLowerCase().includes(searchQuery)) ||
-    (post.tags && post.tags.some(tag => tag.toLowerCase().includes(searchQuery)))
-  );
-} else if (selectedTopic) {
-  filteredPosts = formattedPosts.filter(post => 
-    post.tags && post.tags.some(tag => tag.toLowerCase() === selectedTopic.toLowerCase())
-  );
-}
-
 // Group topics alphabetically for the "TOPICS A - Z" view mode
 const sortedTopics = [...dynamicTopics].sort((a, b) => a.localeCompare(b));
 const groupedTopics: Record<string, string[]> = {};
@@ -49,47 +28,126 @@ sortedTopics.forEach(topic => {
   groupedTopics[firstLetter].push(topic);
 });
 
-// Pagination calculations
-const pageSize = 12; // Adjusted posts per page
-const totalPages = Math.max(1, Math.ceil(filteredPosts.length / pageSize));
-const validCurrentPage = Math.min(Math.max(1, currentPage), totalPages);
-const paginatedPosts = filteredPosts.slice((validCurrentPage - 1) * pageSize, validCurrentPage * pageSize);
+// Serialize posts so client-side scripts can instantly filter them based on runtime query params
+const serializedPosts = JSON.stringify(formattedPosts);
 ---
 
-
 <BlogPageLayout title="Blog Feed | Star Weave Astrology" pageTitle="Blog Feed">
-  <div class="blog-feed-page-content">
+  <div class="blog-feed-page-content" id="blog-feed-root" data-posts={serializedPosts}>
     <!-- Search Bar & Mode Toggle Component -->
     <BlogSearchAndMode />
 
     <!-- Topic Scroll Anchor Component -->
-    <TopicScrollAnchor topics={dynamicTopics} activeTopic={selectedTopic} />
+    <TopicScrollAnchor topics={dynamicTopics} />
 
-    {searchMode === 'topics-az' ? (
-      /* TOPICS A-Z MODE VIEW */
-      <div class="topics-az-container">
-        {Object.keys(groupedTopics).sort().map(letter => (
-          <div class="az-letter-group">
-            <h3 class="az-letter-heading">{letter}</h3>
-            <div class="az-pills-grid">
-              {groupedTopics[letter].map(topic => (
-                <a href={`/blogs?topic=${encodeURIComponent(topic)}`} class="topic-pill">
-                  {topic}
-                </a>
-              ))}
-            </div>
+    <!-- TOPICS A-Z MODE VIEW (Toggled dynamically on client) -->
+    <div id="topics-az-view" class="topics-az-container" style="display: none;">
+      {Object.keys(groupedTopics).sort().map(letter => (
+        <div class="az-letter-group">
+          <h3 class="az-letter-heading">{letter}</h3>
+          <div class="az-pills-grid">
+            {groupedTopics[letter].map(topic => (
+              <a href={`/blogs?topic=${encodeURIComponent(topic)}&mode=search-results`} class="topic-pill">
+                {topic}
+              </a>
+            ))}
           </div>
-        ))}
+        </div>
+      ))}
+    </div>
+
+    <!-- RECENT POSTS OR SEARCH RESULTS FEED VIEW -->
+    <div id="feed-results-view">
+      <div id="masonry-container">
+        <BlogFeedMasonry posts={formattedPosts} />
       </div>
-    ) : (
-      /* RECENT POSTS OR SEARCH RESULTS FEED VIEW */
-      <>
-        <BlogFeedMasonry posts={paginatedPosts} />
-        <BlogPaginationBar currentPage={validCurrentPage} totalPages={totalPages} baseUrl="/blogs" />
-      </>
-    )}
+      <div id="pagination-container">
+        <BlogPaginationBar currentPage={1} totalPages={Math.max(1, Math.ceil(formattedPosts.length / 12))} baseUrl="/blogs" />
+      </div>
+    </div>
   </div>
 </BlogPageLayout>
+
+<script>
+  // Client-side state controller for 100% static search, tag filters, and mode toggles
+  document.addEventListener('DOMContentLoaded', () => {
+    const root = document.getElementById('blog-feed-root');
+    if (!root) return;
+
+    const posts = JSON.parse(root.getAttribute('data-posts') || '[]');
+    const azView = document.getElementById('topics-az-view');
+    const feedView = document.getElementById('feed-results-view');
+    const searchInput = document.getElementById('blog-search-input') as HTMLInputElement;
+    const modeSelect = document.getElementById('blog-mode-select') as HTMLSelectElement;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const mode = urlParams.get('mode') || 'recent';
+    const query = (urlParams.get('q') || '').toLowerCase().trim();
+    const topic = urlParams.get('topic') || urlParams.get('tag') || '';
+    const page = parseInt(urlParams.get('page') || '1', 10);
+    const pageSize = 12;
+
+    // 1. Manage View Visibility (A-Z vs Feed/Search)
+    if (mode === 'topics-az') {
+      if (azView) azView.style.display = 'flex';
+      if (feedView) feedView.style.display = 'none';
+      if (modeSelect) modeSelect.value = 'topics-az';
+      return; // Stop processing feed views if A-Z is active
+    } else {
+      if (azView) azView.style.display = 'none';
+      if (feedView) feedView.style.display = 'block';
+    }
+
+    // 2. Filter Posts based on query or topic
+    let activeFiltered = posts;
+    if (query) {
+      activeFiltered = posts.filter((p: any) => 
+        p.title.toLowerCase().includes(query) ||
+        (p.description && p.description.toLowerCase().includes(query)) ||
+        (p.tags && p.tags.some((t: string) => t.toLowerCase().includes(query)))
+      );
+      if (modeSelect) modeSelect.value = 'search-results';
+      if (searchInput) searchInput.value = query;
+    } else if (topic) {
+      activeFiltered = posts.filter((p: any) => 
+        p.tags && p.tags.some((t: string) => t.toLowerCase() === topic.toLowerCase())
+      );
+      if (modeSelect) modeSelect.value = 'search-results';
+    } else {
+      if (modeSelect) modeSelect.value = mode;
+    }
+
+    // 3. Handle Pagination Slice
+    const totalPages = Math.max(1, Math.ceil(activeFiltered.length / pageSize));
+    const validCurrentPage = Math.min(Math.max(1, page), totalPages);
+    const paginatedPosts = activeFiltered.slice((validCurrentPage - 1) * pageSize, validCurrentPage * pageSize);
+
+    // 4. Render Masonry Grid Dynamically
+    const masonryContainer = document.getElementById('masonry-container');
+    if (masonryContainer) {
+      if (paginatedPosts.length === 0) {
+        masonryContainer.innerHTML = `<p class="no-posts-found" style="text-align: center; padding: 3rem; color: inherit; grid-column: 1/-1;">No matching astrology posts found. Try another search or topic!</p>`;
+      } else {
+        masonryContainer.innerHTML = `
+          <div class="blog-masonry-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
+            ${paginatedPosts.map((post: any) => `
+              <article class="blog-card" style="border: 1px solid rgba(235, 175, 36, 0.2); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
+                <a href="${post.url}" class="blog-card-link" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%;">
+                  ${post.image ? `<div class="blog-card-image" style="width: 100%; height: 180px; overflow: hidden;"><img src="${post.image}" alt="${post.title}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" /></div>` : ''}
+                  <div class="blog-card-content" style="padding: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1;">
+                    <span class="blog-card-date" style="font-size: 0.8rem; opacity: 0.7;">${post.date}</span>
+                    <h3 class="blog-card-title" style="font-family: 'Joan', serif; font-size: 1.1rem; margin: 0;">${post.title}</h3>
+                    <p class="blog-card-desc" style="font-size: 0.85rem; opacity: 0.85; margin: 0; line-height: 1.4;">${post.description || ''}</p>
+                  </div>
+                </a>
+              </article>
+            `).join('')}
+          </div>
+        `;
+      }
+    }
+  });
+</script>
 
 <style>
   .blog-feed-page-content {

@@ -11,7 +11,7 @@ headerPills:
 sections: 
   - heading: "Planet Retrogrades"
     description: "Placements in Natal Chart & Transits"
-    is_expanded: true
+    is_expanded: false
     cards: 
       - title: "Mercury"
         sub_links:

@@ -5,32 +5,13 @@ import ChevronIcon from '../assets/icons/Chevron.svg';
 
 interface Props {
   topics?: string[];
-  activeTopic?: string;
 }
 
 const rawBase = import.meta.env.BASE_URL;
 const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
 
-const { 
-  topics = [
-    "Moon Astrology", 
-    "Natal Aspects", 
-    "Natal Placements", 
-    "Transits", 
-    "Planets + Points", 
-    "Aspects + Patterns", 
-    "Asteroid Astrology",
-    "Solar Return Astrology",
-    "Retrograde Astrology",
-    "Juno Astrology",
-    "Eclipses",
-    "Synastry",
-    "Houses",
-    "Composite Charts",
-    "Chiron Astrology"
-  ],
-  activeTopic = ""
-} = Astro.props;
+// Default to an empty array so it relies on actual blog data passed from the parent page
+const { topics = [] } = Astro.props;
 ---
 
 <div class="topic-scroll-section">
@@ -41,18 +22,18 @@ const {
 
   <!-- Horizontal Scroll Container with breathing room for arrows -->
   <div class="topic-scroll-container" id="topicScrollContainer">
-    <!-- Exclusive Logo Tag on the Far Left -->
-    <a href={`${base}/blogs`} class="topic-pill logo-topic-pill" aria-label="View all blogs and topics" title="View all blogs">
+    <!-- Exclusive Logo Tag on the Far Left (Acts as a reset button to default feed) -->
+    <a href={`${base}/blogs`} class="topic-pill logo-topic-pill" id="logoResetPill" aria-label="View all blogs and topics" title="View all blogs">
       <img src={LogoIcon.src} alt="Star Weave Astrology" class="tag-logo-icon" />
     </a>
 
-    <!-- Top Topic Tags -->
+    <!-- Dynamic Topic Tags Passed from Blog Feed -->
     {topics.map((topic) => {
-      const isActive = activeTopic === topic;
       return (
         <a 
           href={`${base}/blogs?topic=${encodeURIComponent(topic)}`} 
-          class={`topic-pill ${isActive ? 'active' : ''}`}
+          class="topic-pill"
+          data-topic-name={topic}
         >
           {topic}
         </a>
@@ -67,18 +48,40 @@ const {
 </div>
 
 <script>
-  const container = document.getElementById('topicScrollContainer');
-  const leftBtn = document.querySelector('.scroll-left');
-  const rightBtn = document.querySelector('.scroll-right');
+  // Client-side script for horizontal scrolling and active state highlighting based on runtime URL params
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('topicScrollContainer');
+    const leftBtn = document.querySelector('.scroll-left');
+    const rightBtn = document.querySelector('.scroll-right');
 
-  if (container && leftBtn && rightBtn) {
-    leftBtn.addEventListener('click', () => {
-      container.scrollBy({ left: -250, behavior: 'smooth' });
+    if (container && leftBtn && rightBtn) {
+      leftBtn.addEventListener('click', () => {
+        container.scrollBy({ left: -250, behavior: 'smooth' });
+      });
+      rightBtn.addEventListener('click', () => {
+        container.scrollBy({ left: 250, behavior: 'smooth' });
+      });
+    }
+
+    // Highlight active topic pill based on current URL query parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const activeTopic = urlParams.get('topic');
+    const mode = urlParams.get('mode');
+
+    const logoPill = document.getElementById('logoResetPill');
+    const topicLinks = document.querySelectorAll('[data-topic-name]');
+
+    if (!activeTopic && (!mode || mode === 'recent')) {
+      logoPill?.classList.add('active');
+    }
+
+    topicLinks.forEach(link => {
+      const topicName = link.getAttribute('data-topic-name');
+      if (topicName === activeTopic) {
+        link.classList.add('active');
+      }
     });
-    rightBtn.addEventListener('click', () => {
-      container.scrollBy({ left: 250, behavior: 'smooth' });
-    });
-  }
+  });
 </script>
 
 <style>

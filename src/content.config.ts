@@ -28,14 +28,6 @@ const blogsCollection = defineCollection({
         thumbnail: z.string().optional(),
       })
     ).optional(),
-
-    moreOnAstrology: z.array(
-      z.object({
-        title: z.string(),
-        image: z.string(),
-        url: z.string(),
-      })
-    ).optional(),
     
     manualPrev: z.string().optional(),
     manualNext: z.string().optional(),

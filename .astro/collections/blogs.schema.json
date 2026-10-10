@@ -54,28 +54,6 @@
         ]
       }
     },
-    "moreOnAstrology": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "title": {
-            "type": "string"
-          },
-          "image": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "title",
-          "image",
-          "url"
-        ]
-      }
-    },
     "manualPrev": {
       "type": "string"
     },

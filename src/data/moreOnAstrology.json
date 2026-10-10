@@ -1,0 +1,54 @@
+{
+  "topics": [
+    {
+      "title": "Aspects + Patterns",
+      "image": "/images/aspects-mini.png",
+      "url": "/master-lists/aspects-patterns"
+    },
+    {
+      "title": "Planets + Points",
+      "image": "/images/Venus.png",
+      "url": "/master-lists/planets-points-asteroids" 
+    },
+    {
+      "title": "Moon Astrology",
+      "image": "/images/full-moon.png",
+      "url": "/master-lists/full-and-new-moon-calendar"
+    },
+    {
+      "title": "Transits Astrology",
+      "image": "/images/transits-mini.png",
+      "url": "/master-lists/transits-astrology"  
+    },
+    {
+      "title": "Asteroid Astrology",
+      "image": "/images/asteroid-mini.png",
+      "url": "/master-lists/asteroid-astrology" 
+    },
+    {
+      "title": "Retrograde Astrology",
+      "image": "/images/retrograde-mini.png",
+      "url": "/master-lists/retrograde-astrology" 
+    },
+    {
+      "title": "Signs + Houses",
+      "image": "/images/scorpio-zodiac.png",
+      "url": "/master-lists/signs-houses-placements" 
+    },
+    {
+      "title": "Planets Astrology",
+      "image": "/images/Saturn.png",
+      "url": "/master-lists/planets-astrology"  
+    },
+    {
+      "title": "Chart Interpretation",
+      "image": "/images/chart-mini.png",
+      "url": "/master-lists/chart-interpretation" 
+    },
+    {
+      "title": "Sidereal Astrology",
+      "image": "/images/vedic-mini.png",
+      "url": "/master-lists/vedic-astrology" 
+    }
+  ]
+}

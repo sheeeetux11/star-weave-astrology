@@ -1,7 +1,18 @@
 {
-	"pid": 38069,
+	"pid": 9851,
 	"port": 3000,
-	"url": "http://0.0.0.0:3000",
+	"url": "http://localhost:3000",
+	"urls": {
+		"local": [
+			"http://localhost:3000/"
+		],
+		"network": [
+			"http://10.0.13.209:3000/"
+		],
+		"networkInterfaceNames": [
+			"eth0"
+		]
+	},
 	"background": false,
-	"startedAt": "2026-10-07T10:59:18.410Z"
+	"startedAt": "2026-10-10T08:53:20.883Z"
 }
