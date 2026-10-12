@@ -1,8 +1,14 @@
 ---
-title: New Moon in Libra 17° 🌑♎️ Oct 10, 2026
+title: New Moon in Libra 17° Oct 10, 2026
 date: Oct 10, 2026
 readTime: 5 min
 author: SHEETU
+tags:
+  - Moon Astrology
+  - Libra New Moon
+  - Libra New Moon 2026
+  - Transits 2026
+  - New Moon 2026
 ---
 ### Gracious Libra New Moon + Grand Cross ✨
 
