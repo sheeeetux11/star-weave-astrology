@@ -1,15 +1,9 @@
 ---
-title: New Moon in Libra 17° 🌑♎️ Oct 10, 2026
-date: Oct 10, 2026
-readTime: 4 min
-tags:
-  - Moon Astrology
-  - Libra New Moon 2026
-  - New Moon 2026
-  - Transits 2026
-  - Transits Astrology
+title: "New Moon in Libra 17° 🌑♎️ Oct 10, 2026"
+date: "Oct 10, 2026"
+tags: ["Moon Astrology", "Libra New Moon 2026", "New Moon 2026", "Transits 2026", "Transits Astrology"]
 ---
-### Gracious Libra New Moon + Grand Cross ✨
+Gracious Libra New Moon + Grand Cross ✨
 
 💞 The Grand Cross of Mars in Leo, Pluto in Aquarius, Chiron in Aries & Venus in Scorpio has likely dug up deep-rooted pain & sorrow, feelings of betrayal & hurt, regrets & remorse, the dark depths of raw emotions that you may have subconsciously buried under the feelings of tolerance, hollow forgiveness and cognitive dissonance even. 
 
