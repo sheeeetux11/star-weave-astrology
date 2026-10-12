@@ -111,7 +111,7 @@ sections:
           date: "Sept 26, 2026"
         newMoon:
           title: "Libra New Moon 17º"
-          url: "/master-lists/full-and-new-moon-calendar"
+          url: "/blogs/new-moon-in-libra-17-oct-10-2026"
           date: "Oct 10, 2026"
       - fullMoon:
           title: "Taurus Full Moon 2º"

@@ -1,8 +1,8 @@
 backend:
   name: github
-  repo: sheeeetux11/star-weave-astrology  
-  branch: main 
-  client_id: Ov23lii0Dww81fgqNCPT
+  repo: sheeeetux11/star-weave-astrology
+  branch: main
+  base_url: https://decap-oauth.sheeeetux11.workers.dev
 
 media_folder: "public/assets/images/uploads"
 public_folder: "/assets/images/uploads"

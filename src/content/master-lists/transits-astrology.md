@@ -55,6 +55,11 @@ sections:
           - date: "May 16, 2026"
             text: "Taurus New Moon 25º + Mars & Chiron Conjunction in Aries 28°"
             url: "/blogs/new-moon-in-taurus-25-mars-chiron-conjunction-in-aries-28-may-16-2026"
+      - title: "October 2026"
+        sub_links:
+          - date: "Oct 10, 2026"
+            text: "Libra New Moon 17º"
+            url: "/blogs/new-moon-in-libra-17-oct-10-2026"
 
   - heading: "2025 Transits Astrology"
     description: "Placements in Natal Chart & Transits"
