@@ -108,6 +108,20 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     }
   }
 
+  /* Universal fallback styling for any auto-injected search results or external elements */
+  .blog-masonry-grid > *,
+  .blog-masonry-grid :global(.pagefind-ui__result),
+  .blog-masonry-grid :global(li),
+  .blog-masonry-grid :global(article:not(.blog-card)) {
+    break-inside: avoid;
+    margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 0.5px solid rgba(231, 185, 36, 0.25);
+    border-radius: 16px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
   .blog-card {
     break-inside: avoid;
     margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
