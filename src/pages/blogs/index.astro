@@ -69,7 +69,7 @@ const serializedPosts = JSON.stringify(formattedPosts);
 </BlogPageLayout>
 
 <script>
-  // Client-side state controller for 100% static search, tag filters, and mode toggles
+  // Client-side state controller for static search, tag filters, and mode toggles
   document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('blog-feed-root');
     if (!root) return;
@@ -96,6 +96,11 @@ const serializedPosts = JSON.stringify(formattedPosts);
     } else {
       if (azView) azView.style.display = 'none';
       if (feedView) feedView.style.display = 'block';
+    }
+
+    // Direct render on default recent state without filtering to preserve server HTML if possible
+    if (!query && !topic && page === 1 && mode === 'recent') {
+      return;
     }
 
     // 2. Filter Posts based on query or topic
@@ -177,7 +182,7 @@ const serializedPosts = JSON.stringify(formattedPosts);
   });
 </script>
 
-<style>
+<style is:global>
   .blog-feed-page-content {
     width: 100%;
     display: flex;
@@ -237,7 +242,7 @@ const serializedPosts = JSON.stringify(formattedPosts);
     border-color: rgba(231, 185, 36, 0.6);
   }
 
-  /* Match Pinterest Masonry Layout */
+  /* Global Masonry Layout & Card Styling (Applies to static and dynamic client renders) */
   .blog-masonry-grid {
     width: 100%;
     column-count: 4;
