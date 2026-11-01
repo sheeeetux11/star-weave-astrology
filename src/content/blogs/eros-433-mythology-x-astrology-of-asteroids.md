@@ -21,19 +21,23 @@ So, most victims of his love-arrow-shot either had to face immense disappointmen
 
 There were many stories in Greek Mythology that involved Eros’s contribution, but most famous of them all was of his own. When his mother, Aphrodite ordered him to punish Psyche by striking her heart with one of his golden arrows to fall tragically in love with a hideous beast, he goes to see Psyche but falls in love with her at first sight. However, as an awe-stricken accident, he gets wounded by his own arrow that he was holding in his hands to shoot at Psyche, hence, falling victim to his own powers of love. Both Psyche and he had to go through many trials and tribulations in their own way to finally reunite as lovers. 
 
-In astrology, Eros 433 is a key asteroid whose orbit is near to Mars. Eros placement represents one’s passions, desires, kinks, sexual interests, turn-ons/offs, etc. Eros can also represent:
+In astrology, Eros 433 is a key asteroid whose orbit is near to Mars. Eros placement represents one’s passions, desires, kinks, sexual interests, turn-ons/offs, etc. 
 
-How you express your sexual desires.Who is your type, what turns you on in a potential lover.
-How (& if or if not) you wish to experience lust.What drives you sexually.
-Who could be most compatible with you sexually and/or romantically.
-What is your definition of love.How (& if or if not) you objectify others.How others may objectify you.
-What makes you passionate, it can be hobbies, interests, skills, creativity, etc.
-How you pursue your passions.How you pursue commitments, for example, do you prefer long term or short-term relationships, etc.
-How you express yourself in an intimate relationship.
-How vulnerable or closed off, responsible or carefree, are you in such connections.
-What is your sexual preference/orientation.
-What qualities others see in you as irresistible.
+**Eros can also represent:**
+
+How you express your sexual desires.\
+Who is your type, what turns you on in a potential lover.\
+How (& if or if not) you wish to experience lust.What drives you sexually.\
+Who could be most compatible with you sexually and/or romantically.\
+What is your definition of love.How (& if or if not) you objectify others.\
+How others may objectify you.\
+What makes you passionate, it can be hobbies, interests, skills, creativity, etc.\
+How you pursue your passions.\
+How you pursue commitments, for example, do you prefer long term or short-term relationships, etc.\
+How you express yourself in an intimate relationship.\
+How vulnerable or closed off, responsible or carefree, are you in such connections.\
+What is your sexual preference/orientation.\
+What qualities others see in you as irresistible.\
 What makes you attractive, etc.
 
 It’s placement & aspects are most preferably seen in synastry and composite charts to determine sexual compatibility, attraction, kinks, intimate satisfaction, etc. between two partners which can add more information to their overall compatibility. Eros 433 is one of the asteroid placements most searched for in a chart to find one’s passions & desires. So, this placement and significant aspects in your chart can indicate your attractiveness, most desired qualities, sensual aura & sex appeal.
-  

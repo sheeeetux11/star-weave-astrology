@@ -6,8 +6,6 @@ manualNext: "natal-chiron-in-sagittarius-9th-house"
 tags: ["Chiron Astrology", "Chiron in Scorpio", "Chiron in 8H", "Chiron in Houses & Signs"]
 ---
 
-Natal Chiron in Scorpio (8th House)
-
 You are loyal and trustworthy, yet you often encounter people & situations who are not quite honest, leading to betrayals and disappointments. You know how devastating losses and endings feel since you have experienced way too many since childhood. You have seen the worst sides to any situation so surviving through such harsh circumstances made you weary and cautious of everything and everyone. You might have encountered near-death experiences or had to endure the loss of loved ones early on in your life. Your childhood could also have been chaotic in some way that makes you feel destabilized even in your adulthood. You might experience losses even in monetary or partnership related endeavors just to learn how to improve your life and financial circumstances drastically later on in life since you are exceptionally talented at such matters. 
 
 You might have deep wounds relating to sexuality and intimacy. You might even have turbulent relationship dynamics. You can be paranoid of situations that make you feel like you are being controlled or under somebody else’s mercy. You can also be quite controlling in certain areas/situations in your life. You might have strong psychic and intuitive abilities that can help you in all areas of your life even in your career endeavors. You possess deep observational skills that allow you to assess situations and people easily. 

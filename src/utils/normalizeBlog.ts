@@ -2,6 +2,18 @@
 const rawBase = import.meta.env.BASE_URL;
 const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
 
+// Helper to strip markdown symbols, headers, bolding, and extra whitespace for clean card excerpts
+function cleanMarkdown(text: string): string {
+  if (!text) return '';
+  return text
+    .replace(/#{1,6}\s+/g, '') // Remove markdown headers (e.g. ### )
+    .replace(/(\*\*|__)(.*?)\{(\*\*|__)/g, '$2') // Remove bold asterisks/underscores
+    .replace(/(\*|_)(.*?)\{(\*|_)/g, '$2') // Remove italic symbols
+    .replace(/[*_`#\[\]()!>~+-]/g, '') // Remove lingering markdown punctuation markers
+    .replace(/\s+/g, ' ') // Collapse multiple spaces/newlines into one
+    .trim();
+}
+
 export function normalizePost(post: any) {
   // Safety guard against undefined or null posts
   if (!post) return null;
@@ -38,7 +50,7 @@ export function normalizePost(post: any) {
     return {
       title: p.title,
       url: pUrl,
-      description: p.description || '',
+      description: cleanMarkdown(p.description || ''),
       thumbnail: thumb
     };
   });
@@ -89,6 +101,10 @@ export function normalizePost(post: any) {
     }
   }
 
+  // Fallback priority: Frontmatter description/excerpt -> Cleaned raw body text snippet
+  const rawExcerptSource = post.data?.description || post.data?.excerpt || post.body || '';
+  const formattedDescription = cleanMarkdown(rawExcerptSource).slice(0, 150) + (rawExcerptSource.length > 150 ? '...' : '');
+
   return {
     id: post.id,
     slug: slug,
@@ -102,7 +118,7 @@ export function normalizePost(post: any) {
     relatedPosts: relatedPosts,
     youtubeUrl: post.data?.youtubeUrl,
     youtubeTitle: post.data?.youtubeTitle,
-    description: post.body ? post.body.slice(0, 150) + '...' : (post.data?.excerpt || ''),
+    description: formattedDescription,
     moreOnAstrology: moreOnAstrology,
   };
 }

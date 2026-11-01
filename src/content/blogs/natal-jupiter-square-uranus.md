@@ -4,7 +4,7 @@ date: "January 6, 2026"
 tags: ["Rare Aspects", "Jupiter Aspects", "Jupiter Square Uranus", "Uranus Aspects", "Aspects Astrology"]
 ---
 
-Recent: 1992-93, 2000, 2006-07, 2013-14, 2021. Next: 2027.
+***Recent: 1992-93, 2000, 2006-07, 2013-14, 2021. Next: 2027.***
 
 You are an innovative genius with a quirky personality. You have a strong sense of purpose that often involves changing the world in a major way, especially by fighting for worthy causes or by eliminating dangerous societal mindsets. You might however take things too far with your ideologies. Your life’s philosophy can inspire others and attract their attention, but your actions towards accomplishing those ideals may lead to disagreements and backlash. You have a strong need for independence and are dead set on never letting anyone/anything have too much power over you, but your need for freedom can sometimes seem like an act of defiance or extreme rebelliousness. This can create a tensed relationship with elders, parents, teachers, and/or authority figures.
 

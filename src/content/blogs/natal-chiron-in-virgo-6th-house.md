@@ -6,8 +6,6 @@ manualNext: "natal-chiron-in-libra-7th-house"
 tags: ["Chiron Astrology", "Chiron in Virgo", "Chiron in 6H", "Chiron in Houses & Signs"]
 ---
 
-Natal Chiron in Virgo (6th House)
-
 You are an exceptional help to others; you look after your loved ones always making sure that they do well in their endeavors, but you tend to ignore your own priorities sometimes. You can be extremely self-critical; you might even have the tendency to compare yourself to others and their accomplishments. You might even overlook your skills and merits that way. You take great pride in your work, but you might not fully appreciate your efforts for accomplishing those goals. You might even have health issues, especially during your childhood where you fell ill often. You might have stomach & skin related issues or feel extreme anxiety. 
 
 You can even feel sick easily when you are under extreme stress. You take your work seriously, but you might also have tendencies to take opportunities for granted from lack of empathy towards yourself. You might feel inadequate to attain your dreams sometimes just to end up sabotaging your efforts and opportunities. You might even feel unworthy of praise or appreciation for a job well done. You might have a hard time keeping your thoughts positive. You might even suffer from mental health issues over time. You might have depressive mood swings or anger issues as a result. You might even have trouble working in teams or in closely knit organizations since you feel inadequate or over-burdened by responsibilities. 

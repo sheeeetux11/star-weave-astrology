@@ -3,10 +3,8 @@ title: "Natal Saturn in Cancer (4th House) Generation 🐝✨"
 date: "May 9, 2023" 
 manualPrev: "natal-saturn-in-gemini-3rd-house-generation"
 manualNext: "natal-saturn-in-leo-5th-house-generation"
-tags: ["Saturn in Cancer", "Saturn in 4H", “Saturn in Signs & Houses”, "Saturn Astrology", "Planets Astrology"]
+tags: ["Saturn in Cancer", "Saturn in 4H", "Saturn in Signs & Houses", "Saturn Astrology", "Planets Astrology"]
 ---
- 
-Natal Saturn in Cancer (4th House) Generation 🐝✨
 
 Saturn can feel a little uncomfortable in its opposite sign/house of ruler ship. Your childhood, right off the bat, was a significant time of your life, regardless of how many disappointments or enjoyable moments you might have experienced, your early years may have had a profound effect on your mindset and world view. You might have felt pressured to live up to a certain standard, take on more responsibilities, shoulder your household’s burdens, take care of family members or watch them struggle through physical or mental health problems, issues with financial and emotional stability at home, etc. Parents might have played an important and sometimes imposing role. Even if you were born into a wealthy or well-to-do family, you might have experienced a sense of overpowering presence of your parents or other family members whether they meant any harm or not. 
 

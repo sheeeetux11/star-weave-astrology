@@ -22,6 +22,6 @@ If you have ideas & plans to invest in things that grow overtime, like your busi
 
 Dream big and outlandishly, yet be a little careful with your spending, earning & budgeting. This is going to be a major turnaround for all of us, although the fruits of our labor will come a little late, we will just have to wait & be patient for all the good things that are on their way towards us. 
  
-This season, 
+This season, \
 Optimism + Caution + Conscious Decisions = Luck + Prosperity. 🍀✨
 

@@ -3,10 +3,8 @@ title: "Natal Saturn in Libra (7th House) Generation 🌹✨"
 date: "December 25, 2022" 
 manualPrev: "natal-saturn-in-virgo-6th-house-generation"
 manualNext: "natal-saturn-in-scorpio-8th-house-generation"
-tags: ["Saturn in Libra", "Saturn in 7H", “Saturn in Signs & Houses”, "Saturn Astrology", "Planets Astrology"]
+tags: ["Saturn in Libra", "Saturn in 7H", "Saturn in Signs & Houses", "Saturn Astrology", "Planets Astrology"]
 ---
-
-Natal Saturn in Libra (7th House) Generation 🌹✨
 
 With Saturn in the house/sign of relationships, contracts and public relations, can be a mix of polarities just like the symbol of Libra being a balance-scale. You are a humble and responsible person. You are graceful and respect your commitments. You have a serious and stoic approach to relationships of all kinds even when you are burning with passion inside. You are a just person and would never do or say anything that can hurt somebody on purpose. You might have a deep interest in law and justice as a whole. You might even do well in careers relating to the public, finances, fashion, entertainment, Human Resources, law, etc. You have a clear view of any situation that demands your attention especially if you are called to negotiate on behalf of someone else. 
 

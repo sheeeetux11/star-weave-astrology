@@ -6,8 +6,6 @@ manualNext: "natal-chiron-in-virgo-6th-house"
 tags: ["Chiron Astrology", "Chiron in Leo", "Chiron in 5H", "Chiron in Houses & Signs"]
 ---
 
-Natal Chiron in Leo (5th House)
-
 You are humble but sometimes to your own detriment. Your kindness can be taken advantage of especially by people you consider your closest. You might even feel pressured to take the center-stage or responsibilities even when you secretly desire to be popular. You might take things too seriously and not allow your inner child to express itself fully. You might feel over-privileged in some areas of your life whereas feel lack in others, especially about simpler joys of life. You might have wounds from childhood where you felt you couldn’t spend much time with your parents or family due to unfortunate events or some other reasons. You might be carrying that trauma with you, feeling burdened. You might even feel the need to look happy on the outside just so your loved ones don’t feel upset sometimes, but this placement will make it harder for you to fake your emotions. 
 
 You might be too generous and outgoing, but you also need your alone time to recharge. Even though you like the attention and admiration you receive, you can feel overwhelmed easily. You like to keep your romance private. But if you are prone to attention seeking behaviors, you might not mind overly displaying your affection to your partner(s) in public, may be even fake your relationships. This is one of the things to be mindful of with this Chiron placement. You might even refuse to carry yourself with honesty and integrity but instead play a role of a perfect person just to gain validation from others or fit in. 

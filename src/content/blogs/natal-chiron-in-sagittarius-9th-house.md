@@ -6,8 +6,6 @@ manualNext: "natal-chiron-in-capricorn-10th-house"
 tags: ["Chiron Astrology", "Chiron in Sagittarius", "Chiron in 9H", "Chiron in Houses & Signs"]
 ---
 
-Natal Chiron in Sagittarius (9th House)
-
 You are an optimist, yet you hold realistic expectations of life. You see things and people for what they are. You might have experienced crises in your higher education or during your late teens/early adulthood that changed your perspective on life. You might even have troubles with mentors or people who were supposed to be your guides. You have immense faith in yourself, and you believe in miracles, yet your faith often gets tested to the limits and beyond. You feel that your opinions are not always well-received, but you don’t change your mind just because others don’t see things as clearly as you see. You might even have to be careful not to force your ideologies or judge others for theirs since that could be the expression of your shadow self. 
 
 You think and focus on the bigger picture, you rarely waver in your determination once you set your sights on goals. You don’t like small, minded people who dwell in ignorance, you might even become confrontational when you are pushed too far. You are a great guide and a mentor; you have a lot of wisdom to offer to the world. You might wish to teach/guide others on their journey somewhere down the line since you feel like it's part of your calling. You love to explore new places, cultures and interests despite your initial reluctance to come out of your comfort zone. You can find a sense of serenity in learning and travel. 

@@ -4,7 +4,7 @@ date: "January 15, 2026"
 tags: ["Rare Aspects", "Chiron Aspects", "Chiron Square Uranus", "Uranus Aspects", "Aspects Astrology"]
 ---
 
-A generational transit. Recent: 1996-98.
+***A generational transit. Recent: 1996-98.***
 
 Your individuality could have gotten you into a lot of trouble in your early years, creating a lot of conflict within yourself. You could have suppressed your true self to fit in, or rebel against everyone who expected you to behave a certain way, either way, you might have been in constant agony. This could come out as emotional outbursts every time you are pushed to the edge. Your independence was compromised growing up making it even harder to develop your self-esteem and hindered your character development. So, you might have grown up being extremely conscious of this. 
 

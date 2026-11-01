@@ -29,20 +29,22 @@ So, Asteroid Psyche (16) in Astrology hold’s significance, where it tells us a
 
 Psyche’s placement and aspects can give us a lot of vital information about how our willingness to follow our true desires will help us discover ourselves and, in the process, reuniting with our biggest wish. Psychology, innocence and the mind become the main focus. This placement further tells you:
 
-Where/how others will envy your natural beauty, good fortune and luck. 
-Where and what others admire you for without being able to comprehend. how others are drawn to your inner beauty.
-Where your popularity (no matter how innocent and out of your control) can invite envy and jealousy.
-(Sometimes) Where and how a parent/care takers’ ignorance or insecure actions can put you in unnecessary danger, this can also indicate them enjoying honors and respect due to your accomplishments or using all the admiration you get to gain status for themselves in some way (just like how her father’s greed let everyone worship his daughter knowing full well that a mortal being worshipped like that can anger the Gods’ or Goddesses).
-Where and how others admire you but also make you feel lonely for the same reason since you only see them admiring you for your external beauty or abilities but not your true character. 
-Where others are afraid to claim you or give you any official recognition due to all the external competition & insecurities (almost too perfect to have you in that area of your life since they feel intimidated or over pressured to meet high standards). 
-Where/how rejections and projections can make you feel less than who you truly are. 
-Where/what/who you long for and consider your true love. 
-Where you attract secret admirers. 
-Where and why others plot against you and have ulterior motives to their words and actions towards you. 
-Where and how your innocence and naïveté can cause you harm. 
-Where and how you will have divine guidance and favor due to your inner purity and good intentions. 
-What kind of rewards or divine grants you earn through various trials and tribulations.your natural gifts, talents and blessings. 
-How you can explore your soul and listen to your inner calling. 
+Where/how others will envy your natural beauty, good fortune and luck. \
+Where and what others admire you for without being able to comprehend. \
+How others are drawn to your inner beauty.\
+Where your popularity (no matter how innocent and out of your control) can invite envy and jealousy.\
+(Sometimes) Where and how a parent/care takers’ ignorant or selfish actions can put you in unnecessary danger, this can also indicate them enjoying honors and respect due to your accomplishments or using all the admiration you get to gain status for themselves in some way (just like how her father’s greed let everyone worship his daughter knowing full well that a mortal being worshipped like that can anger the Gods’ & Goddesses).\
+Where and how others admire you but also make you feel lonely for the same reason since you only see them admiring you for your external beauty or abilities but not your true character. \
+Where others are afraid to claim you or give you any official recognition due to all the external competition & insecurities (almost too perfect to have you in that area of your life since they feel intimidated or over pressured to meet high standards). \
+Where/how rejections and projections can make you feel less than who you truly are. \
+Where/what/who you long for and consider your true love. \
+Where you attract secret admirers. \
+Where and why others plot against you and have ulterior motives to their words and actions towards you. \
+Where and how your innocence and naïveté can cause you harm. \
+Where and how you will have divine guidance and favor due to your inner purity and good intentions. \
+What kind of rewards or divine grants you earn through various trials and tribulations. \
+Your natural gifts, talents and blessings. \
+How you can explore your soul and listen to your inner calling. \
 How you will be remembered for your strength in character, etc.
 
 Hence it represents a deeply spiritual placement in our chart, especially when it comes to true love or soul calling. The events that transpire in this placement have an element of destiny and a flavor of inevitability, making it a fascinating part of the chart to explore.

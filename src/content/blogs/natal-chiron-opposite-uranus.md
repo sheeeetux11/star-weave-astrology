@@ -4,7 +4,7 @@ date: "January 19, 2026"
 tags: ["Rare Aspects", "Chiron Aspects", "Chiron Opposite Uranus", "Uranus Aspects", "Aspects Astrology"]
 ---
 
-A generational transit. Recent: Between 1950 - 1989, a 40 yearlong transit. 
+***A generational transit. Recent: Between 1950 - 1989, a 40 yearlong transit.*** 
 
 Exemplary inventions, forever changing the direction of history. Accelerated growth in technological developments was seen during this transit.Desire for Freedom, to break free from traditions & norms, especially those that no-longer serve the ever-evolving society. Seeking freedom from generational wounds, desperate need to keep moving forward, throwing caution to the wind. A rebellious activist, who loses the motivation and drive to fight because of unresolved wound of self in the subconscious. 
 

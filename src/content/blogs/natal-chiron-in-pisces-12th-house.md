@@ -6,8 +6,6 @@ manualNext: "natal-chiron-in-aries-1st-house"
 tags: ["Chiron Astrology", "Chiron in Pisces", "Chiron in 12H", "Chiron in Houses & Signs"]
 ---
 
-Natal Chiron in Pisces (12th House)
-
 You are sensitive and compassionate, sometimes to your own detriment. You might have experienced many betrayals and disappointments. Sometimes, you might not even know what is troubling you or why you are feeling certain intense emotions. You have many healing and psychic abilities with this placement, you might even have extraordinary artistic and creative talents. You might feel a strong desire to help those in need, yet you often feel ignored or neglected when you need assistance. You might experience frequent anxiety attacks and you don’t like to stay in tense situations/environments. 
 
 You can pick up on energetic shifts easily hence you can also absorb others’ negativity and distress. So, you might not be able to differentiate your emotions from that of others sometimes. You might even be paranoid of others due to all the disappointing situations and events you have been through in your life. Your mental and physical health are extremely sensitive with this placement. You might have to consciously take part in routines, habits and activities, also surround yourself with trustworthy and positive people in order to stay healthy both physically and mentally. 

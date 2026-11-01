@@ -3,10 +3,8 @@ title: "Natal Saturn in Sagittarius (9th House) Generation 🌟✨"
 date: "May 10, 2023"
 manualPrev: "natal-saturn-in-scorpio-8th-house-generation"
 manualNext: "natal-saturn-in-capricorn-10th-house-generation"
-tags: ["Saturn in Sagittarius", "Saturn in 9H", “Saturn in Signs & Houses”, "Saturn Astrology", "Planets Astrology"]
+tags: ["Saturn in Sagittarius", "Saturn in 9H", "Saturn in Signs & Houses", "Saturn Astrology", "Planets Astrology"]
 ---
-
-Natal Saturn in Sagittarius (9th House) Generation 🌟✨
 
 Saturn in the house/sign of philosophy, travel and higher knowledge can be an incredible placement. You are a student of life, a scholar of philosophy and an avid thinker. You respect knowledge and wisdom. You rarely take things for granted especially when they are opportunities to learn new things and explore the world. You might confine yourself to a small group of trusted people even though you have a good number of friends and acquaintances. Religion and spirituality are an interesting part of your life, since depending on your early experiences, you might reject such doctrines or fully embrace them, in both cases, you are true to yourself which is what matters the most to you. 
 

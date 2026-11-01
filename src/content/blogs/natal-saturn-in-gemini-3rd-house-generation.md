@@ -3,10 +3,8 @@ title: "Natal Saturn in Gemini (3rd House) Generation 🐚✨"
 date: "May 9, 2023" 
 manualPrev: "natal-saturn-in-taurus-2nd-house-generation"
 manualNext: "natal-saturn-in-cancer-4th-house-generation"
-tags: ["Saturn in Gemini", "Saturn in 3H", “Saturn in Signs & Houses”, "Saturn Astrology", "Planets Astrology"]
+tags: ["Saturn in Gemini", "Saturn in 3H", "Saturn in Signs & Houses", "Saturn Astrology", "Planets Astrology"]
 ---
-
-Natal Saturn in Gemini (3rd House) Generation 🐚✨
 
 Saturn in Gemini/3rd house can make you an intellectual and resilient person. You have a way with words, and you have a way with silence. You have a more mature view on life due to the tough lessons you had to learn during your childhood. You might have felt coldness or distance from your family either due to circumstances or other serious issues. You might even have siblings that you look up to (or look up to you), on the other hand, you might not be able to connect emotionally with your siblings (family members in general) with ease. Your parents may have been restrictive especially when it came to you speaking your mind. They may have also been very serious about your education. 
 

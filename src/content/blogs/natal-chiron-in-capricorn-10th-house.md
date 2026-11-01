@@ -6,8 +6,6 @@ manualNext: "natal-chiron-in-aquarius-11th-house"
 tags: ["Chiron Astrology", "Chiron in Capricorn", "Chiron in 10H", "Chiron in Houses & Signs"]
 ---
 
-Natal Chiron in Capricorn (10th House)
-
 You have a strong desire to accomplish your ambitions in life. You are driven to create a legacy of your own. But your inner wounds may have an inhibiting effect on you. Your childhood experiences left a strong impression on you. You might have felt belittled, neglected or overburdened by carrying out huge responsibilities as a child. You might have had to live up to certain standards or positions from a very young age making you feel robbed of a simple and playful childhood. You might have even had the responsibility to take care of others in your family due to circumstances. Your reliable nature can be impressive in your adult life, but you might be too hard on yourself sometimes. 
 
 You might even push yourself to attain goals even when you might not feel fully ready to pursue them or feel like you need to over-compensate in some way. You might feel like you need to prove your capabilities to others, especially if you grew up in a restrictive or demeaning household. You might have experienced discrimination or disrespect in your workplace, even have had stressful power struggles with your coworkers and higher-ups. You might feel over-looked despite your efforts and accomplishments. You will have to heal your deeper wounds of rejection, since you can dismiss your own capabilities to succeed sometimes. As a result, you might fear success even more than you fear failure. 

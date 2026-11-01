@@ -23,17 +23,27 @@ Her presence in Roman mythology and religious beliefs also draw attention to the
 
 Her characterization also draws attention to how an empowered person can be both a devoted partner and a ferocious protector (without paying much attention to gender but to femininity and its significance), which can be seen in her associations with Peacocks and Lions. It also speaks of how one must have a solid sense of self before entering into any kind of serious relationship, since partnerships can test each other’s characters through the course of time.
 
-Juno in Astrology can hence represent:Where/who you are devoted and loyal toWhere/how you will seek an ideal future (be it in a marriage, career, passion, etc.)Who is your ideal partner or what gives you a sense of fulfilmentHow/where you might encounter your ideal partnerWhat marriage means to you and how committed you areHow committed your ideal partner is to youHow compatible you and your ideal partner areWhere you might feel cheated but still remain loyal (with challenging aspects or placements):
-
-How injustice can invoke your rage or jealousy
-How you deal with jealousy/rage caused due to such injusticesHow you view femininity and how connected you feel to its many aspects
-Where/how you feel empowered by your femininity (again, regardless of your gender or sexual orientation)
-Where you are revered for your grace 
-How you handle your everyday affairs, including expenditure and finances (i.e., Taking care of things like paying the bills, saving money, budgeting, etc.)
-How (for women) things like menstruation, self-care, beauty, childbirth, childcare, etc. can play a significant role in your life
-How you view marriages and long-term commitmentsHow you handle long term commitments, in both business and romantic relationship
-How you handle ups and downs of such serious commitments
-Where and how your ideal partner will be loyal/disloyal to you (depending on placements and aspects)
-What are the green & red flags you can look for in a partnerWhere you feel your loyalty is taken advantage of and if or if not, you will overlook your loved ones’ betrayal, etc.
+**Juno in Astrology can hence represent:** \
+Where/who you are devoted and loyal to\
+Where/how you will seek an ideal future (be it in a marriage, career, passion, etc.)\
+Who is your ideal partner or what gives you a sense of fulfilment\
+How/where you might encounter your ideal partner\
+What marriage means to you and how committed you are\
+How committed your ideal partner is to you\
+How compatible you and your ideal partner are\
+Where you might feel cheated but still remain loyal (with challenging aspects or placements)\
+How injustice can invoke your rage or jealousy \
+How you deal with jealousy/rage caused due to such injustices\
+How you view femininity and how connected you feel to its many aspects \
+Where/how you feel empowered by your femininity (again, regardless of your gender or sexual orientation) \
+Where you are revered for your grace \
+How you handle your everyday affairs, including expenditure and finances (i.e., Taking care of things like paying the bills, saving money, budgeting, etc.)\
+How (for women) things like menstruation, self-care, beauty, childbirth, childcare, etc. can play a significant role in your life \
+How you view marriages and long-term commitments\
+How you handle long term commitments, in both business and romantic relationship \
+How you handle ups and downs of such serious commitments \
+Where and how your ideal partner will be loyal/disloyal to you (depending on placements and aspects) \
+What are the green & red flags you can look for in a partner \
+Where you feel your loyalty is taken advantage of and if or if not, you will overlook your loved ones’ betrayal, etc.
 
 Hence, Juno is seen as your potential partner in astrology and also how you yourself behave as a partner. Despite all the notorious stories we know of Jupiter, Juno is still regarded as his ultimate partner, and they are revered as the divine counterparts of each other. So, when looking for marriage and commitments in one’s chart, Jupiter and Juno’s placements, aspects to each other and to the rest of the chart are primarily considered. Of course, this is done disregarding the mythological circumstances between the two, and merely as a power couple (i.e., without their flaws) and an idealized version of a successful love story. Hence Juno’s placement and aspects are seen in a positive view to find one’s ideal partner and the potential for a prosperous & fulfilling commitment/marriage. 

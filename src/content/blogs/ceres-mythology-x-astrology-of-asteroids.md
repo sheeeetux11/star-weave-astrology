@@ -25,26 +25,27 @@ This is how spring starts when Proserpina comes to the land, when she leaves to 
 
 Through her connection to the underworld, she is also believed to protect the souls of children and others who died prematurely or with unfortunate circumstances. Thus, she is one of the central deities with much power and influence in the Greek/Roman society. She is worshipped before and after harvest times, during wedding & funeral ceremonies, for protection of crops, health and prosperity.In astrology, Ceres is one of the key asteroids (now dwarf planet) in the asteroid belt between Mars and Jupiter. Ceres in the natal chart often represents your feminine & motherly urges, over-protectiveness, generosity, etc.
 
-It can represent:
-
-How you nurture yourself.
-How you express your motherly love and compassion.
-Your relationship with your mother/maternal figures.
-How (or if) you received motherly love and what made you feel safe.
-How positive/negative is the role of maternal figures in your life.
-How you show compassion and empathy to others.How you protect/preserve those you love.
-Where you feel over-protective and possessive about what you love.
-How you nurture your loved ones, especially those under your care & protection, like kids, pets, family, etc.
-What is your relationship to food and nutrition.
-What nourishes your soul and inner child.How connected are you to your inner child, and how you can heal your inner child.
-Where/How you feel drawn to save those who are helpless, like children, animals, etc.
-Where you feel robbed emotionally/physically (usually when retrograde).
-Where you find it hard to accept the loss of something/someone dear to you.
-Where you are admired for being a strong yet compassionate person.
-Where you are regarded as a benevolent individual.
-Where you will be called to embrace & heal your divine feminine energy (regardless of your gender or sexual orientation).
-How/where your emotional intelligence will help your loved ones.
-Where you will be expected to make sacrifices for the sake of your loved ones’ happiness.
+**It can represent:**\
+How you nurture yourself.\
+How you express your motherly love and compassion.\
+Your relationship with your mother/maternal figures.\
+How (or if) you received motherly love and what made you feel safe.\
+How positive/negative is the role of maternal figures in your life.\
+How you show compassion and empathy to others.\
+How you protect/preserve those you love.\
+Where you feel over-protective and possessive about what you love.\
+How you nurture your loved ones, especially those under your care & protection, like kids, pets, family, etc.\
+What is your relationship to food and nutrition.\
+What nourishes your soul and inner child.\
+How connected are you to your inner child, and how you can heal your inner child.\
+Where/How you feel drawn to save those who are helpless, like children, animals, etc.\
+Where you feel robbed emotionally/physically (usually when retrograde).\
+Where you find it hard to accept the loss of something/someone dear to you.\
+Where you are admired for being a strong yet compassionate person.\
+Where you are regarded as a benevolent individual.\
+Where you will be called to embrace & heal your divine feminine energy (regardless of your gender or sexual orientation).\
+How/where your emotional intelligence will help your loved ones.\
+Where you will be expected to make sacrifices for the sake of your loved ones’ happiness.\
 Where you will have to be careful not to harm your loved ones through your over-protectiveness, etc.
 
 Hence, Ceres is considered as the ultimate mother figure in both mythology and astrology. Nourishment, care & compassion are key representations of this asteroid in the chart, whereas over-protectiveness, possessiveness and misplaced anger are its shadow sides. This placement can also show your role in the lives of your loved ones through how you take care of them and love them unconditionally. So, you can find your own motherly side as well as the role motherly figures played in your life. This is also the placement that tells a lot about self-love, where you can understand how to heal & nurture your inner child.

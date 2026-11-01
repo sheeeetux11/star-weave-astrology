@@ -6,8 +6,6 @@ manualNext: "natal-chiron-in-scorpio-8th-house"
 tags: ["Chiron Astrology", "Chiron in Libra", "Chiron in 7H", "Chiron in Houses & Signs"]
 ---
 
-Natal Chiron in Libra (7th House)
-
 This Chiron placement can prove to be heart-breaking, sometimes literally. You might have grown up witnessing love and relationships to its ugliest forms or had no positive reference of love and compassion. You might have felt guilty for not caring or taken advantage of for caring. There could have been instances where you felt that you can’t have and experience love. You might have even felt betrayed by life for how harsh the reality can be, since you only seemed to attract chaos instead of peace. You hate confrontations and especially conflicts with your loved ones can make you feel guilty or ashamed. You have a fierce sense of loyalty yet you rarely see that in others. You might have experienced jealousy, envy and hatred from others, you might have also felt so towards others at some point. 
 
 You have a hard time balancing your priorities in life, this is especially true with the time you give to yourself and others. You might have issues with setting healthy boundaries in relationships, so you could have experienced or encountered toxic partners, this can also be true with regards to friends and acquaintances as well. You take disappointments very seriously, even if you already saw them coming. You feel burdened to keep a healthy dynamic in relationships, since you might be pulling all the weight and the other person(s) might not be putting in their fair share of the effort. 

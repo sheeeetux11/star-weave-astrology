@@ -6,8 +6,6 @@ manualNext: "natal-chiron-in-cancer-4th-house"
 tags: ["Chiron Astrology", "Chiron in Gemini", "Chiron in 3H", "Chiron in Houses & Signs"]
 ---
 
-Natal Chiron in Gemini (3rd House)
-
 Your inner wounds of communication can have their roots in your childhood either from siblings/family or schooling/friends (even teachers). You might even feel like you need to speak a lot to make sense of what you are thinking or speak too little when you feel not welcomed in a place/conversation. You might have experienced challenges in your early schooling. You might even have been/or become the victim of rumors and gossip. You might feel ignored, or others read too much into what you say, either way, you often feel misunderstood. You might not know when to use silence and words as an answer. You might even over-explain your actions sometimes out of fear of misunderstandings. 
 
 You might have been criticized unfairly as a kid. You will however have to be careful not to criticize others too harshly since you might just be projecting your wounds and insecurities onto others. In worst cases, you can be too cutting with your words even to your loved ones. You are gifted with many creative talents, and you can learn technical/mechanical skills. You are curious and quick-minded, but you will also need to learn not to let your curiosity make impulsive decisions. You have great communication & people skills, yet you hold back when you need to express yourself. You can use your talents as an outlet to express yourself when in doubt. 

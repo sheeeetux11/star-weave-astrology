@@ -6,8 +6,6 @@ manualNext: "natal-chiron-in-pisces-12th-house"
 tags: ["Chiron Astrology", "Chiron in Aquarius", "Chiron in 11H", "Chiron in Houses & Signs"]
 ---
 
-Natal Chiron in Aquarius (11th House)
-
 You might feel alone in crowds but feel like you belong to the group as well, these feelings can be contradicting. You might even have a strong desire to belong to a group or community. Although, you might sometimes feel lost when you are with like-minded people. You don’t embrace your individuality until someone recognizes you for who you are. You might even rely on your friends for support but feel guilty or shy to ask at first. You cherish your friends and acquaintances. You might have big aspirations that you find it hard to feel deserving. You might even hold back from voicing your opinions. 
 
 You can feel unappreciated for your contribution to a group or cause. You might even feel that you don’t deserve to be in a group or community at first. You have many talents that you might hide from others before fully accepting them. You like to explore the world, go on adventures and gain new perspective. You might even feel the need to help others through charity and activism. Your pain can be seen by others, especially those who look up to you. You might feel a strange comfort in learning more about certain topics/subjects, especially those related to technology and science. You might even feel empowered by being a leader since others naturally acknowledge you as one. 

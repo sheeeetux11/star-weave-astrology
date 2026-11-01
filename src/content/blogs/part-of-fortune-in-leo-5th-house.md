@@ -6,33 +6,33 @@ manualNext: "part-of-fortune-in-astrology"
 tags: ["Part of Fortune Astrology", "Part of Fortune in Leo", "Part of Fortune in 5H"]
 ---
 
-The Keys to your Innate Fortune & Luck with Natal Part of Fortune in Leo + 5th House + 5° 17° 29° 🗝️🍀
+### The Keys to your Innate Fortune & Luck with Natal Part of Fortune in Leo + 5th House + 5° 17° 29° 🗝️🍀
 
-Self Actualization 
+### Self Actualization 
 
 PoF here amplifies your Self-Confidence not by superficial Ego Boosts, but rather by increasing your Self-awareness. You are able to connect to your True Sense of Self, to the core of your Character, Personality & Ego along with your Heart, Passions & Desires. You can hence express yourself honestly and live Truthfully. Self-discovery becomes an exciting adventure where you find more about yourself; your talents, passions, fears, insecurities and all. Hence, this marvelous PoF will facilitate the right mindset & attitude towards life for your Self-Actualization. This in and of itself will draw in lucky opportunities & chances that lead you to extraordinary Fortune & Abundance in life. 
 
-Effortless Charisma + Magnetic Personality
+### Effortless Charisma + Magnetic Personality
 
 You are Self-Confident & Self-Assured since you have Absolute Self-Acceptance. You are hence able to be yourself, unapologetically. This level of Self-Honesty naturally makes you standout, with an undeniable Charisma. You strive to have an upright Character and are Honorable. Your Character can be awe-inspiring to many as you are able to carry yourself with such Poise and Integrity. Yet you are down-to-earth and humble. Your fun-loving & high-spirited personality is captivating. Your presence hence creates an atmosphere of Goodness & Positivity that most enjoy. The balanced combination of Fun-loving & Dutiful personality also makes you an exceptional leader that others like to respect and follow, which can bring you Immense Success and Good Reputation. Hence be it in Career or Business, you find Fortune & Fulfillment when you are utilizing your Charismatic Personality & Leadership qualities to your fullest potential. 
 
-Fun + Creativity
+### Fun + Creativity
 
 PoF here greatly amplifies your Creative Self-Expression. You are likely extremely talented and posses many Artistic gifts. You attract numerous opportunities simply by being expressive. Your dramatic, fun & energetic personality can bring you many fortunate opportunities and much appreciation. You are hence well-recognized ‘for everything that you do and everything that you are’. Being genuinely happy and joyous can bring Luck your way. You are likely to feel the happiest when cultivating your interests & skills, even happier when you can show-case your talents to others and the world. You are likely to find Immense Success when you are being True to your Passions and expressing your Full Potential. This PoF hence indicates to Fame & Popularity (often Awe-Inspiring and likely can invoke Envy in others). 
 
-Heart + Generosity
+### Heart + Generosity
 
 You are known for your Big Heart and Compassion. You are always there for your loved ones. You are also brave enough to protect others and stand up for them, whether they are people you know & love or they are complete strangers. You are born with Unconditional Generosity that makes you a leader and a protector to everyone around you, a Hero that your loved ones are proud of and others admire. Your brave, yet kind heart is a blessing to others & yourself as your True Courage & Generosity bring Fortunate circumstances towards you. You naturally do good deeds with good intentions often without much thought or worry. This genuine desire to help others and even just to be a good person is praiseworthy. Hence, you naturally accumulate Good Karma which also attracts Abundance & Prosperity. You are not Lucky & Fortune for no-reason after all, ‘a Gracious Heart reflects an equally Magnificent Soul’. 
 
-Romance + Loyalty
+### Romance + Loyalty
 
 You are a lover and a fighter (but mostly you prefer being a lover). Romance comes naturally to you. You are likely to be blessed in Romantic & Committed Relationships. PoF here makes you extra appealing and attractive, likely sought-after by many admirers & love-interests. You are likely to have good encounters with Romantic partners (at least for the most part). This can indicate to finding the right Spouse / Partner in Life. PoF here can greatly increase your Sexual appeal as well, adding some extra flare to your Sex-life. You value loyalty in your relationships, especially in romance. (With good aspects to PoF and other favorable placements) You are likely to have a fulfilling Love and Marriage life. You are committed, loyal and devoted when you find the right person, hence are likely to feel contentment and blessed with a partner who reciprocates your efforts, passion & loyalty. PoF here can indicate to a Blessed Romantic relationship(s) and Marriage(s), along with a Prosperous Private Life with perhaps even Successful Financial endeavors with / support from your relationship(s).
 
-Sacred Inner Child
+### Sacred Inner Child
 
 Whether you grew up as a (fairly) happy child or had to deal with traumatic events during your childhood in anyway, looking back you can always acknowledge just how Blessed you are. You are able to heal and empower yourself out of grief & pain of the past. You don’t often dwell on the past, instead are grateful for all you have & all that you are able to become. You are hence more focused on your present, the here and the now, to fully enjoy & live the life that you desire. This (seemingly) Enlightened attitude towards life reflects a Healthy & Vibrant Inner Child, the source of your Extraordinary & Persistent Spirit. You innately know how to keep your Inner Child happy, healthy & nourished. There is a Sacred connection with your Inner Child that is extremely vital to your development & success on all levels. You likely also share special connection with children (+ pets). With this PoF, you are likely to be lucky in matters pertaining to Children (+ Pets), whether in having / adopting, raising & nurturing, teaching & empowering them, etc. Children & Pets can bring Good Fortune, Reputation and Good Karma in general, along with joy, peace, love and bliss into your life naturally. 
 
-Pot of Blessings + Fortune 💰✨
+### Pot of Blessings + Fortune 💰✨
 
 Abundance naturally flows towards you. You are likely very Lucky as numerous exceptional opportunities and chance events happen in your favor (often like Magic, as if the whole universe is conspiring in your favor). Your lively, fun-loving & open-hearted personality can win many hearts. Taking the centre stage and embracing the spotlight can also come naturally to you. You are extremely creative and talented, expressing them can bring you Immense Recognition, Popularity and Fame. Your Passions & Desires hence when creatively expressed can bring much Acclaim & Success. Earnestly following your heart can lead you towards surprisingly lucky opportunities, people and situations. Hence when you align your Goals and Ambitions with your Heart’s desires, wants & needs, you seem to simultaneously align yourself to your Life’s Calling. 
 

@@ -3,10 +3,8 @@ title: "Natal Saturn in Capricorn (10th House) Generation 🦣✨"
 date: "May 10, 2023" 
 manualPrev: "natal-saturn-in-sagittarius-9th-house-generation"
 manualNext: "natal-saturn-in-aquarius-11th-house-generation"
-tags: ["Saturn in Capricorn", "Saturn in 10H", “Saturn in Signs & Houses”, "Saturn Astrology", "Planets Astrology"]
+tags: ["Saturn in Capricorn", "Saturn in 10H", "Saturn in Signs & Houses", "Saturn Astrology", "Planets Astrology"]
 ---
- 
-Natal Saturn in Capricorn (10th House) Generation 🦣✨
 
 Saturn here is at home, so it’s quite a prominent placement. You are a firm authority of your own true character, and you don’t take nonsense from anybody. You might like to stay in control of everything from your home life to your career, you have a vision of how your life needs to be and you will always ensure to keep everything in order. You might have to keep your need for perfection carefully in check since it can become obsessive, controlling and overbearing otherwise, to both you and your loved ones’. You have excellent focus, and you always like to stay 10 steps ahead. You rarely shy away from hard work, long term projects/plans suit you well since you are methodical & consistent in your efforts. You always finish what you start, your endurance is one of your most impressive traits. 
 

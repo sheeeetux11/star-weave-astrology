@@ -3,7 +3,7 @@ title: "Natal Saturn Opposition Lilith 🌋✨"
 date: "July 15, 2024" 
 manualPrev: "natal-saturn-and-pluto-aspects"
 manualNext: "natal-saturn-and-uranus-aspects"
-tags: ["Saturn Lilith Aspects", "Saturn Aspects", "Lilith Aspects", "Aspects Astrology"]
+tags: ["Saturn Lilith Aspects", "Lilith Opposite Saturn", "Saturn Aspects", "Lilith Aspects", "Aspects Astrology"]
 ---
 
 Unconventionality is initially seen as the greatest sin with this Saturn & Lilith Opposition. You might have been punished for not following traditions and mainly for not being “conventional” (beauty, body-image related, sensuality, sexual preference, mindset, etc.). This opposition’s effects in moderation can help us tame our own wild & unrestricted side, but on the extreme can drive us into rebellion. In moderation, we learn how to balance individual ideals with that of societal expectations. On the extreme, this combination can heighten our independent nature and prompt us to “fight for our right to party”, against all odds. 

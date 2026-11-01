@@ -3,10 +3,8 @@ title: "Natal Saturn in Aquarius (11th House) Generation ⭐️✨"
 date: "May 10, 2023" 
 manualPrev: "natal-saturn-in-capricorn-10th-house-generation"
 manualNext: "natal-saturn-in-pisces-12th-house-generation"
-tags: ["Saturn in Aquarius", "Saturn in 11H", “Saturn in Signs & Houses”, "Saturn Astrology", "Planets Astrology"]
+tags: ["Saturn in Aquarius", "Saturn in 11H", "Saturn in Signs & Houses", "Saturn Astrology", "Planets Astrology"]
 ---
-
-Natal Saturn in Aquarius (11th House) Generation ⭐️✨
 
 Saturn in his sign/house of ruler ship can feel at home in Aquarius/11th house. You have a humble persona. You might even be quite spiritual in the way you view life and your journey. There may be a sense of loneliness that never seems to leave you even when amongst your peers and family. There may have been many disappointing events in your life relating to your family members or friends & acquaintances. You choose your close circle very carefully, since you look for quality over quantity. As a result, you might have a very few people that you truly trust in a sea of acquaintances and friends. Your friendships can last a lifetime. There may be envy or secret enmity with your siblings, either from them or towards them. You might even feel responsible to lead your family in your adulthood (especially if you’re the eldest) as head of the family or to be a prominent figure that everyone looks up to. 
 

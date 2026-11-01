@@ -23,18 +23,20 @@ Vesta hence represents a more spiritually grounded side of oneself, devoid of ma
 
 Vesta’s placement in one’s chart can hence indicate:
 
-What makes you who you are from a spiritual perspective
-What are you devoted to 
-What inspires you and helps you keep moving forward in faith
-What are your spiritual desires and goals
-What makes you fulfilled spiritually
-How you look at your sexuality, how do you integrate your spiritual self to that of your sexual/mortal self
-How do you devote yourself to your goals and aspirationsWhat you feel a strong dedication towards
-How you are devoted to your family (with retrogrades or other placements & aspects, how disconnected do you feel from your family)
-How comfortable and satisfying is your home/family life
-What you show the most gratitude towards and howWhat can rejuvenate your faith and confidence 
-How you can tend to your spiritual needs
-How you can translate carnal desires into more selfless & sacred goals
+What makes you who you are from a spiritual perspective\
+What are you devoted to \
+What inspires you and helps you keep moving forward in faith\
+What are your spiritual desires and goals\
+What makes you fulfilled spiritually\
+How you look at your sexuality, how do you integrate your spiritual self to that of your sexual/mortal self\
+How do you devote yourself to your goals and aspirations\
+What you feel a strong dedication towards\
+How you are devoted to your family (with retrogrades or other placements & aspects, how disconnected do you feel from your family)\
+How comfortable and satisfying is your home/family life\
+What you show the most gratitude towards and how\
+What can rejuvenate your faith and confidence \
+How you can tend to your spiritual needs\
+How you can translate carnal desires into more selfless & sacred goals\
 How you can be of service to others as a part of your spiritual purpose, etc.
 
 Vesta is one of the main asteroids/dwarf planets in astrology, due to the significance it holds in one’s everyday spiritual needs and selfless devotion. This placement can tell a lot about one’s inner strength and their soul-purpose. So, it can be karmic in nature or have a more spiritual bend to it depending on one’s resolve and circumstances. It can also indicate how one can recover spiritually and hence rejuvenate their strength to go after what they desire; hence it can tell how/where they can invoke the support and guidance of their inner/higher self, keeping their spirit burning brighter through life’s ups & downs.

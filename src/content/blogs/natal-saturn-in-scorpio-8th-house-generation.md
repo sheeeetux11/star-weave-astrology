@@ -3,10 +3,8 @@ title: "Natal Saturn in Scorpio (8th House) Generation ☄️✨"
 date: "May 10, 2023" 
 manualPrev: "natal-saturn-in-libra-7th-house-generation"
 manualNext: "natal-saturn-in-sagittarius-9th-house-generation"
-tags: ["Saturn in Scorpio", "Saturn in 8H", “Saturn in Signs & Houses”, "Saturn Astrology", "Planets Astrology"]
+tags: ["Saturn in Scorpio", "Saturn in 8H", "Saturn in Signs & Houses", "Saturn Astrology", "Planets Astrology"]
 ---
- 
-Natal Saturn in Scorpio (8th House) Generation ☄️✨
 
 Saturn in the house/sign of death, rebirth and transformation can be an interesting yet powerful placement. You are extremely loyal and reliable. Your love is deep and enduring, yet you rarely feel loved the same way you do from others. You might have had a hard time accepting yourself for all your flaws, which in-turn could have affected your view on intimacy & love. If anything, you might either forbid yourself from intimacy or have no limits for your lust, all depending on the aspects Saturn is making in your chart and what other placements there are. You view relationships as painful experiences especially if you have had to endure traumatic situations in the past. You might not trust others too easily, since most people in your life betrayed and backstabbed you in one way or another. You have a firm disdain for people who are disloyal, greedy or generally envious since you might have endured harsh experiences due to such people. 
 

@@ -21,40 +21,27 @@ She was married to Hephaestus (the god of fire) who famously caught her having a
 
 Later Psyche’s love for her son, Eros showed how her jealousy was neatly disguised as being a protective mother, and so on. Hence, numerous stories and literatures of Aphrodite showcase her in many different forms. She is seen as a celestial beauty who represents all forms of love, sexuality and pleasures. She is a generous woman, a caring but often overprotective mother, yet a jealous and reckless character. She is known for her numerous affairs, impulsiveness, and yet a brave personality. One of the most defining characteristics may be her irresponsible and impulsive behavior (which in defense was not uncommon for Greek/Roman Gods but her involvement in certain stories did change their narratives drastically). Her character has a certain naivety to it, which makes her fluctuate between being immature and responsible. 
 
-In astrology, Asteroid Aphrodite (1388) is closely associated to the mythological Goddess in tandem with Venus, although Venus is considered as a planet herself. 1388 Aphrodite can represent:
+In astrology, Asteroid Aphrodite (1388) is closely associated to the mythological Goddess in tandem with Venus, although Venus is considered as a planet herself. Aphrodite 1388 can represent:
 
-Your natural beauty.
-
-Your personal/signature style, dressing sense, attitude, etc.
-
-How you see your sexuality and how you integrate with it (or choose not to).
-
-Where/how you take care of yourself, how self-love & inner beauty brings you a strong sense of self.
-
-What you find as beautiful or sensually pleasing.
-
-What others see in you that is sensually pleasing to them.
-
-Where/how you are popular for your natural beauty (insider & out), talent, charm, etc.
-
-Where/how you express your sexual desires.Where you seek sensual pleasures both as a form of self-love and romantic love.
-
-What/who you are attracted to, likewise, what/who you attract through your magnetic charm.
-
-Where you are prone to jealousy or insight jealousy in others, usually for beauty, popularity or romantic involvement.
-
-Where you are prone to impulsivity, rash actions without thinking through the consequences, often in a naive way but with bigger repercussions.
-
-So, where you need to take responsibility for your actions and make thoughtful decisions.
-
-Where you need more maturity, especially where your feminine side needs to develop.
-
-Where you might lose yourself in materialism/physical pleasures.
-How your insecurities are rooted in your underdeveloped inner child.
-How you can find your feminine side and integrate it with your inner child.
-
-Where you are open to new experiences (on a positive note).How you express yourself, in beauty, art, wisdom, etc.
-
+Your natural beauty.\
+Your personal/signature style, dressing sense, attitude, etc.\
+How you see your sexuality and how you integrate with it (or choose not to).\
+Where/how you take care of yourself, how self-love & inner beauty brings you a strong sense of self.\
+What you find as beautiful or sensually pleasing.\
+What others see in you that is sensually pleasing to them.\
+Where/how you are popular for your natural beauty (insider & out), talent, charm, etc.\
+Where/how you express your sexual desires.\
+Where you seek sensual pleasures both as a form of self-love and romantic love.\
+What/who you are attracted to, likewise, what/who you attract through your magnetic charm.\
+Where you are prone to jealousy or insight jealousy in others, usually for beauty, popularity or romantic involvement.\
+Where you are prone to impulsivity, rash actions without thinking through the consequences, often in a naive way but with bigger repercussions.\
+So, where you need to take responsibility for your actions and make thoughtful decisions.\
+Where you need more maturity, especially where your feminine side needs to develop.\
+Where you might lose yourself in materialism/physical pleasures.\
+How your insecurities are rooted in your underdeveloped inner child.\
+How you can find your feminine side and integrate it with your inner child.\
+Where you are open to new experiences (on a positive note).\
+How you express yourself, in beauty, art, wisdom, etc.\
 How you can use your divine feminine energy for physical attraction of wealth, popularity & love, likewise use it to ground yourself as a caring, responsible & a mature person (regardless of your gender or sexual orientation).
 
 Hence, in astrology, Asteroid Aphrodite 1388 can give us more information on our true inner beauty, where we can utilize our divine feminine energy productively & responsibly, how love and sensual pleasures can bring us satisfaction, etc. It can also represent how we may be drawn into situations that we become involved innocently but contribute great consequences to them. As one of the key Asteroids often referred to while interpreting charts, Aphrodite 1388 is undoubtedly an important placement to consider along with the aspects it makes.

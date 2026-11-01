@@ -4,12 +4,7 @@ date: September 3, 2022
 manualPrev: natal-pluto-and-ascendant-aspects
 manualNext: natal-sun-and-ascendant-aspects
 readTime: 2 min
-tags:
-  - Aspect Astrology
-  - Natal Aspects
-  - Ascendant North Node Aspects
-  - Ascendant Aspects
-  - North Node Astrology
+tags: ["Ascendant and North Node Aspects", "North Node Aspects", "Ascendant Aspects", "Aspects Astrology"]
 ---
 ### Ascendant Opposite North Node
 

@@ -27,25 +27,27 @@ Later, he was confronted by the dilemma of healing himself by a wound that had n
 
 Chiron’s placement in one’s chart gives a deeper understanding of their inner wounds, the wounds that they can’t run from, no matter how or when they happened. Chiron as an asteroid is situated in between Saturn and Uranus, but it also has an irregular orbit. Indicating how events that happen out of the blue can bring fated situations into our life and thus trigger buried fears and pain. Chiron learnt how physical agony can dredge up emotional wounds that may have been overlooked before. He was a healer until the end, since even through his pursuit to cure himself, he was still willing to help others, through which he understood how acceptance played a major role in healing, this compassion earned him the title of “the wounded healer”.
 
-Thus, this placement can further represent:
-
-Your inner wounds, fears, pain and traumas.
-Events that might have transpired in your previous life and/or early life (out of your control) that left a deep wound within you.
-Sudden events that bring up painful and sometimes unexplainable sorrow relating to the past.
-Themes of abandonment, shame or guilt either projected or caused or both.
-Wounds relating to childhood, sometimes directly or indirectly caused by parents.
-Where you feel the most unfortunate or vulnerable due to repeated karmic events, feelings of insecurity and low self-esteem.
-What you are extremely skilled at, where you show a lot of potential in, especially in terms of education.
-Where you show excellence in being a scholar or a teacher, also where/how you’re blessed with incredible mentors.
-Where/how you seem to encounter people with similar wounds to that of yours, whether you’re aware of those wounds yourself or not.
-Where/how you accept those wounds, sometimes, if you choose to accept or reject those wounds, where you are in denial of your wounds.
-How you react to those who seek your help when you are in dire need of help yourself.How you handle self-seclusion, does it bring up old memories of pain, do you take time to heal from them, etc.
-Where you are faced with fears, and feel helpless, powerless, or hopeless since even your greatest knowledge & strength may not be enough to bring you immediate relief.
-Where you willingly make sacrifices for the greater good.Where/how you might get dragged into potentially dangerous situations without actively being a part of them.
-How you approach matters of eventuality.How you heal yourself by healing others, where you deepen your understanding of your traumas & pain by helping others understand theirs’.
-Where/how you’re compassionate about collective healing.
-Where/how you are well-respected for your selflessness.
-How your healing can inspire others in their journey to recovery.
+**Thus, this placement can further represent:**\
+Your inner wounds, fears, pain and traumas.\
+Events that might have transpired in your previous life and/or early life (out of your control) that left a deep wound within you.\
+Sudden events that bring up painful and sometimes unexplainable sorrow relating to the past.\
+Themes of abandonment, shame or guilt either projected or caused or both.\
+Wounds relating to childhood, sometimes directly or indirectly caused by parents.\
+Where you feel the most unfortunate or vulnerable due to repeated karmic events, feelings of insecurity and low self-esteem.\
+What you are extremely skilled at, where you show a lot of potential in, especially in terms of education.\
+Where you show excellence in being a scholar or a teacher, also where/how you’re blessed with incredible mentors.\
+Where/how you seem to encounter people with similar wounds to that of yours, whether you’re aware of those wounds yourself or not.\
+Where/how you accept those wounds, sometimes, if you choose to accept or reject those wounds, where you are in denial of your wounds.\
+How you react to those who seek your help when you are in dire need of help yourself.\
+How you handle self-seclusion, does it bring up old memories of pain, do you take time to heal from them, etc.\
+Where you are faced with fears, and feel helpless, powerless, or hopeless since even your greatest knowledge & strength may not be enough to bring you immediate relief.\
+Where you willingly make sacrifices for the greater good.\
+Where/how you might get dragged into potentially dangerous situations without actively being a part of them.\
+How you approach matters of eventuality.\
+How you heal yourself by healing others, where you deepen your understanding of your traumas & pain by helping others understand theirs’.\
+Where/how you’re compassionate about collective healing.\
+Where/how you are well-respected for your selflessness.\
+How your healing can inspire others in their journey to recovery.\
 How you are favored by higher forces during your time of suffering and how/where you find your salvation, etc.
 
 Chiron thus has a prominent role in Astrology. Chiron helps with dismantling fears, traumas and regrets, essentially all forms of negative emotions and patterns that get accumulated through huge (sometimes) life changing events in our life. This is one of the most powerful placements for shadow work, inner-child healing, emotional & physical recovery, mental health and strengthening of one’s character. This is also a karmic point of healing the self and others, so encountering, evaluating and breaking free from karmic cycles & patterns become a prime focus with this placement. It helps in the evolution of the soul and hence also the collective.

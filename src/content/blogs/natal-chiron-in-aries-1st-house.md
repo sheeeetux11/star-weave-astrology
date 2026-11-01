@@ -6,8 +6,6 @@ manualNext: "natal-chiron-in-aries-1st-house"
 tags: ["Chiron Astrology", "Chiron in Aries", "Chiron in 1H", "Chiron in Houses & Signs"]
 ---
 
-Natal Chiron in Aries (1st House)
-
 You might have had vivid memories of your childhood, but the bad times can haunt you deeply in your adulthood. You might have insecurities about your appearance or the way you present yourself. You can suffer from many sudden or chronic illnesses with this placement. There’s an overall lack of self-confidence that can leave you crippled in tense situations. You might even have toxic patterns of talking yourself down and eventually sabotaging many opportunities that could have helped you succeed in life. 
 
 This self-defeating behavior might have been very prominent in your childhood, but with age and maturity you might have realized how to pace yourself a lot better. You also have a fear of success that you need to keep fighting against in order not to abandon your plans or goals. You are incredibly talented, you are a born leader and others look up to you for how courageous you are, but you might have a hard time seeing yourself in that light. 

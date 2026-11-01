@@ -7,7 +7,9 @@ manualNext: "venus-jupiter-conjunction-2025-aug-12-2025"
 tags: ["Moon Astrology", "Full Moon", "Aquarius Full Moon", "Full Moon 2025", "Aquarius Full Moon 2025"]
 ---
 
-Restorative. Transformative. Serene. 💛Love & Self-Love, a balance that you can easily find now. (Especially with Venus & Jupiter Conjunction nearing its peak) This Full Moon can positively affect your relationships, both in Romantic ones and the one with yourself. Relationships that stand the test of time, the kind that we hear about in poetry and legendary stories. Breaking veils and obstacles in the way of such Soulful Unions & Reunions. 💞
+Restorative. Transformative. Serene. 💛
+
+Love & Self-Love, a balance that you can easily find now. (Especially with Venus & Jupiter Conjunction nearing its peak) This Full Moon can positively affect your relationships, both in Romantic ones and the one with yourself. Relationships that stand the test of time, the kind that we hear about in poetry and legendary stories. Breaking veils and obstacles in the way of such Soulful Unions & Reunions. 💞
 
 With a tight Mars Opposition to Saturn & Neptune also taking place, near-miss-accidents (if lucky, honestly, be careful with unexpected accidents). Caution and Alerts of serious kinds either through accidents or incidents of the similar kind. 😥
 

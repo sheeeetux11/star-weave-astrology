@@ -3,10 +3,10 @@ title: "Natal Uranus Conjunct Neptune ✨"
 date: "January 14, 2026" 
 manualPrev: "natal-saturn-opposition-lilith"
 manualNext: "natal-uranus-sextile-pluto"
-tags: ["Uranus Neptune Aspects", "Uranus Aspects", "Neptune Aspects", "Aspects Astrology"]
+tags: ["Uranus and Neptune Aspects", "Uranus Conjunct Neptune", "Uranus Aspects", "Neptune Aspects", "Aspects Astrology"]
 ---
 
-Inter-generational aspect. Occurs once in about 168 years. Recent: 1988 - 1999.
+*Inter-generational aspect. Occurs once in about 168 years. Recent: 1988 - 1999.*
 
 Unconventional, unorthodox and out of the ordinary. You seem to possess a deeper understanding on life, empathy, service, and compassion. You have a depth to your personality that is hard to unravel yet you have an Electric presence. You are exceptionally gifted and talented especially in spiritual and artistic fields. Your intuition is excellent, you are likely to have psychic gifts. You know how to integrate Spiritual insights into your Career/Interests. You often feel a calling towards unravelling Mysteries and Sacred knowledge that are unconventional or even controversial. You cannot be held down, restricted or bound to anything especially not in the name of Tradition & Societal norms. 
 

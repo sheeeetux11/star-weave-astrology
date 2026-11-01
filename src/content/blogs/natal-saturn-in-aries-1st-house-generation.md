@@ -3,10 +3,8 @@ title: "Natal Saturn in Aries (1st House) Generation ⚙️✨"
 date: "May 15, 2023" 
 manualPrev: "natal-saturn-in-pisces-12th-house-generation"
 manualNext: "natal-saturn-in-taurus-2nd-house-generation"
-tags: ["Saturn in Aries", "Saturn in 1H", “Saturn in Signs & Houses”, "Saturn Astrology", "Planets Astrology"]
+tags: ["Saturn in Aries", "Saturn in 1H", "Saturn in Signs & Houses", "Saturn Astrology", "Planets Astrology"]
 ---
-
-Natal Saturn in Aries (1st House) Generation ⚙️✨ 
 
 With Aries’s (1H) head strong and impulsivity and Saturn’s methodical and cautious approach to success, this Natal placement can indeed be challenging. The 1st House/Arian aggressive and agitated energy becomes a problem since that alone can cause a lot of unnecessary confrontations and delays. In some ways, the “go-go-go” attitude seems to bring more trouble than it should with this placement. There will be tough lessons to learn regarding patience and persistence under the supervision of the stoic master Saturn. Anger management will likely be a necessary skill to learn as well, since all the extra pressure this Natal placement brings can be frustrating to handle. Especially when your plans get a “yellow” signal and takes a long time to turn to “green”, presenting a level of restlessness that can drive you crazy at times and affect your productivity. 
 

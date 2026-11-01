@@ -6,8 +6,6 @@ manualNext: "natal-chiron-in-gemini-3rd-house"
 tags: ["Chiron Astrology", "Chiron in Taurus", "Chiron in 2H", "Chiron in Houses & Signs"]
 ---
 
-Natal Chiron in Taurus (2nd House)
-
 Your wounds of stability go deeper than physical security with this placement. You have an intense need to feel safe, within yourself. You might have had financial issues growing up or lacked comfort in some way. You might even feel that your family or parents did not/could not give you enough emotional warmth as a child. You might have issues with materialism, where you either make them your substitute source of comfort or you might reject them altogether. Your self-worth is deeply wounded with this placement, so you might feel forced to accept your flaws even when you don’t want to. 
 
 You might have insecurities about your physical appearance or how you present yourself to others. So, you always make an effort to look and behave elegantly/charmingly. You have self-worth issues that you seem to hide behind grandiosity or by acting overly confident sometimes, especially in professional settings. You might have experienced setbacks in personal/familial relationships that questioned your entire life or had to face your fears. You might however grow up to form stronger and more secure emotional bonds with your loved ones, especially the family that you create. 

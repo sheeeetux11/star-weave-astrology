@@ -6,7 +6,9 @@ manualNext: "serene-pisces-full-moon-lunar-eclipse-15-sept-7-2025"
 tags: ["Moon Astrology", "Virgo New Moon", "Virgo New Moon 2025", "New Moon 2025"]
 ---
 
-Reorganize, Reprioritize & Rest.This 🌑 will be a little chaotic and that very chaos will bring unexpected clarity. It is very likely that you are more irritable &/or frustrated with certain situations & people now. There may be disruptions in Technology & Logistics, everyday schedules in general. Little things can make a big difference during this New Moon. 🪙
+Reorganize, Reprioritize & Rest.
+
+This 🌑 will be a little chaotic and that very chaos will bring unexpected clarity. It is very likely that you are more irritable &/or frustrated with certain situations & people now. There may be disruptions in Technology & Logistics, everyday schedules in general. Little things can make a big difference during this New Moon. 🪙
 
 Sudden health issues or Chronic illness can cause worries. The same can be true about mishaps & misinterpretations, little things can become big Wake-Up calls. These issues (be it in Health, Work, Relationships or otherwise) will prompt you to make changes that will help you Rebalance your Life in a New Way. 🌷
 

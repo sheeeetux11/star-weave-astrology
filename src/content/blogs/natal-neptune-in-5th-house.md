@@ -4,7 +4,7 @@ date: "March 7, 2023"
 tags: ["Neptune Astrology", "Neptune in 5H", "Neptune in Houses", "Planets Astrology"]
 ---
 
-(Neptune was last in Leo during 1915-29, next Neptune in Leo generation will start from 2078)
+***(Neptune was last in Leo during 1915-29, next Neptune in Leo generation will start from 2078)***
 
 Neptune in the house of self-expression, creativity and romance is an excellent placement in the chart highlighting one’s spiritual & artistic needs being intertwined with their personality. You may come off as shy on the outside, but you are quite outgoing once people get to know you. There is a deep mystery to your aura that others often seek to find more of, which is why many people are drawn towards you. You are also in-tune with your environment; you can pick up on energetic shifts around you. So, you always make sure that to know how your loved ones are feeling. 
 

@@ -4,7 +4,7 @@ date: "January 15, 2026"
 tags: ["Jupiter Aspects", "Jupiter Opposite Uranus", "Uranus Aspects", "Rare Aspects", "Aspects Astrology"]
 ---
 
-Recent: 1989-90, 2002-04, 2016-17. Next: 2031
+***Recent: 1989-90, 2002-04, 2016-17. Next: 2031***
 
 Your genius is a blessing indeed. But, you might need to temper your enthusiasm a little sometimes, since, you might seem a little rowdy or rude. You have excellent creativity. You are innovative, with a wicked sense of humor. You are social and simultaneously an introvert. You love to explore new studies, interests, places and even realms. You have a strong hold on your morality, but others may not always agree with your moral stand point. You are however just and uphold your integrity. You certainly don’t like to follow (all) transitions and rules, most of them seem unnecessary and frankly, boring. You are hence often deemed unconventional and unorthodox. You break rules with such finesse. 
 

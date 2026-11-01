@@ -3,12 +3,10 @@ title: "Natal Saturn in Pisces (12th House) Generation 🐋✨"
 date: "May 12, 2023" 
 manualPrev: "natal-saturn-in-aquarius-11th-house-generation"
 manualNext: "natal-saturn-in-aries-1st-house-generation"
-tags: ["Saturn in Pisces", "Saturn in 12H", “Saturn in Signs & Houses”, "Saturn Astrology", "Planets Astrology"]
+tags: ["Saturn in Pisces", "Saturn in 12H", "Saturn in Signs & Houses", "Saturn Astrology", "Planets Astrology"]
 ---
- 
-Natal Saturn in Pisces (12th House) Generation 🐋✨
 
-Saturn in this ethereal house/sign is a soulful placement. You are extremely aware of yourself, sometimes self-conscious about every little thing about yourself and your surroundings. Saturn here heightens your sensitivity to the outer world, painfully so. Spirituality, compassion and sentiments are inseparable parts of your character. So, you might take your spiritual practices or charitable efforts very seriously. You are well-grounded, but sometimes to the extreme where you might develop low self-esteem (This can be quite a devastating placement if you have other placements and aspects hinting the same). Your subconscious is a vital part of you, even when you don’t realize it. If you are not careful, you can convince yourself that you are your own worst nightmare. 
+Saturn in this mystical & ethereal house / sign is a soulful placement. You are extremely aware of yourself, sometimes self-conscious about every little thing about yourself and your surroundings. Saturn here heightens your sensitivity to the outer world, painfully so. Spirituality, compassion and sentiments are inseparable parts of your character. So, you might take your spiritual practices or charitable efforts very seriously. You are well-grounded, but sometimes to the extreme where you might develop low self-esteem (This can be quite a devastating placement if you have other placements and aspects hinting the same). Your subconscious is a vital part of you, even when you don’t realize it. If you are not careful, you can convince yourself that you are your own worst nightmare. 
 
 Your thoughts and beliefs are powerful, they can create your reality, and so any self-suggestions can manifest in your habits, surroundings, decisions, relationships, etc. Without a purpose in life, you might lose yourself easily, Saturn here will make sure that you find your calling and be dedicated to it. Self-seclusion is a great way to recharge yourself, especially since you might feel drained easily by social interactions even when it's with your loved ones. Since this placement can feel like your worst critique is always in the back of your mind, you’re constantly aware of your thoughts and patterns. So, you will have a hard time if your self-talk was your own bully. 
 

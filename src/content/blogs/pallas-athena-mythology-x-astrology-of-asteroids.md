@@ -23,22 +23,24 @@ Being the Goddess of War, Artistry & Wisdom, she was worshipped by all groups of
 
 In astrology, Pallas Athena is an important asteroid placement in the chart which represents our inner wisdom, intellect, intuition and creative skills. It can also represent:
 
-How you combine intuition & intellect.
-How you use your creative skills to innovate, where you use smart work to your advantage.How (& if or if not) strong is your relationship with your father and how it affected your early development.
-Where you are artistically talented.Where you are good with detail-oriented works/skills.
-Where/how you can use strategy and methodical planning to win or succeed.
-Where you are called to fight for justice.Where you will be called to protect both yourself & others.
-Where/how you are good at negotiation-skills.
-How/where you must choose your battles wisely.
-Where you will be expected to make impartial judgements.
-Where/how your wisdom will become your strength.
-Where/how you are connected to your inner divine feminine and its strengths.
-How you are good at finding & connecting patterns.
-Where you can use patterns and intricate details of a situation or problem to find effective solutions.
-Where you are more interested in finding solutions rather than diving into arguments & disagreements.
-How you can peacefully negotiate your way out of potentially dangerous situations.
-How/where you can use your inner strength to win inevitable battles.
-Where you have a strong intuition and how you can use it in significant situations. 
+How you combine intuition & intellect.\
+How you use your creative skills to innovate, where you use smart work to your advantage.\
+How (& if or if not) strong is your relationship with your father and how it affected your early development.\
+Where you are artistically talented.\
+Where you are good with detail-oriented works/skills.\
+Where/how you can use strategy and methodical planning to win or succeed.\
+Where you are called to fight for justice.Where you will be called to protect both yourself & others.\
+Where/how you are good at negotiation-skills.\
+How/where you must choose your battles wisely.\
+Where you will be expected to make impartial judgements.\
+Where/how your wisdom will become your strength.\
+Where/how you are connected to your inner divine feminine and its strengths.\
+How you are good at finding & connecting patterns.\
+Where you can use patterns and intricate details of a situation or problem to find effective solutions.\
+Where you are more interested in finding solutions rather than diving into arguments & disagreements.\
+How you can peacefully negotiate your way out of potentially dangerous situations.\
+How/where you can use your inner strength to win inevitable battles.\
+Where you have a strong intuition and how you can use it in significant situations. \
 Where/how you can use your soft power to avoid unnecessary confrontations and still put your foot down, etc.
 
 Hence, Pallas in the chart is one of the most important placements along with the aspects it makes. You can determine your inner strengths of wisdom & justice through this placement and its aspects. Pallas can also represent your relationship with elders especially father figures & guides. This placement can give a much more profound insight into your intellectual and intuitive prowess.  

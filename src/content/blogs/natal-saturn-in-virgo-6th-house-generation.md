@@ -3,10 +3,8 @@ title: "Natal Saturn in Virgo (6th House) Generation 🐹✨"
 date: "May 9, 2023" 
 manualPrev: "natal-saturn-in-leo-5th-house-generation"
 manualNext: "natal-saturn-in-libra-7th-house-generation"
-tags: ["Saturn in Virgo", "Saturn in 6H", “Saturn in Signs & Houses”, "Saturn Astrology", "Planets Astrology"]
+tags: ["Saturn in Virgo", "Saturn in 6H", "Saturn in Signs & Houses", "Saturn Astrology", "Planets Astrology"]
 ---
- 
-Natal Saturn in Virgo (6th House) Generation 🐹✨
 
 Saturn in the house/sign of details, day-to-day affairs and health, feels at home with it being in the Earth Element. You are diligent and hard working; you can work tirelessly towards your goals and ambitions. You have a brilliant mind that can solve complex problems easily. You rarely look over even the slightest things, so you are excellent at detail-oriented work. You have a natural tendency to push harder than your limits to accomplish a task. You are extremely responsible and rarely complain about any amount of work or effort that is needed from you. You are also appreciative of others for their service.
 

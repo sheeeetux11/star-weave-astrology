@@ -14,28 +14,28 @@ In astrology, Black Moon Lilith is a placement that signifies potential for dang
 
 In your own chart, it is vital to see how Lilith affects you, in what areas of your life you must exercise caution against danger. 
 
-Attacks on your Reputation, Self-Image, Confidence, Self-worth, Career, Achievements, Livelihood, …
-Lilith in 1H / 2H / 5H / 9H / 10H / 3H / 6H 
+**Attacks on your Reputation, Self-Image, Confidence, Self-worth, Career, Achievements, Livelihood, …**\
+Lilith in 1H / 2H / 5H / 9H / 10H / 3H / 6H \
 Lilith aspecting Sun / Venus / Mercury / Saturn / Mars
 
-Destructive/Dangerous relationships (+ Power Imbalance), Domestic/Emotional/Physical abuse, Victim-abuser dynamics, …
-Lilith in 2H / 8H / 7H / 4H / 5H
+**Destructive/Dangerous relationships (+ Power Imbalance), Domestic/Emotional/Physical abuse, Victim-abuser dynamics, …**\
+Lilith in 2H / 8H / 7H / 4H / 5H \
 Lilith aspecting Venus / Mars / Saturn / Moon / Pluto / Neptune 
 
-Sudden violence, threats, accidents, …
-Lilith in 8H / 6H 
+**Sudden violence, threats, accidents, …**\
+Lilith in 8H / 6H \
 Lilith aspecting Uranus / Pluto / Saturn / Mars 
 
-Abuse, Physical Violence, harassment, fear-tactics, …
-Lilith in 8H / 12H
+**Abuse, Physical Violence, harassment, fear-tactics, …**\
+Lilith in 8H / 12H \
 Lilith aspecting Pluto / Neptune / Mars / Saturn
 
-Manipulation, entrapment, coercive abuse, …
-Lilith in 4H / 6H / 8H / 12H
+**Manipulation, entrapment, coercive abuse, …**\
+Lilith in 4H / 6H / 8H / 12H \
 Lilith aspecting Moon / Neptune / Pluto / Mars / Mercury
 
-Financial Manipulation, Fraud, Schemes, …
-Lilith in 2H / 8H / 10H / 11H / 12H / 3H
+**Financial Manipulation, Fraud, Schemes, …**\
+Lilith in 2H / 8H / 10H / 11H / 12H / 3H \
 Lilith aspecting Venus / Mercury / Pluto / Neptune 
 
 Lilith related life experiences are hence extremely painful (to say the least): which can either lead to your own ego being severely damaged to the extent where you give in-to the darkness yourself, OR you choose to “transform Pain into Power” and take absolute control over your Ego, your Soul and your Life. Cultivating your Darkness and Commanding your Shadow-self, Healing your Inner Wounds. Hence is how Lilith affects our charts, where we awaken to our own Raw Primordial Power by walking out of the Fire of Despair, renewed, refined & re-inspired. 

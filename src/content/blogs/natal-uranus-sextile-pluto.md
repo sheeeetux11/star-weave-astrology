@@ -6,7 +6,7 @@ manualNext: "natal-neptune-sextile-pluto"
 tags: ["Uranus Pluto Aspects", "Uranus Aspects", "Pluto Aspects", "Aspects Astrology"]
 ---
 
-Inter-generational aspect. Recent: 1990s, Expected next: 2080s. 
+*Inter-generational aspect. Recent: 1990s, Expected next: 2080s.* 
 
 You are a rebel, lover, revolutionary and a warrior of justice. You have a unique personality that is captivating, even though all you are doing is being authentic. You rarely entertain superficial people/behaviors since your presence alone commands depth and originality. You have a strong inner character that never lets you betray your conscience. You value your intelligence, both emotional & mental. You have empathy for others, but you have no mercy for betrayers and cowards. You might have dealt with dishonest and manipulative people early on in your life especially those who were in your friend's circle or were elders with some sort of authority/control. Such encounters may have made you more certain about who is worthy of being in your life and who isn’t. 
 
