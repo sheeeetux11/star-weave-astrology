@@ -1,0 +1,59 @@
+---
+// src/pages/disclaimer.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
+---
+
+<Layout title="Disclaimer — Star Weave Astrology">
+    <Header />        
+    <main class="legal-page-container">
+
+        <h1>Disclaimer</h1>
+        <p class="effective-date"><strong>Effective Date:</strong> November 3, 2026</p>
+
+        <p>All content provided on <strong>Star Weave Astrology</strong> (https://starweaveastrology.com) is published in good faith and intended solely for informational, educational, and entertainment purposes.</p>
+
+        <h2>Astrological & Esoteric Interpretations</h2>
+        <p>Astrological transits, natal placement interpretations, tarot insights, and celestial lore are subjective frameworks based on ancient symbolic traditions and intuitive analysis. They do not constitute legal, financial, medical, or psychological advice.</p>
+
+        <h2>Professional Consultation</h2>
+        <p>For any serious life decisions, health concerns, legal matters, or financial planning, always consult with a licensed professional. Star Weave Astrology assumes no responsibility or liability for actions taken based on site content.</p>
+
+        <h2>External Links</h2>
+        <p>Our website may contain links to external sites that are not operated by us. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.</p>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    .legal-page-container {
+        max-width: 800px;
+        margin: 80px auto 40px auto;
+        padding: 0 20px;
+        color: var(--text-color);
+        line-height: 1.7;
+    }
+
+    h1, h2 {
+        color: var(--primary-color);
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    .effective-date {
+        opacity: 0.8;
+        margin-bottom: 20px;
+    }
+
+</style>

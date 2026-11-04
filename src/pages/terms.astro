@@ -1,0 +1,71 @@
+---
+// src/pages/terms.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
+---
+
+<Layout title="Terms of Service — Star Weave Astrology">
+    <Header />
+    <main class="legal-page-container">
+        <h1>Terms of Service</h1>
+        <p class="effective-date"><strong>Effective Date:</strong> November 3, 2026</p>
+
+        <p>Welcome to <strong>Star Weave Astrology</strong>! These terms and conditions outline the rules and regulations for using our website at https://starweaveastrology.com.</p>
+
+        <h2>Intellectual Property Rights</h2>
+        <p>Unless otherwise stated, Star Weave Astrology and/or its licensors own the intellectual property rights for all material on the website, including custom branding, artwork, graphics, and original blog content. All intellectual property rights are reserved.</p>
+
+        <h2>User Restrictions</h2>
+        <p>You must not:</p>
+        <ul>
+            <li>Republish material from Star Weave Astrology without proper attribution.</li>
+            <li>Sell, rent, or sub-license material from the website.</li>
+            <li>Reproduce, duplicate, or copy material for commercial exploitation without express written consent.</li>
+        </ul>
+
+        <h2>Governing Law</h2>
+        <p>These terms are governed by and construed in accordance with applicable laws, and you submit to the non-jurisdiction of state and federal courts for dispute resolution.</p>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    .legal-page-container {
+        max-width: 800px;
+        margin: 80px auto 40px auto;
+        padding: 0 20px;
+        color: var(--text-color);
+        line-height: 1.7;
+    }
+
+    h1, h2 {
+        color: var(--primary-color);
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    .effective-date {
+        opacity: 0.8;
+        margin-bottom: 20px;
+    }
+
+    ul {
+        padding-left: 20px;
+        margin-bottom: 1rem;
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+    }
+</style>

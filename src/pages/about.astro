@@ -1,0 +1,128 @@
+---
+// src/pages/about.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import LogoTypography from '../assets/icons/LogoTypography.png';
+---
+
+<Layout title="About — Star Weave Astrology">
+    <Header />    
+    <main class="about-page-container">
+        <p class="tagline">The Heart behind</p>        
+        <div class="logo-wrapper">
+            <img src={LogoTypography.src} alt="Star Weave Astrology" />
+        </div>
+
+        <div class="about-content">
+            <p>Astrology, much like philosophy, spiritualism, mysticism, and mythology, is a sacred channel of celestial information blended with our collective experiences, intuition, and innate wisdom throughout the ages.</p>
+
+            <p class="highlight-quote">A tangible system that helps us tap into the energetic tapestry of the universe.</p>
+
+            <p>As the celestial bodies and the stars that guide us weave an intricate energetic lattice around us, we learn to interpret and decipher these threads of pure cosmic energy. Through this, we can understand ourselves, our purpose, our calling, our shadow and light, reality and fantasy, the conscious and the subconscious, those around us, and the universe as a whole as we dance through the stellar cosmic weave revolving around the Sun.</p>
+
+            <p>Hence, <strong>Star Weave Astrology</strong> is a blog designed with the soulful purpose of creating a free and thoughtful repository for astrological knowledge and insights, prioritizing the best possible reading experience while keeping everything fast, seamless, and beautiful.</p>
+
+            <p>Join my educational, intuitive, and passionate journey of exploring astrology through the lens of both Western and Sidereal, Modern and Ancient, Traditional and Evolutionary practices. Here, you will find deep dives into interpretations of planets, signs, houses, astrological points, asteroids, fixed stars, and constellations, along with their underlying myths and lore.</p>
+            
+            <p>Understanding the weave of the cosmos helps us:</p>
+
+            <ul class="cosmic-list">
+                <li>Tap into our own innate gifts and blessings.</li>
+                <li>Stay conscious of our subconscious shadows and fears.</li>
+                <li>Live a more fulfilling and harmonious life with ourselves and others.</li>
+                <li>Attract opportunities and abundance while navigating troubles and misfortune.</li>
+            </ul>
+
+            <p class="quote-banner">Weaving the intricate tapestry of your Life.</p>
+
+            <p>I am deeply grateful to have a fulfilling outlet for my intuitive calling and a place to share this incredible passion with you all as my extended soul-family.</p>
+
+            <p>Have an enlightening time browsing through the blog, deep-diving into the topics you love, and satisfying your intuitive curiosities.</p>
+
+            <p class="sign-off">See you around, Star Weaver. 🌌✨</p>
+        </div>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    .about-page-container {
+        max-width: 800px;
+        margin: 80px auto 40px auto;
+        padding: 0 20px;
+        color: var(--text-color);
+        line-height: 1.8;
+        text-align: center;
+    }
+
+    .tagline {
+        font-style: italic;
+        font-size: 1.2rem;
+        color: var(--text-color);
+        opacity: 0.8;
+        margin-bottom: 8px;
+    }
+
+    .logo-wrapper {
+        margin-bottom: 30px;
+    }
+
+    .logo-wrapper img {
+        max-width: 320px;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .about-content {
+        text-align: left;
+        font-size: 1.05rem;
+    }
+
+    .about-content p {
+        margin-bottom: 1.2rem;
+    }
+
+    .highlight-quote {
+        font-style: italic;
+        color: var(--text-color);
+        opacity: 0.85;
+        text-align: center;
+        margin: 24px 0;
+    }
+
+    .cosmic-list {
+        list-style: none;
+        padding-left: 10px;
+        margin: 16px 0 24px 0;
+    }
+
+    .cosmic-list li {
+        position: relative;
+        padding-left: 24px;
+        margin-bottom: 0.6rem;
+    }
+
+    .cosmic-list li::before {
+        content: "⊹";
+        position: absolute;
+        left: 0;
+        color: var(--accent-color);
+        font-size: 1.1rem;
+    }
+
+    .quote-banner {
+        font-style: italic;
+        font-weight: 600;
+        text-align: center;
+        color: var(--accent-color);
+        margin: 28px 0;
+        font-size: 1.1rem;
+    }
+
+    .sign-off {
+        font-weight: 600;
+        margin-top: 30px;
+    }
+</style>

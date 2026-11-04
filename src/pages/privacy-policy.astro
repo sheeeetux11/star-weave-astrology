@@ -1,0 +1,58 @@
+---
+// src/pages/privacy-policy.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
+---
+
+<Layout title="Privacy Policy — Star Weave Astrology">
+    <Header />        
+    <main class="legal-page-container">
+        <h1>Privacy Policy</h1>
+        <p class="effective-date"><strong>Effective Date:</strong> November 3, 2026</p>
+        
+        <h2>Information We Collect</h2>
+        <p>At Star Weave Astrology, accessible from https://starweaveastrology.com, the privacy of our visitors is a top priority. This Privacy Policy document outlines the types of information collected and recorded by us and how we use it.</p>
+
+        <h2>Google Analytics & Cookies</h2>
+        <p>We use Google Analytics 4 (GA4) to understand how visitors interact with our content. Google uses cookies to collect anonymous traffic data. You can opt out of analytics tracking anytime via your browser settings.</p>
+
+        <h2>Advertising Partners (Google AdSense)</h2>
+        <p>Google, as a third-party vendor, uses cookies to serve ads on our site. Google's use of advertising cookies enables it and its partners to serve ads based on visits to our site and other sites across the internet.</p>
+
+        <h2>Consent</h2>
+        <p>By using our website, you hereby consent to our Privacy Policy and agree to its terms.</p>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    .legal-page-container {
+        max-width: 800px;
+        margin: 80px auto 40px auto;
+        padding: 0 20px;
+        color: var(--text-color);
+        line-height: 1.7;
+    }
+
+    h1, h2 {
+        color: var(--primary-color);
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    .effective-date {
+        opacity: 0.8;
+        margin-bottom: 20px;
+    }
+</style>

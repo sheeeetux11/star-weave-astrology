@@ -1,0 +1,96 @@
+---
+// src/pages/creator.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
+---
+
+<Layout title="Sheetu (the Creator) — Star Weave Astrology">
+    <Header />
+
+    <main class="creator-page-container">    
+        <div class="avatar-wrapper">
+            <img 
+                src={`${base}/images/sheetu-image.jpeg`} 
+                alt="Sheetal (Sheetu)" 
+            />
+        </div>
+
+        <h1>Sheetal (aka. Sheetu)</h1>
+        <p class="subtitle">The Creator &amp; The Weaver</p>
+
+        <div class="creator-content">
+            <p>I am an avid stargazer, astrologer, YouTuber, mythology lover, creative artist, futuristic inventor, and designer. As a multi-talented aerospace engineer, I carry many interests and a grand vision, driven by deep intuition, heartfelt passions, creative inspiration, and mystical intrigue.</p>
+
+            <p>I love exploring new and intriguing subjects, then blending them to create something uniquely amazing — <em>“chanpurū it my way”</em>. As they say, you will find that <em>“I have many methods to my madness”</em>.</p>
+
+            <p>Growing up in an Indian family, Astrology, Indian Mythology &amp; Philosophy were a natural part of my everyday life. Intrigued by both Science &amp; Spiritualism, I studied them both with equal devotion.</p>
+
+            <p>Intuitively and educationally, astrology became a much bigger passion right around the time I started university. With my early foundation in Vedic astrology, I dove deep into the expansive worlds of Western and Sidereal astrology. Over nearly a decade, connecting the dots, understanding intricate patterns, and drawing soulful insights have become core pillars of my intuitive gifts.</p>
+
+            <p class="quote-banner">
+                Join me on my otherworldly Journey, “with the Stars as my Allies, the Sky as my Canvas.”
+            </p>
+        </div>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    .creator-page-container {
+        max-width: 800px;
+        margin: 80px auto 40px auto;
+        padding: 0 20px;
+        color: var(--text-color);
+        line-height: 1.8;
+        text-align: center;
+    }
+
+    .avatar-wrapper {
+        margin-bottom: 24px;
+    }
+
+    .avatar-wrapper img {
+        width: 160px;
+        height: 160px;
+        border-radius: 20px;
+        object-fit: cover;
+        margin: 0 auto;
+        display: block;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+        color: var(--primary-color);
+        font-size: 2rem;
+        margin-bottom: 4px;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+        color: var(--text-color);
+        opacity: 0.8;
+        font-weight: 600;
+        margin-bottom: 30px;
+    }
+
+    .creator-content {
+        text-align: left;
+        font-size: 1.05rem;
+    }
+
+    .creator-content p {
+        margin-bottom: 1.2rem;
+    }
+
+    .quote-banner {
+        font-style: italic;
+        font-weight: 600;
+        text-align: center;
+        color: var(--accent-color);
+        margin: 32px 0;
+        font-size: 1.1rem;
+    }
+</style>
